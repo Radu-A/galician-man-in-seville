@@ -142,13 +142,19 @@ export default function Header() {
                 >
                   Lugares
                 </Link>
-              </div>
-              <div className="py-6">
                 <Link
                   to="/About"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
                   Sobre Mí
+                </Link>
+              </div>
+              <div className="py-6">
+                <Link
+                  to="/Contact"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                >
+                  Contacto
                 </Link>
               </div>
             </div>
