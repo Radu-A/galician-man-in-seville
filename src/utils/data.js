@@ -5,7 +5,7 @@ export const eventsArray = [
     artist: "Nazmar",
     place: "Casa Pumarejo",
     href: "#",
-    img: "public/images/event-pumarejo.jpeg",
+    img: "images/event-pumarejo.jpeg",
     description:
       "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
     date: "Oct 3, 2025",
@@ -18,7 +18,7 @@ export const eventsArray = [
     artist: "Varios",
     place: "CAAC",
     href: "#",
-    img: "public/images/event-electrolunch.jpg",
+    img: "images/event-electrolunch.jpg",
     description:
       "Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.",
     date: "Mar 10, 2020",
@@ -31,7 +31,7 @@ export const eventsArray = [
     artist: "Varios",
     place: "Alamillo",
     href: "#",
-    img: "public/images/event-park.png",
+    img: "images/event-park.png",
     description:
       "Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis. Nostrud sint anim sunt aliqua. Nulla eu labore irure incididunt velit cillum quis magna dolore.",
     date: "Oct 11, 2025",
@@ -45,7 +45,7 @@ export const placesArray = [
     id: 1,
     title: "Parque Alamillo",
     href: "#",
-    img: "./public/images/place-alamillo.png",
+    img: "images/place-alamillo.png",
     description:
       "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
     date: "Oct 3, 2025",
@@ -63,7 +63,7 @@ export const placesArray = [
     id: 2,
     title: "Casa Del Pumarejo",
     href: "#",
-    img: "public/images/place-pumarejo.png",
+    img: "images/place-pumarejo.png",
     description:
       "Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.",
     date: "Mar 10, 2020",
@@ -81,7 +81,7 @@ export const placesArray = [
     id: 3,
     title: "CAAC",
     href: "#",
-    img: "public/images/place-caac.png",
+    img: "images/place-caac.png",
     description:
       "Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis. Nostrud sint anim sunt aliqua. Nulla eu labore irure incididunt velit cillum quis magna dolore.",
     date: "Feb 12, 2020",
