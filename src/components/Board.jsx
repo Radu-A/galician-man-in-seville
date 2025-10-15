@@ -4,12 +4,13 @@ export default function Board({ posts }) {
       {posts.map((post) => (
         <article
           key={post.id}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 max-w-xl"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 max-w-xl"
         >
-          <div>
-            <img src={post.img} alt="" className="h-50 rounded-xl" />
+          <div className="w-60 h-50 overflow-hidden">
+            {/* <div className="w-2xs h-5xs overflow-hidden"> */}
+            <img src={post.img} alt="" className="w-full rounded-xl" />
           </div>
-          <div className="flex flex-col items-start justify-between">
+          <div className="flex flex-col items-start justify-between max-w-60">
             <div className="flex items-center gap-x-4 text-xs">
               <time
                 dateTime={post.datetime}
@@ -35,23 +36,14 @@ export default function Board({ posts }) {
                 {post.description}
               </p>
             </div>
-            <div className="relative mt-8 flex items-center gap-x-4 justify-self-end">
-              {/* <img
-                            alt=""
-                            src={post.author.imageUrl}
-                            className="size-10 rounded-full bg-gray-50 dark:bg-gray-800"
-                          /> */}
-              <div className="text-sm/6">
-                <p className="font-semibold text-gray-900 dark:text-white">
-                  <a href={post.author.href}>
-                    <span className="absolute inset-0" />
-                    {post.author.name}
-                  </a>
-                </p>
-                <p className="text-gray-600 dark:text-gray-400">
-                  {post.author.role}
-                </p>
-              </div>
+            <div className="relative mt-8 flex flex-row items-center gap-x-4 justify-self-end text-sm/6">
+              <p className="font-semibold text-gray-900 dark:text-white">
+                <a>
+                  <span className="absolute inset-0" />
+                  {post.artist}
+                </a>
+              </p>
+              <p className="text-gray-600 dark:text-gray-400">{post.place}</p>
             </div>
           </div>
         </article>

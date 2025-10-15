@@ -11,8 +11,8 @@ export default function Events() {
             Eventos
           </h2>
           <p className="mt-2 text-lg/8 text-gray-600 dark:text-gray-300">
-            Os hablo un poquito de los eventos a los que he acudido. Mis
-            impresiones, lo más llamativo, lo más mierder...
+            Hablando un poco de los elementos a los que acudo. Mis impresiones,
+            lo más llamativo o lo más mierder.
           </p>
         </div>
         <Board posts={eventsArray}></Board>
