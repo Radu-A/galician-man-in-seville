@@ -1,5 +1,5 @@
 import { placesArray } from "../utils/data";
-import Board from "../components/board";
+import Board from "../components/Board";
 
 export default function Places() {
   return (
