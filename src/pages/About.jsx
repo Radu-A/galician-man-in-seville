@@ -62,7 +62,7 @@ export default function About() {
           <div className="w-md h-md ">
             <img
               alt="Product screenshot"
-              src="./public\images\about-caac.jpeg"
+              src="images\about-caac.jpeg"
               className="w-full h-full object-cover rounded-xl shadow-xl ring-1 ring-gray-400/10 not-dark:hidden sm:w-228 md:-ml-4 lg:-ml-0 dark:ring-white/10"
             />
             <img
