@@ -67,7 +67,7 @@ export default function About() {
             />
             <img
               alt="Product screenshot"
-              src="./public\images\about-caac.jpeg"
+              src="images\about-caac.jpeg"
               className="rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-228 md:-ml-4 lg:-ml-0 dark:hidden dark:ring-white/10"
             />
           </div>
