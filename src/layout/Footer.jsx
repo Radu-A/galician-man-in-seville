@@ -7,7 +7,7 @@ import LogoMd from "../assets/logo/logo-md.png";
 
 export default function Footer() {
   return (
-    <footer className="bg-white">
+    <footer className="bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-screen-xl p-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-8">
           <div>
@@ -91,12 +91,12 @@ export default function Footer() {
         </div>
 
         <div className="mt-3 border-t border-gray-100 pt-3">
-          <div className="sm:flex sm:justify-between">
-            <p className="text-xs text-gray-500">
+          <div className="text-sm/4 sm:flex sm:justify-between">
+            <p className=" text-gray-500">
               &copy; 2022. Company Name. All rights reserved.
             </p>
 
-            <ul className="mt-3 flex flex-wrap justify-start gap-4 text-xs sm:mt-0 lg:justify-end">
+            <ul className="mt-3 flex flex-wrap justify-start gap-4 sm:mt-0 lg:justify-end">
               <li>
                 <a
                   href="#"

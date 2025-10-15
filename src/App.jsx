@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 
 function App() {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -19,7 +19,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-    <Footer></Footer>
+      <Footer></Footer>
     </div>
   );
 }
