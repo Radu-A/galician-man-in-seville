@@ -3,8 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Home from "./pages/Home";
-import Events from "./pages/Events";
-import Places from "./pages/Places";
+import AlbumView from "./pages/AlbumView";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
@@ -14,8 +13,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/places" element={<Places />} />
+        <Route path="/AlbumView" element={<AlbumView />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
