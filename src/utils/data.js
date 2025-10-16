@@ -95,4 +95,43 @@ export const placesArray = [
         "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
     },
   },
+  {
+    id: 1,
+    title: "Jam Session Pumarejo",
+    artist: "Nazmar",
+    place: "Casa Pumarejo",
+    href: "#",
+    img: "images/event-pumarejo.jpeg",
+    description:
+      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
+    date: "Oct 3, 2025",
+    datetime: "2025-10-03",
+    category: { title: "Concierto", href: "#" },
+  },
+  {
+    id: 2,
+    title: "Electrolunch Sevilla",
+    artist: "Varios",
+    place: "CAAC",
+    href: "#",
+    img: "images/event-electrolunch.jpg",
+    description:
+      "Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam fugiat nemo cumque.",
+    date: "Mar 10, 2020",
+    datetime: "2020-03-10",
+    category: { title: "Sesión", href: "#" },
+  },
+  {
+    id: 3,
+    title: "In The Park",
+    artist: "Varios",
+    place: "Alamillo",
+    href: "#",
+    img: "images/event-park.png",
+    description:
+      "Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas iusto libero adipisci rem et corporis. Nostrud sint anim sunt aliqua. Nulla eu labore irure incididunt velit cillum quis magna dolore.",
+    date: "Oct 11, 2025",
+    datetime: "2025-10-11",
+    category: { title: "Sesión", href: "#" },
+  },
 ];

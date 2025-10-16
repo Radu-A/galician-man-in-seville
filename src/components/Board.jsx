@@ -4,11 +4,15 @@ export default function Board({ posts }) {
       {posts.map((post) => (
         <article
           key={post.id}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 max-w-xl"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 "
         >
-          <div className="w-60 h-50 overflow-hidden">
+          <div className="w-80 h-70 overflow-hidden">
             {/* <div className="w-2xs h-5xs overflow-hidden"> */}
-            <img src={post.img} alt="" className="w-full rounded-xl" />
+            <img
+              src={post.img}
+              alt=""
+              className="w-full h-full object-cover rounded-xl"
+            />
           </div>
           <div className="flex flex-col items-start justify-between max-w-60">
             <div className="flex items-center gap-x-4 text-xs">
