@@ -66,13 +66,13 @@ export default function Header() {
             Inicio
           </Link>
           <Link
-            to="/AlbumView"
+            to="/albumview"
             className="text-sm/6 font-semibold text-gray-900 dark:text-white"
           >
             Album
           </Link>
           <Link
-            to="/About"
+            to="/about"
             className="text-sm/6 font-semibold text-gray-900 dark:text-white"
           >
             Sobre Mí
@@ -125,13 +125,13 @@ export default function Header() {
                   Inicio
                 </Link>
                 <Link
-                  to="/AlbumView"
+                  to="/albumview"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
                   Album
                 </Link>
                 <Link
-                  to="/About"
+                  to="/about"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
                   Sobre Mí

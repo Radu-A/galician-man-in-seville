@@ -3,7 +3,7 @@ import Board from "../components/Board";
 
 export default function AlbumView() {
   return (
-    <section className="bg-white pt-6 sm:pt-12 dark:bg-gray-900">
+    <section className="pt-6 sm:pt-12 bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h2 className="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
