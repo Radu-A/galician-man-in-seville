@@ -1,5 +1,4 @@
-import { placesArray } from "../utils/data";
-import Board from "../components/Board";
+import PostsBoard from "../components/PostsBoard";
 
 export default function AlbumView() {
   return (
@@ -14,7 +13,7 @@ export default function AlbumView() {
             inspiran a seguir creando. Cada álbum es una parte del camino.
           </p>
         </div>
-        <Board posts={placesArray}></Board>
+        <PostsBoard></PostsBoard>
       </div>
     </section>
   );

@@ -1,11 +1,30 @@
 import { useLocation } from "react-router-dom";
-import { photos } from "../utils/data";
+import { useEffect, useState } from "react";
+import app from "../firebase/firebaseConfig";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
 
 export default function PostView() {
+  const [photos, setPhotos] = useState(null);
   // Get post from location
   const location = useLocation();
   const post = location.state;
-  const postPhotos = photos.filter((photo) => post.id == photo.postId);
+  // Get photos from firebase
+  useEffect(() => {
+    const db = getFirestore(app);
+
+    const getphotos = async () => {
+      const photosCol = collection(db, "photos");
+      const photosSnapshot = await getDocs(photosCol);
+      const photosList = photosSnapshot.docs.map((doc) => doc.data());
+      setPhotos(photosList.filter((photo) => post.id == photo.postId));
+    };
+
+    getphotos();
+  }, [post]);
+  // Condicional render
+  if (!photos) {
+    return <p>Cargando fotos...</p>; // o un spinner
+  }
   return (
     <section className="mx-auto max-w-7xl px-6 pt-6 sm:pt-12 lg:px-8">
       <div className="mx-auto max-w-2xl lg:mx-0">
@@ -14,7 +33,7 @@ export default function PostView() {
         </h4>
       </div>
       <div className="columns-2 mt-10 pt-6 gap-4 border-t border-gray-200 md:columns-3">
-        {postPhotos.map((photo) => (
+        {photos.map((photo) => (
           <div key={photo.id} className="break-inside-avoid mb-4">
             <img
               src={photo.img}
