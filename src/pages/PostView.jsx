@@ -7,6 +7,8 @@ export default function PostView() {
   // Get post from location
   const location = useLocation();
   const post = location.state;
+  console.log(post);
+
   // 1. Definir el estado para controlar la visibilidad del modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 

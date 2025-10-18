@@ -8,7 +8,7 @@ export default function ComponentName({ photo }) {
     >
       {/* Imagen */}
       <img
-        src={photo.img}
+        src={photo.url}
         alt={photo.title}
         className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
       />

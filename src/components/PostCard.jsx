@@ -15,7 +15,7 @@ export default function PostsCard({ post }) {
       {/* Imagen */}
       <div className="relative aspect-[4/3] w-full overflow-hidden">
         <img
-          src={post.img}
+          src={post.url}
           alt={post.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
