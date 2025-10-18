@@ -3,7 +3,7 @@ import app from "../firebase/firebaseConfig";
 import { useEffect, useState } from "react";
 import PostsCard from "./PostCard";
 
-export default function PostsBoard() {
+export default function PostBoard() {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {

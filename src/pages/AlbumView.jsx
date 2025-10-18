@@ -1,4 +1,4 @@
-import PostsBoard from "../components/PostsBoard";
+import PostBoard from "../components/PostBoard";
 
 export default function AlbumView() {
   return (
@@ -13,7 +13,7 @@ export default function AlbumView() {
             inspiran a seguir creando. Cada álbum es una parte del camino.
           </p>
         </div>
-        <PostsBoard></PostsBoard>
+        <PostBoard></PostBoard>
       </div>
     </section>
   );
