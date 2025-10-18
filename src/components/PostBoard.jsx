@@ -1,25 +1,12 @@
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import app from "../firebase/firebaseConfig";
 import { useEffect, useState } from "react";
 import PostsCard from "./PostCard";
+import { getPosts } from "../firebase/getData";
 
 export default function PostBoard() {
   const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-    const db = getFirestore(app);
-
-    const getPosts = async (db) => {
-      const postsCol = collection(db, "posts");
-      console.log(postsCol);
-      const postsSnapshot = await getDocs(postsCol);
-      console.log(postsSnapshot);
-
-      const postsList = postsSnapshot.docs.map((doc) => doc.data());
-      setPosts(postsList);
-    };
-
-    getPosts(db);
+    getPosts().then((res) => setPosts(res));
   }, []);
 
   if (!posts) {

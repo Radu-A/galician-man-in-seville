@@ -1,18 +1,24 @@
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import app from "./firebaseConfig.js";
+import { collection, getDocs } from "firebase/firestore";
+import db from "./firebaseConfig.js";
 
-const db = getFirestore(app);
-
-// Get a list of cities from your database
+// Get a list of posts from db
 const getPosts = async () => {
   const postsCol = collection(db, "posts");
   const postsSnapshot = await getDocs(postsCol);
   const postsList = postsSnapshot.docs.map((doc) => doc.data());
-  postsList.forEach((post) => console.log(post));
-
   return postsList;
 };
 
-getPosts()
-  .then(() => console.log("✅ Todos los documentos cargados"))
-  .catch(console.error);
+// Get a list of photos from db
+const getPhotos = async (postId) => {
+  const photoCol = collection(db, "photos");
+  const photoSnapshot = await getDocs(photoCol);
+  const photoList = photoSnapshot.docs.map((doc) => doc.data());
+  return photoList.filter((photo) => postId == photo.postId);
+};
+
+// getPosts()
+//   .then(() => console.log("✅ Todos los documentos cargados"))
+//   .catch(console.error);
+
+export { getPosts, getPhotos };

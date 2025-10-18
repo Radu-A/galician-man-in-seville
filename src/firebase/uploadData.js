@@ -1,14 +1,11 @@
 import {
-  getFirestore,
   collection,
   addDoc,
   doc,
   setDoc,
 } from "firebase/firestore";
 import { posts, photos } from "./data.js";
-import app from "./firebaseConfig.js";
-
-const db = getFirestore(app);
+import db from "./firebaseConfig.js";
 
 const data = {
   posts: posts,
@@ -43,9 +40,9 @@ const uploadDocument = async (newPhoto) => {
   await setDoc(doc(db, "photos", "LA"), newPhoto);
 };
 
-// uploadData()
-//   .then(() => console.log("✅ Todos los documentos cargados"))
-//   .catch(console.error);
-uploadDocument(newPhoto)
+uploadData()
   .then(() => console.log("✅ Todos los documentos cargados"))
   .catch(console.error);
+// uploadDocument(newPhoto)
+//   .then(() => console.log("✅ Todos los documentos cargados"))
+//   .catch(console.error);
