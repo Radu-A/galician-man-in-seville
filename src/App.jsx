@@ -7,6 +7,7 @@ import AlbumView from "./pages/AlbumView";
 import PostView from "./pages/PostView";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import ResetDb from "./pages/ResetDb";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/postview" element={<PostView />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/resetdb" element={<ResetDb />} />
         </Routes>
       </main>
       <Footer />
