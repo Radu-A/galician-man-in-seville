@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { addPhoto } from "../firebase/addData";
 import { useLocation } from "react-router-dom";
 
-function PhotoForm({ onClose }) {
+function PhotoForm({ onPhotoUploaded }) {
   // ----------------------------------------------------
   // 1. REACT HOOKS MUST BE CALLED AT THE TOP LEVEL
   // ----------------------------------------------------
@@ -12,9 +12,8 @@ function PhotoForm({ onClose }) {
   // Initialize state based on the post.id, which may be null initially.
   // We rely on the initial render being complete before the post check.
   const [formData, setFormData] = useState({
-    title: "",
-    url: "",
-    description: "",
+    comment: "",
+    url: "https://raw.githubusercontent.com/Radu-A/cv-web/refs/heads/main/assets/images/about_dog.png",
     // Initialize postId safely, it will be updated by the post check below
     postId: post?.id || "",
   });
@@ -78,13 +77,7 @@ function PhotoForm({ onClose }) {
       setIsSuccess(true);
 
       setTimeout(() => {
-        setFormData({
-          title: "",
-          url: "",
-          description: "",
-          postId: post.id,
-        });
-        onClose();
+        onPhotoUploaded();
       }, 1500);
       // Reset form fields
     } catch (err) {
@@ -101,24 +94,20 @@ function PhotoForm({ onClose }) {
   const validateForm = (data) => {
     const errors = {};
 
-    // 1. Validate Title
-    if (!data.title.trim()) {
-      errors.title = "The photo title is required.";
-    } else if (data.title.length < 3) {
-      errors.title = "The title must be at least 3 characters long.";
+    // Validación UNIFICADA para 'comment' (Leyenda)
+    if (!data.comment.trim()) {
+      // Regla 1: El campo no puede estar vacío
+      errors.comment = "La leyenda o comentario de la foto es obligatorio.";
+    } else if (data.comment.length < 3) {
+      // Regla 2: Longitud mínima (adaptada de tu antiguo 'title')
+      errors.comment = "El comentario debe tener al menos 3 caracteres.";
+    } else if (data.comment.length > 500) {
+      // Regla 3: Longitud máxima (adaptada de tu antiguo 'description')
+      errors.comment = "El comentario no puede superar los 500 caracteres.";
     }
 
-    // 2. Validate URL (Basic check for presence)
-    if (!data.url.trim()) {
-      errors.url = "The image URL is required.";
-    }
-    // NOTE: Full URL validation (regex/try/catch) is usually more complex
-    // but for simplicity, the browser's type="url" helps with basic format.
-
-    // 3. Validate Description
-    if (data.description.length > 500) {
-      errors.description = "The description cannot exceed 500 characters.";
-    }
+    // Nota: Al haber eliminado 'title' y 'description',
+    // solo devolvemos errores para 'comment'.
 
     return errors;
   };
@@ -158,62 +147,29 @@ function PhotoForm({ onClose }) {
         Upload New Photo for: {post.title}
       </h2>
 
-      {/* Title */}
-      <div>
-        <label
-          htmlFor="title"
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
-          Photo Title
-        </label>
-        <input
-          id="title"
-          name="title"
-          type="text"
-          required
-          value={formData.title}
-          onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-        />
-        {/* Show specific error message */}
-        {fieldErrors.title && (
-          <p className="text-red-500 text-xs mt-1">{fieldErrors.title}</p>
-        )}
+      {/* URL Input (SIMULATED - Assuming upload is handled by a button/drag-and-drop elsewhere) */}
+      <div className="text-sm text-gray-500 dark:text-gray-400">
+        {/* Este bloque simula que la selección/subida de la imagen (la URL)
+        se maneja con un control diferente (ej. un botón de archivo o drag-and-drop),
+        ya que el usuario solo quería dejar el campo de comentario. */}
+        [Control de subida de imagen (archivo o URL) iría aquí]
       </div>
 
-      {/* URL Input */}
+      {/* Comment (Unified Leyend/Description Field) */}
       <div>
         <label
-          htmlFor="url"
+          htmlFor="comment"
           className="block text-sm font-medium text-gray-700 dark:text-gray-300"
         >
-          Image URL
-        </label>
-        <input
-          id="url"
-          name="url"
-          type="url"
-          required
-          value={formData.url}
-          onChange={handleChange}
-          className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-        />
-      </div>
-
-      {/* Description */}
-      <div>
-        <label
-          htmlFor="description"
-          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
-        >
-          Description
+          Comment / Leyenda (Describe tu foto)
         </label>
         <textarea
-          id="description"
-          name="description"
+          id="comment"
+          name="comment"
           rows="3"
           required
-          value={formData.description}
+          // Nota: Asume que tu estado ahora usa 'comment' en lugar de 'description'
+          value={formData.comment}
           onChange={handleChange}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         ></textarea>

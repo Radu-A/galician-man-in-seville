@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ComponentName({ photo }) {
   return (
     <article
@@ -18,10 +16,7 @@ export default function ComponentName({ photo }) {
 
       {/* Texto sobre imagen */}
       <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <h3 className="text-white text-base font-semibold">{photo.title}</h3>
-        <p className="text-gray-200 text-sm line-clamp-2">
-          {photo.description}
-        </p>
+        <h4 className="text-white text-base font-semibold">{photo.comment}</h4>
       </div>
     </article>
   );

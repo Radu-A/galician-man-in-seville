@@ -1,5 +1,3 @@
-import PhotoForm from "./PhotoForm";
-
 export default function Modal({ open, onClose, children }) {
   if (!open) return null;
 
@@ -23,9 +21,7 @@ export default function Modal({ open, onClose, children }) {
         </button>
 
         {/* 3. Contenido del Modal */}
-        <div className="pt-4">
-          <PhotoForm onClose={onClose}/>
-        </div>
+        <div className="pt-4">{children}</div>
       </div>
     </div>
   );
