@@ -1,7 +1,8 @@
 // PhotoForm.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import { addPhoto } from "../firebase/addData";
 import { useLocation } from "react-router-dom";
+import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
 
 function PhotoForm({ onPhotoUploaded }) {
   // ----------------------------------------------------
@@ -13,7 +14,8 @@ function PhotoForm({ onPhotoUploaded }) {
   // We rely on the initial render being complete before the post check.
   const [formData, setFormData] = useState({
     comment: "",
-    url: "https://raw.githubusercontent.com/Radu-A/cv-web/refs/heads/main/assets/images/about_dog.png",
+    // url: "https://raw.githubusercontent.com/Radu-A/cv-web/refs/heads/main/assets/images/about_dog.png",
+    url: "",
     // Initialize postId safely, it will be updated by the post check below
     postId: post?.id || "",
   });
@@ -113,7 +115,19 @@ function PhotoForm({ onPhotoUploaded }) {
   };
 
   // ----------------------------------------------------
-  // 5. RENDER
+  // 5. CLOUDINARY
+  // ----------------------------------------------------
+
+  // Nueva función para manejar la URL de éxito de Cloudinary
+  const handleCloudinarySuccess = (url) => {
+    setFormData((prev) => ({
+      ...prev,
+      url: url, // Guarda la URL optimizada aquí
+    }));
+  };
+
+  // ----------------------------------------------------
+  // 6. RENDER
   // ----------------------------------------------------
   if (isSuccess) {
     return (
@@ -154,6 +168,16 @@ function PhotoForm({ onPhotoUploaded }) {
         ya que el usuario solo quería dejar el campo de comentario. */}
         [Control de subida de imagen (archivo o URL) iría aquí]
       </div>
+      {/* AÑADE EL WIDGET AQUÍ */}
+      <div className="pt-2">
+        <CloudinaryUploadWidget onUploadSuccess={handleCloudinarySuccess} />
+        {/* Opcional: Mostrar la URL actual para depuración */}
+        {formData.url && (
+          <p className="mt-2 text-xs text-green-600 truncate">
+            Imagen subida: {formData.url}
+          </p>
+        )}
+      </div>
 
       {/* Comment (Unified Leyend/Description Field) */}
       <div>
@@ -173,6 +197,11 @@ function PhotoForm({ onPhotoUploaded }) {
           onChange={handleChange}
           className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
         ></textarea>
+
+        {/* LÍNEA CLAVE AÑADIDA: */}
+        {fieldErrors.comment && (
+          <p className="text-red-500 text-xs mt-1">{fieldErrors.comment}</p>
+        )}
       </div>
 
       {/* Error Message */}
