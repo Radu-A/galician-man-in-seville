@@ -1,12 +1,13 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
-const CLOUDINARY_CLOUD_NAME = "ds9uwjcs7"; // ¡Cámbialo!
-const CLOUDINARY_UPLOAD_PRESET = "galician-seville"; // ¡Cámbialo!
+const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME; // ¡Cámbialo!
+const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET; // ¡Cámbialo!
 
 // Componente que recibirá la URL final de la imagen
-export default function CloudinaryUploadWidget({ onUploadSuccess }) {
+export default function UploadWidget({ onUploadSuccess }) {
   // Usamos useRef para mantener la instancia del widget
-  const cloudinaryWidgetRef = useRef(null);
+  const cloudinaryWidgetRef = useRef(null); // Nuevo estado para rastrear la inicialización
+  const [isWidgetReady, setIsWidgetReady] = useState(false);
 
   // Inicializa el widget cuando el componente se monta
   useEffect(() => {
@@ -14,8 +15,8 @@ export default function CloudinaryUploadWidget({ onUploadSuccess }) {
     if (window.cloudinary) {
       cloudinaryWidgetRef.current = window.cloudinary.createUploadWidget(
         {
-          cloudName: CLOUDINARY_CLOUD_NAME,
-          uploadPreset: CLOUDINARY_UPLOAD_PRESET,
+          cloudName: CLOUD_NAME,
+          uploadPreset: UPLOAD_PRESET,
           sources: ["local", "url", "camera"], // Opciones de subida
           clientAllowedFormats: ["png", "gif", "jpeg", "jpg"],
           // Opciones de estilo/interfaz
@@ -34,6 +35,8 @@ export default function CloudinaryUploadWidget({ onUploadSuccess }) {
           }
         }
       );
+      // 🚀 Marcar como listo después de la inicialización exitosa
+      setIsWidgetReady(true);
     }
   }, [onUploadSuccess]);
 
@@ -41,24 +44,27 @@ export default function CloudinaryUploadWidget({ onUploadSuccess }) {
   const openWidget = () => {
     if (cloudinaryWidgetRef.current) {
       cloudinaryWidgetRef.current.open();
+    } else {
+      // 🔔 Developer message if the widget failed to initialize
+      console.error(
+        "ERROR: The Cloudinary widget has not been initialized.",
+        "Ensure the Cloudinary script is loaded globally (window.cloudinary)."
+      );
     }
   };
 
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-        Seleccionar Imagen
-      </label>
       <button
         type="button" // Importante: 'button' para que NO envíe el formulario
         onClick={openWidget}
-        className="w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
+        className="w-full justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-700 cursor-pointer shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600"
       >
-        Subir Foto (Arrastrar y Soltar)
+        {isWidgetReady ? "Seleccionar Imagen" : "Cargando selector..."}
       </button>
-      <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+      {/* <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
         Haz clic para abrir el cargador o arrastra la imagen aquí.
-      </p>
+      </p> */}
     </div>
   );
 }

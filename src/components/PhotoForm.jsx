@@ -1,14 +1,12 @@
 // PhotoForm.jsx
 import { useState } from "react";
 import { addPhoto } from "../firebase/addData";
-import { useLocation } from "react-router-dom";
-import CloudinaryUploadWidget from "./CloudinaryUploadWidget";
+import UploadWidget from "./UploadWidget";
 
-function PhotoForm({ onPhotoUploaded }) {
+function PhotoForm({ onPhotoUploaded, post }) {
   // ----------------------------------------------------
   // 1. REACT HOOKS MUST BE CALLED AT THE TOP LEVEL
   // ----------------------------------------------------
-  const { state: post } = useLocation();
 
   // Initialize state based on the post.id, which may be null initially.
   // We rely on the initial render being complete before the post check.
@@ -158,19 +156,11 @@ function PhotoForm({ onPhotoUploaded }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <h2 className="text-2xl font-medium dark:text-white">
-        Upload New Photo for: {post.title}
+        Subir una nueva foto para el álbum: {post.title}
       </h2>
-
-      {/* URL Input (SIMULATED - Assuming upload is handled by a button/drag-and-drop elsewhere) */}
-      <div className="text-sm text-gray-500 dark:text-gray-400">
-        {/* Este bloque simula que la selección/subida de la imagen (la URL)
-        se maneja con un control diferente (ej. un botón de archivo o drag-and-drop),
-        ya que el usuario solo quería dejar el campo de comentario. */}
-        [Control de subida de imagen (archivo o URL) iría aquí]
-      </div>
       {/* AÑADE EL WIDGET AQUÍ */}
       <div className="pt-2">
-        <CloudinaryUploadWidget onUploadSuccess={handleCloudinarySuccess} />
+        <UploadWidget onUploadSuccess={handleCloudinarySuccess} />
         {/* Opcional: Mostrar la URL actual para depuración */}
         {formData.url && (
           <p className="mt-2 text-xs text-green-600 truncate">
@@ -185,7 +175,7 @@ function PhotoForm({ onPhotoUploaded }) {
           htmlFor="comment"
           className="block text-sm font-medium text-gray-700 dark:text-gray-300"
         >
-          Comment / Leyenda (Describe tu foto)
+          Comentario
         </label>
         <textarea
           id="comment"

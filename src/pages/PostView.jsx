@@ -96,7 +96,7 @@ export default function PostView() {
       {/* Modal Container */}
       <Modal open={isModalOpen} onClose={closeModal}>
         {/* Pass the upload callback and the close function to the form component */}
-        <PhotoForm onPhotoUploaded={handlePhotoUpload} onClose={closeModal} />
+        <PhotoForm onPhotoUploaded={handlePhotoUpload} post={post} />
       </Modal>
     </>
   );
