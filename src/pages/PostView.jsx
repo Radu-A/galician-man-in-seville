@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { getPhotos } from "../firebase/getData";
 import PhotoBoard from "../components/PhotoBoard";
 import Modal from "../components/Modal";
-import PhotoForm from "../components/PhotoForm";
+import UploadPhotoForm from "../components/UploadPhotoForm";
 
 export default function PostView() {
   // --- 1. ALL HOOKS MUST BE CALLED FIRST AND UNCONDITIONALLY ---
@@ -96,7 +96,7 @@ export default function PostView() {
       {/* Modal Container */}
       <Modal open={isModalOpen} onClose={closeModal}>
         {/* Pass the upload callback and the close function to the form component */}
-        <PhotoForm onPhotoUploaded={handlePhotoUpload} post={post} />
+        <UploadPhotoForm onPhotoUploaded={handlePhotoUpload} post={post} />
       </Modal>
     </>
   );

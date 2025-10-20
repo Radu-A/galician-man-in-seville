@@ -3,7 +3,7 @@ import { useState } from "react";
 import { addPhoto } from "../firebase/addData";
 import UploadWidget from "./UploadWidget";
 
-function PhotoForm({ onPhotoUploaded, post }) {
+function UploadPhotoForm({ onPhotoUploaded, post }) {
   // ----------------------------------------------------
   // 1. REACT HOOKS MUST BE CALLED AT THE TOP LEVEL
   // ----------------------------------------------------
@@ -210,4 +210,4 @@ function PhotoForm({ onPhotoUploaded, post }) {
   );
 }
 
-export default PhotoForm;
+export default UploadPhotoForm;
