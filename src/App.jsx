@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import Home from "./pages/Home";
-import AlbumView from "./pages/AlbumView";
-import PostView from "./pages/PostView";
+import Dashboard from "./pages/Dashboard";
+import Album from "./pages/Album";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ResetDb from "./pages/ResetDb";
@@ -16,8 +16,8 @@ function App() {
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/albumview" element={<AlbumView />} />
-          <Route path="/postview" element={<PostView />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/album" element={<Album />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/resetdb" element={<ResetDb />} />

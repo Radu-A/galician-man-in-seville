@@ -6,6 +6,7 @@ const deletePhoto = async (photoId) => {
     throw new Error("El ID de la foto es obligatorio para eliminarla.");
   }
   const docRef = doc(db, "photos", photoId);
+  console.log("Intentando eliminar ID:", photoId, typeof photoId);
   await deleteDoc(docRef);
   console.log("Documento de foto eliminado de Firestore con ID:", photoId);
 };

@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
-export default function PostsCard({ post }) {
+export default function AlbumCard({ post }) {
   // Get postId from navigate
   const navigate = useNavigate();
   const handleClick = (post) => {
-    navigate("/postview", { state: post });
+    navigate("/album", { state: post });
   };
 
   return (
