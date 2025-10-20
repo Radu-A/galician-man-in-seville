@@ -1,4 +1,4 @@
-export default function ComponentName({ photo }) {
+export default function PhotoCard({ photo }) {
   return (
     <article
       key={photo.id}

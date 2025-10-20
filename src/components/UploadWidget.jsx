@@ -17,10 +17,17 @@ export default function UploadWidget({ onUploadSuccess }) {
         {
           cloudName: CLOUD_NAME,
           uploadPreset: UPLOAD_PRESET,
-          sources: ["local", "url", "camera"], // Opciones de subida
+          sources: ["local"], // Opciones de subida
           clientAllowedFormats: ["png", "gif", "jpeg", "jpg"],
           // Opciones de estilo/interfaz
-          // Aquí puedes añadir más opciones de UI
+          cropping: true,
+          // theme: "dark",
+          // styles: {
+          //   palette: {
+          //     // ✅ CORRECTO: 'window' ahora anula el color de fondo del tema 'dark'
+          //     window: "#555555",
+          // },
+          // },
         },
         (error, result) => {
           // Manejar la respuesta de Cloudinary

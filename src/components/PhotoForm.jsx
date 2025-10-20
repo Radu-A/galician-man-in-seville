@@ -156,7 +156,8 @@ function PhotoForm({ onPhotoUploaded, post }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       <h2 className="text-2xl font-medium dark:text-white">
-        Subir una nueva foto para el álbum: {post.title}
+        Subir una nueva foto al álbum
+         {/* {post.title} */}
       </h2>
       {/* AÑADE EL WIDGET AQUÍ */}
       <div className="pt-2">
