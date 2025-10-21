@@ -5,162 +5,133 @@ import { deletePhoto } from "../firebase/deleteData";
 import PhotoBoard from "../components/PhotoBoard";
 import Modal from "../components/Modal";
 import PhotoForm from "../components/PhotoForm";
-import DeleteConfirmationModal from "../components/DeleteConfirmationModel";
+import DeleteConfirmationModal from "../components/DeleteConfirmationModel"; // Check file name case
 
 export default function AlbumView() {
-  // --- 1. ALL HOOKS MUST BE CALLED FIRST AND UNCONDITIONALLY ---
-
-  // Get post data passed via react-router location state.
+  // 1. STATE & HOOKS
   const { state: post } = useLocation();
-
-  // State to hold the photos fetched from Firestore.
   const [photos, setPhotos] = useState(null);
-
-  // State to control the visibility of the upload modal.
-  const [isModalOpen, setIsModalOpen] = useState(false); // NUEVO ESTADO: Gestiona el modal de eliminación.
+  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false); // Renamed for clarity
   const [deleteModalState, setDeleteModalState] = useState({
     isOpen: false,
-    photoToDelete: null, // Objeto de la foto que se va a eliminar
+    photoToDelete: null,
   });
 
-  // Function to fetch photos for the current post. Memoized to optimize useEffect dependency.
+  // 2. DATA FETCHING
   const fetchPhotos = useCallback(async () => {
-    // Return early if the post ID is unavailable.
     if (!post?.id) return;
-
     try {
       const res = await getPhotos(post.id);
       setPhotos(res);
     } catch (error) {
       console.error("Error fetching photos:", error);
-      // Implement robust error handling here.
     }
-  }, [post?.id]); // Dependency on the post ID to refetch only when the post context changes.
+  }, [post?.id]);
 
-  // Initial data load: runs on mount and when fetchPhotos changes (due to post.id change).
   useEffect(() => {
     fetchPhotos();
   }, [fetchPhotos]);
 
-  // --- 2. CONDITIONAL RENDERING (EARLY EXIT) ---
+  // 3. HANDLERS
 
-  // Safety check: Exit early if essential post data is missing.
-  if (!post || !post.id) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <h1 className="text-xl text-red-500">Error: Post data not found.</h1>
-      </div>
-    );
-  }
-
-  // --- 3. HANDLERS AND LOGIC ---
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
-  // Callback executed by PhotoForm upon successful upload.
+  // --- Upload Modal Handlers ---
+  const openUploadModal = () => setIsUploadModalOpen(true);
+  const closeUploadModal = () => setIsUploadModalOpen(false);
   const handlePhotoUpload = () => {
-    // 1. Close the modal window to remove the form.
-    closeModal();
-    // 2. Refresh the photo list by calling the fetch function.
-    fetchPhotos();
+    closeUploadModal();
+    fetchPhotos(); // Refresh photo list after successful upload
   };
 
-  // NUEVAS FUNCIONES PARA ELIMINACIÓN
+  // --- Delete Modal Handlers ---
   const closeDeleteModal = () => {
     setDeleteModalState({ isOpen: false, photoToDelete: null });
   };
 
-  // Lógica de eliminación (ejecutada dentro del modal)
+  // Called from PhotoCard to initiate deletion
+  const handlePhotoDelete = (photo) => {
+    setDeleteModalState({ isOpen: true, photoToDelete: photo });
+  };
+
+  // Called from DeleteConfirmationModal upon 'Yes, Delete'
   const handleDeleteConfirmed = async () => {
     const { photoToDelete } = deleteModalState;
     if (!photoToDelete) return;
 
-    closeDeleteModal(); // Cerrar el modal inmediatamente.
+    closeDeleteModal();
 
-    // OBTENEMOS LOS IDs NECESARIOS
-    const postId = post.id;
     const photoId = photoToDelete.id;
 
-    // const publicId = photoToDelete.publicId; // Lo necesitarás para Cloudinary en el futuro
+    // OPTIMISTIC UI UPDATE: Remove photo from local state immediately
+    setPhotos((prevPhotos) =>
+      prevPhotos ? prevPhotos.filter((p) => p.id !== photoId) : null
+    );
 
     try {
-      // 🚀 IMPLEMENTACIÓN REAL DE LA ELIMINACIÓN DE LA REFERENCIA EN FIREBASE 🚀
-      // Si la colección es anidada (posts/photos):
+      // Execute deletion on Firestore
       await deletePhoto(photoId);
 
-      // Si la colección NO es anidada (solo photos):
-      // await deletePhoto(photoId);
-
-      console.log(`Foto con ID: ${photoId} eliminada de Firebase.`);
-
-      // 2. Recargar la lista de fotos para actualizar la interfaz.
-      fetchPhotos();
-
-      // NOTA: No es necesario un alert si la interfaz se actualiza rápidamente
-      // pero puedes añadir uno para confirmar si lo deseas:
-      // alert("Referencia de foto eliminada con éxito.");
+      console.log(
+        `Document with ID: ${photoId} successfully deleted from Firestore.`
+      );
     } catch (error) {
-      console.error("Error al eliminar la foto de Firestore:", error);
-      alert("Error al eliminar la foto. Revisa la consola para más detalles.");
+      console.error(
+        `Error deleting photo ID ${photoId} from Firestore:`,
+        error
+      );
+      alert(
+        "Error al eliminar la foto. Se está recargando la lista para asegurar la consistencia."
+      );
 
-      // Vuelve a abrir el modal o muestra un mensaje de error si es necesario
-      // setDeleteModalState({ isOpen: true, photoToDelete });
+      // CRITICAL: Force full data reload (roll back optimistic update on error)
+      fetchPhotos();
     }
   };
 
-  // Función llamada desde PhotoCard para iniciar el proceso de eliminación
-  const handlePhotoDelete = (photo) => {
-    // ABRE EL MODAL DE CONFIRMACIÓN
-    setDeleteModalState({
-      isOpen: true,
-      photoToDelete: photo,
-    });
-  };
+  // 4. CONDITIONAL RENDER (Early Exit)
+  if (!post || !post.id) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <h1 className="text-xl text-red-500">
+          Error: No se encontró el álbum.
+        </h1>
+      </div>
+    );
+  }
 
-  // --- 4. FINAL RENDER ---
-
+  // 5. MAIN RENDER
   return (
     <>
       <section className="mx-auto max-w-7xl px-6 pt-6 sm:pt-12 lg:px-8">
-        {/* ... (Contenido de la cabecera y botón de subida) ... */}
+        {/* Header and Upload Button */}
         <div className="grid grid-cols-[1fr_auto] gap-5">
           <div className="col-1 mx-auto max-w-2xl lg:mx-0">
             <h4 className="text-2xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-3xl dark:text-white">
               {post.title}
             </h4>
-
             <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
               {post.description}
             </p>
           </div>
-
           <div className="col-2 flex justify-end items-end">
-            {/* Button to open the photo upload modal */}
-
             <button
-              onClick={toggleModal}
+              onClick={openUploadModal}
               className="size-18 rounded-2xl bg-white shadow-md flex items-center justify-center text-gray-600 hover:shadow-lg hover:bg-gray-50 transition cursor-pointer"
             >
               <img src="icons/add-555.svg" alt="Add photo" />
             </button>
           </div>
         </div>
-        {/* PASAR LA FUNCIÓN QUE ABRE EL MODAL AL BOARD */}
+
+        {/* Photo Board */}
         <PhotoBoard photos={photos} onDelete={handlePhotoDelete} />
       </section>
 
-      {/* Modal de Subida (Tu Modal original) */}
-      <Modal open={isModalOpen} onClose={closeModal}>
+      {/* Upload Modal */}
+      <Modal open={isUploadModalOpen} onClose={closeUploadModal}>
         <PhotoForm onPhotoUploaded={handlePhotoUpload} post={post} />
       </Modal>
 
-      {/* NUEVO MODAL DE CONFIRMACIÓN DE ELIMINACIÓN */}
+      {/* Delete Confirmation Modal */}
       <Modal open={deleteModalState.isOpen} onClose={closeDeleteModal}>
         <DeleteConfirmationModal
           photo={deleteModalState.photoToDelete}

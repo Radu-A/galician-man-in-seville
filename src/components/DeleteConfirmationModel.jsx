@@ -1,22 +1,18 @@
 export default function DeleteConfirmationModal({ photo, onClose, onConfirm }) {
-  if (!photo) return null; // No renderizar si no hay foto seleccionada
+  // Guard clause: returns null if the photo object is not available.
+  if (!photo) return null;
 
   return (
-    <div className="bg-white p-6 rounded-xl shadow-2xl max-w-sm mx-auto">
-      <h2 className="text-xl font-bold text-gray-800 mb-2">
-        Confirmar Eliminación
-      </h2>
+    <>
+      <h2 className="text-xl font-bold text-gray-800 mb-2">Confirmar</h2>
 
       <p className="text-gray-600 mb-6">
-        Estás a punto de eliminar la foto:
-        <span className="font-semibold block mt-1 truncate">
-          "{photo.comment || photo.title}"
-        </span>
-        Esta acción es irreversible (aunque por ahora solo se eliminará la
-        referencia en Firebase).
+        ¿Seguro de que quieres eliminar la foto de tu álbum? Esta acción es
+        irreversible.
+        {/* Updated text: reflects real deletion */}
       </p>
 
-      {/* Imagen de previsualización (Opcional, pero útil) */}
+      {/* Image Preview */}
       <div className="w-full h-32 mb-6 rounded-lg overflow-hidden border border-gray-200">
         <img
           src={photo.url}
@@ -26,24 +22,26 @@ export default function DeleteConfirmationModal({ photo, onClose, onConfirm }) {
       </div>
 
       <div className="flex justify-end gap-3">
-        {/* Botón Cancelar */}
+        {/* Cancel Button */}
         <button
           onClick={onClose}
           className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg 
                      hover:bg-gray-200 transition"
+          title="Mantener la foto en el álbum"
         >
           Cancelar
         </button>
 
-        {/* Botón Confirmar (Rojo) */}
+        {/* Confirm Button (Destructive action, hence red) */}
         <button
           onClick={onConfirm}
           className="px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg 
                      shadow-md hover:bg-red-700 transition"
+          title="Eliminar la referencia de la foto de la base de datos"
         >
-          Sí, Eliminar
+          Eliminar
         </button>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,5 +1,4 @@
 import {
-  doc,
   collection,
   query,
   where,
@@ -8,38 +7,42 @@ import {
 } from "firebase/firestore";
 import db from "./firebaseConfig";
 
-const deletePhoto = async (photoId) => {
+/**
+ * Deletes a photo document from Firestore by its custom "id" field.
+ * @param {string} photoId - The custom ID stored in the document.
+ * @returns {object} - Result object with status and message.
+ */
+export const deletePhoto = async (photoId) => {
   if (!photoId) {
-    throw new Error("El ID de la foto es obligatorio para eliminarla.");
+    return { success: false, message: "Photo ID is required." };
   }
 
-  // 1️⃣ Creamos una query que busque el documento cuyo campo "id" coincida
-  const photosRef = collection(db, "photos");
-  const q = query(photosRef, where("id", "==", photoId));
+  try {
+    // 1️⃣ Query Firestore for a document with the matching custom "id" field
+    const photosRef = collection(db, "photos");
+    const q = query(photosRef, where("id", "==", photoId));
+    const snapshot = await getDocs(q);
 
-  // 2️⃣ Ejecutamos la query
-  const snapshot = await getDocs(q);
+    // 2️⃣ Handle empty result
+    if (snapshot.empty) {
+      console.warn(`⚠️ No document found with id = ${photoId}`);
+      return {
+        success: false,
+        message: `No document found for id: ${photoId}`,
+      };
+    }
 
-  // 3️⃣ Verificamos si encontramos algún documento
-  if (snapshot.empty) {
-    console.warn("⚠️ No se encontró ningún documento con id =", photoId);
-    return;
+    // 3️⃣ Get document reference and delete it
+    const photoRef = snapshot.docs[0].ref;
+    await deleteDoc(photoRef);
+
+    console.log(`✅ Photo deleted successfully: ${photoRef.path}`);
+    return { success: true, message: `Photo deleted: ${photoRef.path}` };
+  } catch (error) {
+    console.error("❌ Error deleting photo:", error);
+    return {
+      success: false,
+      message: error.message || "Error deleting photo.",
+    };
   }
-
-  // 4️⃣ Tomamos el primer documento que coincida y obtenemos la referencia
-  const photoDoc = snapshot.docs[0];
-  const photoRef = photoDoc.ref; // Esto es un objeto DocumentReference.
-
-  console.log("🔗 Referencia encontrada:", photoRef.path);
-
-  // 5️⃣ CÓDIGO CORREGIDO: Usar la referencia directamente
-  // deleteDoc acepta una DocumentReference.
-  await deleteDoc(photoRef);
-
-  console.log(
-    "Documento de foto eliminado de Firestore con Ref:",
-    photoRef.path
-  );
 };
-
-export { deletePhoto };
