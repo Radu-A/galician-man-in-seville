@@ -1,6 +1,6 @@
-import PostBoard from "../components/PostBoard";
+import AlbumBoard from "../components/AlbumBoard";
 
-export default function AlbumView() {
+export default function Dashboard() {
   return (
     <section className="pt-6 sm:pt-12 bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -13,7 +13,7 @@ export default function AlbumView() {
             inspiran a seguir creando. Cada álbum es una parte del camino.
           </p>
         </div>
-        <PostBoard></PostBoard>
+        <AlbumBoard></AlbumBoard>
       </div>
     </section>
   );
