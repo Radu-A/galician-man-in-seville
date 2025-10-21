@@ -4,7 +4,7 @@ import { getPhotos } from "../firebase/getData";
 import { deletePhoto } from "../firebase/deleteData";
 import PhotoBoard from "../components/PhotoBoard";
 import Modal from "../components/Modal";
-import PhotoForm from "../components/PhotoForm";
+import PhotoForm from "../components/UploadPhotoForm";
 import DeleteConfirmationModal from "../components/DeleteConfirmationModel"; // Check file name case
 
 export default function AlbumView() {
