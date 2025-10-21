@@ -2,11 +2,11 @@ import { collection, getDocs } from "firebase/firestore";
 import db from "./firebaseConfig.js";
 
 // Get a list of posts from db
-const getPosts = async () => {
-  const postsCol = collection(db, "posts");
-  const postsSnapshot = await getDocs(postsCol);
-  const postsList = postsSnapshot.docs.map((doc) => doc.data());
-  return postsList;
+const getAlbums = async () => {
+  const albumCol = collection(db, "posts");
+  const albumSnapshot = await getDocs(albumCol);
+  const albumList = albumSnapshot.docs.map((doc) => doc.data());
+  return albumList;
 };
 
 // Get a list of photos from db
@@ -21,4 +21,4 @@ const getPhotos = async (postId) => {
 //   .then(() => console.log("✅ Todos los documentos cargados"))
 //   .catch(console.error);
 
-export { getPosts, getPhotos };
+export { getAlbums, getPhotos };
