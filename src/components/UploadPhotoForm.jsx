@@ -4,7 +4,7 @@ import { useState } from "react";
 import { addPhoto } from "../firebase/addData";
 import UploadWidget from "./UploadWidget";
 
-function UploadPhotoForm({ onPhotoUploaded, post }) {
+function UploadPhotoForm({ onPhotoUploaded, album }) {
   // ----------------------------------------------------
   // 1. REACT HOOKS MUST BE CALLED AT THE TOP LEVEL
   // ----------------------------------------------------
@@ -13,7 +13,7 @@ function UploadPhotoForm({ onPhotoUploaded, post }) {
     comment: "",
     url: "",
     publicId: "", // 🛑 NUEVO CAMPO DE ESTADO
-    postId: post?.id || "",
+    albumId: album?.id || "",
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -24,11 +24,11 @@ function UploadPhotoForm({ onPhotoUploaded, post }) {
   // ----------------------------------------------------
   // 2. CONDITIONAL RENDERING / EARLY EXIT
   // ----------------------------------------------------
-  if (!post || !post.id) {
+  if (!album || !album.id) {
     return (
       <div className="p-4 bg-white dark:bg-gray-800 rounded-lg">
         <p className="text-red-500 font-semibold">
-          Error: Post data could not be loaded.
+          Error: El álbum no ha podido ser cargado.
         </p>
       </div>
     );
@@ -48,6 +48,7 @@ function UploadPhotoForm({ onPhotoUploaded, post }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     setError(null);
     setIsLoading(true);
 

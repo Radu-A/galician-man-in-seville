@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 export default function AlbumCard({ album }) {
-  // Get postId from navigate
+  // Get albumId from navigate
   const navigate = useNavigate();
   const handleClick = (album) => {
     navigate("/album", { state: album });

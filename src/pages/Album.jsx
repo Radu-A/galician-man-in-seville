@@ -9,7 +9,7 @@ import DeleteConfirmationModal from "../components/DeleteConfirmationModel"; // 
 
 export default function AlbumView() {
   // 1. STATE & HOOKS
-  const { state: post } = useLocation();
+  const { state: album } = useLocation();
   const [photos, setPhotos] = useState(null);
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false); // Renamed for clarity
   const [deleteModalState, setDeleteModalState] = useState({
@@ -19,14 +19,16 @@ export default function AlbumView() {
 
   // 2. DATA FETCHING
   const fetchPhotos = useCallback(async () => {
-    if (!post?.id) return;
+    if (!album?.id) return;
     try {
-      const res = await getPhotos(post.id);
+      const res = await getPhotos(album.id);
+      console.log(res);
+
       setPhotos(res);
     } catch (error) {
       console.error("Error fetching photos:", error);
     }
-  }, [post?.id]);
+  }, [album?.id]);
 
   useEffect(() => {
     fetchPhotos();
@@ -88,7 +90,7 @@ export default function AlbumView() {
   };
 
   // 4. CONDITIONAL RENDER (Early Exit)
-  if (!post || !post.id) {
+  if (!album || !album.id) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <h1 className="text-xl text-red-500">
@@ -106,10 +108,10 @@ export default function AlbumView() {
         <div className="grid grid-cols-[1fr_auto] gap-5">
           <div className="col-1 mx-auto max-w-2xl lg:mx-0">
             <h4 className="text-2xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-3xl dark:text-white">
-              {post.title}
+              {album.title}
             </h4>
             <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
-              {post.description}
+              {album.description}
             </p>
           </div>
           <div className="col-2 flex justify-end items-end">
@@ -128,7 +130,7 @@ export default function AlbumView() {
 
       {/* Upload Modal */}
       <Modal open={isUploadModalOpen} onClose={closeUploadModal}>
-        <UploadPhotoForm onPhotoUploaded={handlePhotoUpload} post={post} />
+        <UploadPhotoForm onPhotoUploaded={handlePhotoUpload} album={album} />
       </Modal>
 
       {/* Delete Confirmation Modal */}

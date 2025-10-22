@@ -10,7 +10,7 @@ export default function AlbumBoard() {
   }, []);
 
   if (!albumList) {
-    return <p>Cargando posts...</p>; // o un spinner
+    return <p>Cargando álbums...</p>; // o un spinner
   }
 
   return (
