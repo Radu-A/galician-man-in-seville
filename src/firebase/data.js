@@ -59,7 +59,7 @@ export const posts = [
 export const photos = [
   // 6 fotos para post "zsgZDg_OwLk"
   {
-    id: "ph-zsg-1",
+    publicId: "ph-zsg-1", // <-- CAMBIADO
     albumId: "zsgZDg_OwLk", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -67,7 +67,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1559386081-325882507af7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw1fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zsg-2",
+    publicId: "ph-zsg-2", // <-- CAMBIADO
     albumId: "zsgZDg_OwLk", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -75,7 +75,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1560964598-dee5d2b9dd6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw2fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zsg-3",
+    publicId: "ph-zsg-3", // <-- CAMBIADO
     albumId: "zsgZDg_OwLk", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -83,7 +83,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1661442196029-ecc4a8e0a0b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw3fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zsg-4",
+    publicId: "ph-zsg-4", // <-- CAMBIADO
     albumId: "zsgZDg_OwLk", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -91,7 +91,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1542115049-3af45a7e0ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw4fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zsg-5",
+    publicId: "ph-zsg-5", // <-- CAMBIADO
     albumId: "zsgZDg_OwLk", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -99,7 +99,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1634048703492-eeded62bb987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw5fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zsg-6",
+    publicId: "ph-zsg-6", // <-- CAMBIADO
     albumId: "zsgZDg_OwLk", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -108,7 +108,7 @@ export const photos = [
   },
   // 6 fotos para post "ZK_v7Uc7sqQ"
   {
-    id: "ph-zk-1",
+    publicId: "ph-zk-1", // <-- CAMBIADO
     albumId: "ZK_v7Uc7sqQ", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -116,7 +116,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1560964598-dee5d2b9dd6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw2fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zk-2",
+    publicId: "ph-zk-2", // <-- CAMBIADO
     albumId: "ZK_v7Uc7sqQ", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -124,7 +124,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1559386081-325882507af7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw1fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zk-3",
+    publicId: "ph-zk-3", // <-- CAMBIADO
     albumId: "ZK_v7Uc7sqQ", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -132,7 +132,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1661442196029-ecc4a8e0a0b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw3fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zk-4",
+    publicId: "ph-zk-4", // <-- CAMBIADO
     albumId: "ZK_v7Uc7sqQ", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -140,7 +140,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1634048703492-eeded62bb987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw5fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zk-5",
+    publicId: "ph-zk-5", // <-- CAMBIADO
     albumId: "ZK_v7Uc7sqQ", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -148,7 +148,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1542115049-3af45a7e0ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw4fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-zk-6",
+    publicId: "ph-zk-6", // <-- CAMBIADO
     albumId: "ZK_v7Uc7sqQ", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -157,7 +157,7 @@ export const photos = [
   },
   // 6 fotos para post "dMi3pqiqhsw"
   {
-    id: "ph-dm-1",
+    publicId: "ph-dm-1", // <-- CAMBIADO
     albumId: "dMi3pqiqhsw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -165,7 +165,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1661442196029-ecc4a8e0a0b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw3fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-dm-2",
+    publicId: "ph-dm-2", // <-- CAMBIADO
     albumId: "dMi3pqiqhsw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -173,7 +173,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1559386081-325882507af7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw1fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-dm-3",
+    publicId: "ph-dm-3", // <-- CAMBIADO
     albumId: "dMi3pqiqhsw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -181,7 +181,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1560964598-dee5d2b9dd6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw2fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-dm-4",
+    publicId: "ph-dm-4", // <-- CAMBIADO
     albumId: "dMi3pqiqhsw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -189,7 +189,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1542115049-3af45a7e0ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw4fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-dm-5",
+    publicId: "ph-dm-5", // <-- CAMBIADO
     albumId: "dMi3pqiqhsw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -197,7 +197,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1634048703492-eeded62bb987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw5fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-dm-6",
+    publicId: "ph-dm-6", // <-- CAMBIADO
     albumId: "dMi3pqiqhsw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -206,7 +206,7 @@ export const photos = [
   },
   // 6 fotos para post "UeSZNsV7GZE"
   {
-    id: "ph-ue-1",
+    publicId: "ph-ue-1", // <-- CAMBIADO
     albumId: "UeSZNsV7GZE", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -214,7 +214,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1542115049-3af45a7e0ff4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw4fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-ue-2",
+    publicId: "ph-ue-2", // <-- CAMBIADO
     albumId: "UeSZNsV7GZE", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -222,7 +222,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1661442196029-ecc4a8e0a0b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw3fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-ue-3",
+    publicId: "ph-ue-3", // <-- CAMBIADO
     albumId: "UeSZNsV7GZE", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -230,7 +230,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1560964598-dee5d2b9dd6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw2fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-ue-4",
+    publicId: "ph-ue-4", // <-- CAMBIADO
     albumId: "UeSZNsV7GZE", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -238,7 +238,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1559386081-325882507af7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw1fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-ue-5",
+    publicId: "ph-ue-5", // <-- CAMBIADO
     albumId: "UeSZNsV7GZE", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -246,7 +246,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1634048703492-eeded62bb987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw5fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-ue-6",
+    publicId: "ph-ue-6", // <-- CAMBIADO
     albumId: "UeSZNsV7GZE", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -255,7 +255,7 @@ export const photos = [
   },
   // 6 fotos para post "n4z9z2EJlvw"
   {
-    id: "ph-n4-1",
+    publicId: "ph-n4-1", // <-- CAMBIADO
     albumId: "n4z9z2EJlvw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -263,7 +263,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1634048703492-eeded62bb987?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw5fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-n4-2",
+    publicId: "ph-n4-2", // <-- CAMBIADO
     albumId: "n4z9z2EJlvw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -271,14 +271,14 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1661442196029-ecc4a8e0a0b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw3fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-n4-3",
+    publicId: "ph-n4-3", // <-- CAMBIADO
     albumId: "n4z9z2EJlvw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment: "El juego de luces y sombras entre las paredes estrechas es arte.",
     url: "https://images.unsplash.com/photo-1560964598-dee5d2b9dd6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw2fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-n4-4",
+    publicId: "ph-n4-4", // <-- CAMBIADO
     albumId: "n4z9z2EJlvw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -286,7 +286,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1559386081-325882507af7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHw5fHxzZXZpbGxlfGVufDB8fHx8MTc2MDY0MDA3NXww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-n4-5",
+    publicId: "ph-n4-5", // <-- CAMBIADO
     albumId: "n4z9z2EJlvw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:
@@ -294,7 +294,7 @@ export const photos = [
     url: "https://images.unsplash.com/photo-1661442197060-5fce68a9afc6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4MTc1NTR8MHwxfHNlYXJjaHwxMHx8c2V2aWxsZXxlbnwwfHx8fDE3NjA2NDAwNzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    id: "ph-n4-6",
+    publicId: "ph-n4-6", // <-- CAMBIADO
     albumId: "n4z9z2EJlvw", // <-- CAMBIADO DE postId
     datetime: INVENTED_DATE,
     comment:

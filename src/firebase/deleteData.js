@@ -1,10 +1,4 @@
-import {
-  collection,
-  query,
-  where,
-  getDocs,
-  deleteDoc,
-} from "firebase/firestore";
+import { doc, collection, deleteDoc } from "firebase/firestore";
 import db from "./firebaseConfig";
 
 /**
@@ -20,24 +14,11 @@ export const deletePhoto = async (photoId) => {
   try {
     // 1️⃣ Query Firestore for a document with the matching custom "id" field
     const photosRef = collection(db, "photos");
-    const q = query(photosRef, where("id", "==", photoId));
-    const snapshot = await getDocs(q);
+    const photoDocRef = doc(photosRef, photoId);
+    await deleteDoc(photoDocRef);
 
-    // 2️⃣ Handle empty result
-    if (snapshot.empty) {
-      console.warn(`⚠️ No document found with id = ${photoId}`);
-      return {
-        success: false,
-        message: `No document found for id: ${photoId}`,
-      };
-    }
-
-    // 3️⃣ Get document reference and delete it
-    const photoRef = snapshot.docs[0].ref;
-    await deleteDoc(photoRef);
-
-    console.log(`✅ Photo deleted successfully: ${photoRef.path}`);
-    return { success: true, message: `Photo deleted: ${photoRef.path}` };
+    console.log(`✅ Photo deleted successfully: ${photoDocRef.path}`);
+    return { success: true, message: `Photo deleted: ${photoDocRef.path}` };
   } catch (error) {
     console.error("❌ Error deleting photo:", error);
     return {
