@@ -42,12 +42,12 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover brightness-75 transition-opacity duration-500"
       />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
-        <h1 className=" max-w-lg text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl dark:text-white">
+        <h1 className="max-w-lg text-7xl tracking-tighter text-white sm:text-8xl dark:text-white">
           Un gallego por Sevilla
         </h1>
-        <p className=" max-w-lg mt-8 text-lg font-medium text-pretty text-white sm:text-xl/8 dark:text-gray-400">
+        <p className="max-w-lg mt-8 text-lg leading-super-tight text-white sm:text-xl/8 dark:text-gray-400">
           Encontrándome gente, cosas que hacer y lugares interesantes, mientras
-          escapo del aburrimiento y practico desarrollo para ser programador.
+          escapo del aburrimiento y programo sin parar.
         </p>
       </div>
     </div>
