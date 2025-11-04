@@ -81,9 +81,17 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  INICIO
+                  <span
+                    className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
+                    hover:text-neutral-900 dark:hover:text-neutral-200 
+                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
+                    after:bg-neutral-900 after:transition-all after:duration-300
+                    hover:after:w-full"
+                  >
+                    INICIO &rarr;
+                  </span>
                 </Link>
 
                 {/* ENLACE MODIFICADO: Tablero */}
@@ -92,16 +100,32 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  TABLERO
+                  <span
+                    className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
+                    hover:text-neutral-900 dark:hover:text-neutral-200 
+                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
+                    after:bg-neutral-900 after:transition-all after:duration-300
+                    hover:after:w-full"
+                  >
+                    TABLERO &rarr;
+                  </span>
                 </Link>
 
                 {/* ENLACE MODIFICADO: Sobre Mí */}
                 <Link
                   to="/about"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  SOBRE MÍ
+                  <span
+                    className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
+                    hover:text-neutral-900 dark:hover:text-neutral-200 
+                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
+                    after:bg-neutral-900 after:transition-all after:duration-300
+                    hover:after:w-full"
+                  >
+                    SOBRE MÍ &rarr;
+                  </span>
                 </Link>
               </div>
               <div className="py-6">
@@ -109,9 +133,17 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/Contact"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  CONTACTO
+                  <span
+                    className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
+                    hover:text-neutral-900 dark:hover:text-neutral-200 
+                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
+                    after:bg-neutral-900 after:transition-all after:duration-300
+                    hover:after:w-full"
+                  >
+                    CONTACTO &rarr;
+                  </span>
                 </Link>
               </div>
             </div>

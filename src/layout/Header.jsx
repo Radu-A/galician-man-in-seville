@@ -9,7 +9,7 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import MobileMenu from "../components/MobileMenu";
 
 // 4. Importaciones Recursos/Assets
-import LogoMd from "../assets/logo/logo-light-md.png";
+import LogoMd from "../assets/logo/logo-dark-md.png";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -36,7 +36,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 bg-white dark:text-gray-400 cursor-pointer"
+            className="inline-flex items-center justify-center p-2.5 bg-white dark:text-gray-400 cursor-pointer"
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
@@ -44,7 +44,7 @@ export default function Header() {
         </div>
         {/* Menu */}
         <PopoverGroup className="hidden md:flex lg:gap-x-12">
-          <div className="flex gap-3 bg-white p-3 rounded">
+          <div className="flex gap-4 bg-white p-3">
             <Link
               to="/"
               className="text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
@@ -78,11 +78,8 @@ export default function Header() {
           </div>
         </PopoverGroup>
         <div className="hidden md:flex md:flex-1 md:justify-end">
-          <Link
-            to="/contact"
-            className="text-md bg-white p-2 rounded dark:text-white"
-          >
-            CONTACTO <span aria-hidden="true">&rarr;</span>
+          <Link to="/contact" className="text-md bg-white p-2 dark:text-white">
+            <span>CONTACTO &rarr;</span>
           </Link>
         </div>
       </nav>
