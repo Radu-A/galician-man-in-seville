@@ -81,27 +81,27 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  Inicio
+                  INICIO
                 </Link>
 
                 {/* ENLACE MODIFICADO: Tablero */}
                 <Link
                   to="/dashboard"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  Tablero
+                  TABLERO
                 </Link>
 
                 {/* ENLACE MODIFICADO: Sobre Mí */}
                 <Link
                   to="/about"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  Sobre Mí
+                  SOBRE MÍ
                 </Link>
               </div>
               <div className="py-6">
@@ -109,9 +109,9 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/Contact"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  Contacto
+                  CONTACTO
                 </Link>
               </div>
             </div>

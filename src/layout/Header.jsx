@@ -17,10 +17,10 @@ export default function Header() {
     <header className="absolute w-full z-1000">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 md:px-8"
       >
         {/* Logo */}
-        <div className="flex lg:flex-1">
+        <div className="flex md:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
             <img alt="logo" src={LogoMd} className="h-11 w-auto dark:hidden" />
@@ -32,43 +32,55 @@ export default function Header() {
           </Link>
         </div>
         {/* Dropdown Button */}
-        <div className="flex lg:hidden">
+        <div className="flex md:hidden">
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 bg-white dark:text-gray-400 cursor-pointer"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 bg-white dark:text-gray-400 cursor-pointer"
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
         {/* Menu */}
-        <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <div className="flex gap-3 bg-white p-2 rounded">
+        <PopoverGroup className="hidden md:flex lg:gap-x-12">
+          <div className="flex gap-3 bg-white p-3 rounded">
             <Link
               to="/"
-              className="w-20 text-center text-md text-gray-900 dark:text-white"
+              className="text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
+             // Efecto hover: color de texto destacado, ligero subrayado animado
+             hover:text-neutral-900 dark:hover:text-neutral-200 
+             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
+             hover:after:w-full"
             >
               INICIO
             </Link>
             <Link
               to="/dashboard"
-              className="w-20 text-center text-md text-gray-900 dark:text-white"
+              className="text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
+             // Efecto hover: color de texto destacado, ligero subrayado animado
+             hover:text-neutral-900 dark:hover:text-neutral-200 
+             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
+             hover:after:w-full"
             >
               TABLERO
             </Link>
             <Link
               to="/about"
-              className="w-20 text-center text-md text-gray-900 dark:text-white"
+              className="text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
+             // Efecto hover: color de texto destacado, ligero subrayado animado
+             hover:text-neutral-900 dark:hover:text-neutral-200 
+             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
+             hover:after:w-full"
             >
               SOBRE MÍ
             </Link>
           </div>
         </PopoverGroup>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+        <div className="hidden md:flex md:flex-1 md:justify-end">
           <Link
             to="/contact"
-            className="text-md text-gray-900 bg-white p-2 rounded dark:text-white"
+            className="text-md bg-white p-2 rounded dark:text-white"
           >
             CONTACTO <span aria-hidden="true">&rarr;</span>
           </Link>
