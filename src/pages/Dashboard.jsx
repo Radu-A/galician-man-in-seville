@@ -1,18 +1,19 @@
 import { useState } from "react";
 import AlbumBoard from "../components/AlbumBoard";
 import Modal from "../components/Modal";
+import XEden from "../components/XEden";
 
 export default function Dashboard() {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
   const openUploadModal = () => setIsUploadModalOpen(true);
   const closeUploadModal = () => setIsUploadModalOpen(false);
   return (
-    <section className="pt-6 sm:pt-12 bg-white dark:bg-gray-900">
+    <section className="pt-6 sm:pt-12 bg-white text-neutral-600">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header and Upload Button */}
         <div className="grid grid-cols-[1fr_auto] gap-5">
           <div className="col-1 mx-auto max-w-2xl lg:mx-0">
-            <h2 className="text-2xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-3xl dark:text-white">
+            <h2 className="text-2xl font-semibold tracking-tight text-pretty sm:text-3xl dark:text-white">
               Mis hallazgos por Sevilla
             </h2>
             <p className="mt-2 text-lg text-gray-600 dark:text-gray-300">
@@ -30,6 +31,7 @@ export default function Dashboard() {
           </div>
         </div>
         <AlbumBoard></AlbumBoard>
+        <XEden></XEden>
       </div>
       {/* Upload Modal */}
       <Modal open={isUploadModalOpen} onClose={closeUploadModal}></Modal>

@@ -10,7 +10,7 @@ export default function AlbumCard({ album }) {
   return (
     <article
       onClick={() => handleClick(album)}
-      className="relative cursor-pointer overflow-hidden rounded-2xl group transition-all duration-300 hover:shadow-lg"
+      className="relative cursor-pointer overflow-hidden group transition-all duration-300 hover:shadow-lg"
     >
       {/* Imagen */}
       <div className="relative aspect-[4/3] w-full overflow-hidden">
@@ -25,7 +25,9 @@ export default function AlbumCard({ album }) {
 
       {/* Texto sobre imagen */}
       <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <h3 className="text-lg font-semibold text-white">{album.title}</h3>
+        <h3 className="text-lg font-semibold text-white">
+          {album.title.toUpperCase()}
+        </h3>
         <p className="text-sm text-gray-200 line-clamp-2">
           {album.description}
         </p>
