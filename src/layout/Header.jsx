@@ -46,24 +46,26 @@ export default function Header() {
         </div>
         {/* Menu */}
         <PopoverGroup className="hidden lg:flex lg:gap-x-12">
-          <Link
-            to="/"
-            className="w-20 text-center text-sm font-semibold text-gray-900 bg-white p-2 dark:text-white"
-          >
-            Inicio
-          </Link>
-          <Link
-            to="/dashboard"
-            className="w-20 text-center text-sm font-semibold text-gray-900 bg-white p-2 dark:text-white"
-          >
-            Tablero
-          </Link>
-          <Link
-            to="/about"
-            className="w-20 text-center text-sm font-semibold text-gray-900 bg-white p-2 dark:text-white"
-          >
-            Sobre Mí
-          </Link>
+          <div className="flex gap-3 bg-white p-2 rounded">
+            <Link
+              to="/"
+              className="w-20 text-center text-sm font-semibold text-gray-900 dark:text-white"
+            >
+              Inicio
+            </Link>
+            <Link
+              to="/dashboard"
+              className="w-20 text-center text-sm font-semibold text-gray-900 dark:text-white"
+            >
+              Tablero
+            </Link>
+            <Link
+              to="/about"
+              className="w-20 text-center text-sm font-semibold text-gray-900 dark:text-white"
+            >
+              Sobre Mí
+            </Link>
+          </div>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
