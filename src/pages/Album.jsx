@@ -103,7 +103,7 @@ export default function AlbumView() {
   // 5. MAIN RENDER
   return (
     <>
-      <section className="mx-auto max-w-7xl px-6 pt-6 sm:pt-12 lg:px-8">
+      <section className="mx-auto max-w-7xl mt-24 px-6 pt-6 sm:pt-12 lg:px-8">
         {/* Header and Upload Button */}
         <div className="grid grid-cols-[1fr_auto] gap-5">
           <div className="col-1 mx-auto max-w-2xl lg:mx-0">

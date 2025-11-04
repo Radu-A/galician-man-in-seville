@@ -8,7 +8,7 @@ export default function Dashboard() {
   const openUploadModal = () => setIsUploadModalOpen(true);
   const closeUploadModal = () => setIsUploadModalOpen(false);
   return (
-    <section className="pt-6 sm:pt-12">
+    <section className="mt-24 pt-6 sm:pt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header and Upload Button */}
         <div className="grid grid-cols-[1fr_auto] gap-5">
