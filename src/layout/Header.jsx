@@ -49,30 +49,30 @@ export default function Header() {
           <div className="flex gap-3 bg-white p-2 rounded">
             <Link
               to="/"
-              className="w-20 text-center text-sm font-semibold text-gray-900 dark:text-white"
+              className="w-20 text-center text-md text-gray-900 dark:text-white"
             >
-              Inicio
+              INICIO
             </Link>
             <Link
               to="/dashboard"
-              className="w-20 text-center text-sm font-semibold text-gray-900 dark:text-white"
+              className="w-20 text-center text-md text-gray-900 dark:text-white"
             >
-              Tablero
+              TABLERO
             </Link>
             <Link
               to="/about"
-              className="w-20 text-center text-sm font-semibold text-gray-900 dark:text-white"
+              className="w-20 text-center text-md text-gray-900 dark:text-white"
             >
-              Sobre Mí
+              SOBRE MÍ
             </Link>
           </div>
         </PopoverGroup>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
             to="/contact"
-            className="text-sm font-semibold text-gray-900 bg-white p-2 dark:text-white"
+            className="text-md text-gray-900 bg-white p-2 rounded dark:text-white"
           >
-            Contacto <span aria-hidden="true">&rarr;</span>
+            CONTACTO <span aria-hidden="true">&rarr;</span>
           </Link>
         </div>
       </nav>

@@ -43,11 +43,11 @@ const Hero = () => {
       />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
         <h1 className="max-w-lg text-7xl tracking-tighter text-white sm:text-8xl dark:text-white">
-          Un gallego por Sevilla
+          Un Gallego por Sevilla
         </h1>
         <p className="max-w-lg mt-8 text-lg leading-super-tight text-white sm:text-xl/8 dark:text-gray-400">
-          Encontrándome gente, cosas que hacer y lugares interesantes, mientras
-          escapo del aburrimiento y programo sin parar.
+          ENCONTRÁNDOME GENTE, COSAS QUE HACER Y LUGARES INTERESANTES, MIENTRAS
+          ESCAPO DEL ABURRIMIENTO Y PROGRAMO SIN PARAR.
         </p>
       </div>
     </div>
