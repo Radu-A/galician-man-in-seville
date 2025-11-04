@@ -2,8 +2,7 @@ import GlobalIcon from "../icons/GlobalIcon";
 import GitHubIcon from "../icons/GitHubIcon";
 import InstaIcon from "../icons/InstaIcon";
 import FacebookIcon from "../icons/FacebookIcon";
-import LogoSm from "../assets/logo/logo-sm.png";
-import LogoMd from "../assets/logo/logo-md.png";
+import LogoMd from "../assets/logo/logo-dark-md.png";
 
 export default function Footer() {
   return (
@@ -11,7 +10,7 @@ export default function Footer() {
       <div className="mx-auto max-w-screen-xl p-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-8">
           <div>
-            <img src={LogoSm} alt="logo" />
+            <img src={LogoMd} alt="logo" />
           </div>
 
           <div className="hidden lg:grid lg:mt-0 lg:grid-cols-5">

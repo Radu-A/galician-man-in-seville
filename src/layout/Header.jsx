@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // 2. Importaciones Terceros
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { PopoverGroup } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 
@@ -9,11 +9,9 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import MobileMenu from "../components/MobileMenu";
 
 // 4. Importaciones Recursos/Assets
-import LogoSm from "../assets/logo/logo-sm.png";
+import LogoMd from "../assets/logo/logo-light-md.png";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const location = useLocation();
-  const isHome = location.pathname === "/";
 
   return (
     <header className="absolute w-full z-1000">
@@ -25,10 +23,10 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Your Company</span>
-            <img alt="logo" src={LogoSm} className="h-8 w-auto dark:hidden" />
+            <img alt="logo" src={LogoMd} className="h-11 w-auto dark:hidden" />
             <img
               alt="logo"
-              src={LogoSm}
+              src={LogoMd}
               className="h-8 w-auto not-dark:hidden"
             />
           </Link>

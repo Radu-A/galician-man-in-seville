@@ -8,7 +8,7 @@ import {
 } from "@headlessui/react"; // Componentes Headless UI
 import { XMarkIcon } from "@heroicons/react/24/outline"; // Icono de cerrar
 
-import LogoSm from "../assets/logo/logo-sm.png"; // Recurso Local
+import LogoMd from "../assets/logo/logo-dark-md.png"; // Recurso Local
 
 export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
   return (
@@ -55,10 +55,10 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Your Company</span>
-              <img alt="logo" src={LogoSm} className="h-8 w-auto dark:hidden" />
+              <img alt="logo" src={LogoMd} className="h-8 w-auto dark:hidden" />
               <img
                 alt="logo"
-                src={LogoSm}
+                src={LogoMd}
                 className="h-8 w-auto not-dark:hidden"
               />
             </Link>
