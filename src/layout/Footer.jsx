@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import ProfileIcon from "../icons/ProfileIcon"; // <-- Cambiado a ProfileIcon
 import GitHubIcon from "../icons/GitHubIcon";
 import LinkedInIcon from "../icons/LinkedInIcon"; // <-- Nuevo componente
@@ -15,27 +17,37 @@ export default function Footer() {
               alt="logo"
             />
           </div>
-
-          <div className="hidden lg:grid lg:mt-0 lg:grid-cols-5">
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Services</p>
-            </div>
-
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Company</p>
-            </div>
-
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Helpful Links</p>
-            </div>
-
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Legal</p>
-            </div>
-
-            <div className="col-span-2 sm:col-span-1">
-              <p className="font-medium text-gray-900">Downloads</p>
-            </div>
+          <div className="hidden sm:flex gap-4 bg-white">
+            <Link
+              to="/"
+              className="col-span-2 sm:col-span-1 text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
+             // Efecto hover: color de texto destacado, ligero subrayado animado
+             hover:text-neutral-900 dark:hover:text-neutral-200 
+             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
+             hover:after:w-full"
+            >
+              INICIO
+            </Link>
+            <Link
+              to="/dashboard"
+              className="col-span-2 sm:col-span-1 text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
+             // Efecto hover: color de texto destacado, ligero subrayado animado
+             hover:text-neutral-900 dark:hover:text-neutral-200 
+             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
+             hover:after:w-full"
+            >
+              TABLERO
+            </Link>
+            <Link
+              to="/about"
+              className="col-span-2 sm:col-span-1 text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
+             // Efecto hover: color de texto destacado, ligero subrayado animado
+             hover:text-neutral-900 dark:hover:text-neutral-200 
+             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
+             hover:after:w-full"
+            >
+              SOBRE MÍ
+            </Link>
           </div>
           {/* ICONOS DE REDES SOCIALES */}
           <ul className="col-span-2 flex justify-start gap-6 lg:col-span-6 lg:justify-end">
@@ -81,16 +93,16 @@ export default function Footer() {
         </div>
 
         {/* SECCIÓN DE COPYRIGHT Y ENLACES LEGALES */}
-        <div className="mt-6 border-t border-gray-100 dark:border-gray-800 pt-6">
-          <div className="text-sm/4 sm:flex sm:justify-between">
+        <div className="mt-3 border-t border-gray-100 dark:border-gray-800 pt-3">
+          <div className="text-sm/4 md:flex md:justify-between">
             {/* Copyright: Usamos el año actual */}
-            <p className="text-gray-500 dark:text-gray-400 text-center sm:text-left">
-              &copy; 2025. Un Gallego por Sevilla. Todos los derechos
+            <p className="text-gray-500 dark:text-gray-400 text-center md:text-left">
+              &copy; 2025 | Un Gallego por Sevilla | Todos los derechos
               reservados.
             </p>
 
             {/* Enlaces Legales */}
-            <ul className="mt-3 flex flex-wrap justify-center gap-4 sm:mt-0 lg:justify-end">
+            <ul className="mt-3 flex flex-wrap justify-center gap-4 md:mt-0 lg:justify-end">
               {/* Mantener enlaces legales */}
               <li>
                 <a
