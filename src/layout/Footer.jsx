@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import ProfileIcon from "../icons/ProfileIcon"; // <-- Cambiado a ProfileIcon
-import GitHubIcon from "../icons/GitHubIcon";
-import LinkedInIcon from "../icons/LinkedInIcon"; // <-- Nuevo componente
+import WebIcon from "../assets/icons/icon-vo.png"; // <-- Cambiado a ProfileIcon
+import GitHubIcon from "../assets/icons/icon-github.png";
+import LinkedInIcon from "../assets/icons/icon-linkedin.png"; // <-- Nuevo componente
 import LogoMd from "../assets/logo/logo-dark-md.png";
 
 export default function Footer() {
@@ -54,39 +54,39 @@ export default function Footer() {
             {/* 1. CV / Web Personal (ProfileIcon) */}
             <li>
               <a
-                href="[TU_URL_DEL_CV_WEB]"
+                href="https://victor-outeiro.vercel.app/"
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 dark:text-gray-400 transition hover:text-blue-600 dark:hover:text-blue-400"
               >
                 <span className="sr-only">CV Web</span>
-                <ProfileIcon className="size-6" />
+                <img className="size-6" src={WebIcon} alt="" />
               </a>
             </li>
 
             {/* 2. GitHub ICON */}
             <li>
               <a
-                href="[TU_URL_DE_GITHUB]" // <-- URL de GitHub
+                href="https://github.com/Radu-A" // <-- URL de GitHub
                 rel="noreferrer" // <-- Añadido el atributo que faltaba
                 target="_blank"
                 className="text-gray-700 dark:text-gray-400 transition hover:text-blue-600 dark:hover:text-blue-400"
               >
                 <span className="sr-only">GitHub</span>
-                <GitHubIcon className="size-6" /> {/* <-- Asegurar el tamaño */}
+                <img className="size-6" src={GitHubIcon} alt="" />
               </a>
             </li>
 
             {/* 3. LINKEDIN ICON (El que faltaba) */}
             <li>
               <a
-                href="[TU_URL_DE_LINKEDIN]" // <-- URL de LinkedIn
+                href="https://www.linkedin.com/in/victor-outeiro/" // <-- URL de LinkedIn
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 dark:text-gray-400 transition hover:text-blue-600 dark:hover:text-blue-400"
               >
                 <span className="sr-only">LinkedIn</span>
-                <LinkedInIcon className="size-6" /> {/* <-- Componente usado */}
+                <img className="size-6" src={LinkedInIcon} alt="" />
               </a>
             </li>
           </ul>

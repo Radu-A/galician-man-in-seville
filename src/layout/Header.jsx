@@ -9,7 +9,8 @@ import { Bars3Icon } from "@heroicons/react/24/outline";
 import MobileMenu from "../components/MobileMenu";
 
 // 4. Importaciones Recursos/Assets
-import LogoMd from "../assets/logo/logo-dark-md.png";
+import LogoDarkMd from "../assets/logo/logo-dark-md.png";
+import LogoLightMd from "../assets/logo/logo-light-md.png";
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -22,12 +23,12 @@ export default function Header() {
         {/* Logo */}
         <div className="flex md:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img alt="logo" src={LogoMd} className="h-11 w-auto dark:hidden" />
+            <span className="sr-only">Un Gallego por Sevilla</span>
+            <img alt="logo" src={LogoDarkMd} className="h-11 w-auto dark:hidden" />
             <img
               alt="logo"
-              src={LogoMd}
-              className="h-8 w-auto not-dark:hidden"
+              src={LogoLightMd}
+              className="h-11 w-auto not-dark:hidden"
             />
           </Link>
         </div>

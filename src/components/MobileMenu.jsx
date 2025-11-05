@@ -8,7 +8,8 @@ import {
 } from "@headlessui/react"; // Componentes Headless UI
 import { XMarkIcon } from "@heroicons/react/24/outline"; // Icono de cerrar
 
-import LogoMd from "../assets/logo/logo-dark-md.png"; // Recurso Local
+import LogoDarkMd from "../assets/logo/logo-dark-md.png"; // Recurso Local
+import LogoLightMd from "../assets/logo/logo-light-md.png"; // Recurso Local
 
 export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
   return (
@@ -54,12 +55,16 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
               className="-m-1.5 p-1.5"
               onClick={() => setMobileMenuOpen(false)}
             >
-              <span className="sr-only">Your Company</span>
-              <img alt="logo" src={LogoMd} className="h-8 w-auto dark:hidden" />
+              <span className="sr-only">Un Gallego por Sevilla</span>
               <img
                 alt="logo"
-                src={LogoMd}
-                className="h-8 w-auto not-dark:hidden"
+                src={LogoDarkMd}
+                className="h-11 w-auto dark:hidden"
+              />
+              <img
+                alt="logo"
+                src={LogoLightMd}
+                className="h-11 w-auto not-dark:hidden"
               />
             </Link>
             {/* Botón de cerrar */}
