@@ -47,12 +47,12 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover brightness-65 transition-opacity duration-500"
       />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center">
-        <h1 className="max-w-lg text-7xl tracking-tighter text-white sm:text-8xl dark:text-white">
+        <h1 className="max-w-lg text-7xl/17 tracking-tighter font-light text-white sm:text-8xl/22">
           Un Gallego por Sevilla
         </h1>
-        <p className="max-w-lg mt-8 text-lg leading-super-tight text-white sm:text-xl/8 dark:text-gray-400">
+        <p className="max-w-lg mt-8 text-lg/5 text-white sm:text-xl/6">
           ENCONTRÁNDOME GENTE, COSAS QUE HACER Y LUGARES INTERESANTES, MIENTRAS
-          ESCAPO DEL ABURRIMIENTO Y DE PROGRAMAR SIN PARAR.
+          ESCAPO DE LA PANTALLA Y DE LAS LÍNEAS DE CÓDIGO.
         </p>
       </div>
     </div>

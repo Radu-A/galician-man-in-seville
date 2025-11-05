@@ -9,7 +9,6 @@ import {
 import { XMarkIcon } from "@heroicons/react/24/outline"; // Icono de cerrar
 
 import LogoDarkMd from "../assets/logo/logo-dark-md.png"; // Recurso Local
-import LogoLightMd from "../assets/logo/logo-light-md.png"; // Recurso Local
 
 export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
   return (
@@ -47,7 +46,7 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
         leaveFrom="translate-x-0" // Sale desde la posición normal (x=0)
         leaveTo="translate-x-full" // Termina moviéndose hacia la derecha (fuera de la vista)
       >
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:sm:ring-gray-100/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             {/* Logo, también le agregamos la función para cerrar */}
             <Link
@@ -56,29 +55,20 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Un Gallego por Sevilla</span>
-              <img
-                alt="logo"
-                src={LogoDarkMd}
-                className="h-11 w-auto dark:hidden"
-              />
-              <img
-                alt="logo"
-                src={LogoLightMd}
-                className="h-11 w-auto not-dark:hidden"
-              />
+              <img alt="logo" src={LogoDarkMd} className="h-11 w-auto" />
             </Link>
             {/* Botón de cerrar */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-400 cursor-pointer"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700 cursor-pointer"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
             </button>
           </div>
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-gray-500/10 dark:divide-white/10">
+            <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3"></Disclosure>
 
@@ -86,11 +76,11 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block px-3 py-2 text-base/7 hover:bg-gray-50"
                 >
                   <span
                     className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
-                    hover:text-neutral-900 dark:hover:text-neutral-200 
+                    hover:text-neutral-900 
                     after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
                     after:bg-neutral-900 after:transition-all after:duration-300
                     hover:after:w-full"
@@ -103,11 +93,11 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/dashboard"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50"
                 >
                   <span
                     className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
-                    hover:text-neutral-900 dark:hover:text-neutral-200 
+                    hover:text-neutral-900 
                     after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
                     after:bg-neutral-900 after:transition-all after:duration-300
                     hover:after:w-full"
@@ -120,11 +110,11 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/about"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50"
                 >
                   <span
                     className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
-                    hover:text-neutral-900 dark:hover:text-neutral-200 
+                    hover:text-neutral-900 
                     after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
                     after:bg-neutral-900 after:transition-all after:duration-300
                     hover:after:w-full"
@@ -138,11 +128,11 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/Contact"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50"
                 >
                   <span
                     className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
-                    hover:text-neutral-900 dark:hover:text-neutral-200 
+                    hover:text-neutral-900 
                     after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
                     after:bg-neutral-900 after:transition-all after:duration-300
                     hover:after:w-full"

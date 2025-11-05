@@ -10,7 +10,7 @@ import MobileMenu from "../components/MobileMenu";
 
 // 4. Importaciones Recursos/Assets
 import LogoDarkMd from "../assets/logo/logo-dark-md.png";
-import LogoLightMd from "../assets/logo/logo-light-md.png";
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -24,12 +24,7 @@ export default function Header() {
         <div className="flex md:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Un Gallego por Sevilla</span>
-            <img alt="logo" src={LogoDarkMd} className="h-11 w-auto dark:hidden" />
-            <img
-              alt="logo"
-              src={LogoLightMd}
-              className="h-11 w-auto not-dark:hidden"
-            />
+            <img alt="logo" src={LogoDarkMd} className="h-11 w-auto" />
           </Link>
         </div>
         {/* Dropdown Button */}
@@ -37,7 +32,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="inline-flex items-center justify-center p-2.5 bg-white dark:text-gray-400 cursor-pointer"
+            className="inline-flex items-center justify-center p-2.5 bg-white cursor-pointer"
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
@@ -48,39 +43,60 @@ export default function Header() {
           <div className="flex gap-4 bg-white p-3">
             <Link
               to="/"
-              className="text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
-             // Efecto hover: color de texto destacado, ligero subrayado animado
-             hover:text-neutral-900 dark:hover:text-neutral-200 
-             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
-             hover:after:w-full"
+              className="text-center text-md relative 
+              transition-colors duration-300 
+              /* Solo transiciona el color en el padre */
+              hover:text-neutral-900 
+              /* El subrayado */
+              after:content-[''] after:absolute after:bottom-0 after:left-0 
+              after:h-[2px] after:w-full
+              after:bg-neutral-900 
+              after:scale-x-0
+              after:origin-center
+              after:transition-transform after:duration-300 after:ease-out
+              hover:after:scale-x-100"
             >
               INICIO
             </Link>
             <Link
               to="/dashboard"
-              className="text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
-             // Efecto hover: color de texto destacado, ligero subrayado animado
-             hover:text-neutral-900 dark:hover:text-neutral-200 
-             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
-             hover:after:w-full"
+              className="text-center text-md relative 
+              transition-colors duration-300 
+              /* Solo transiciona el color en el padre */
+              hover:text-neutral-900 
+              /* El subrayado */
+              after:content-[''] after:absolute after:bottom-0 after:left-0 
+              after:h-[2px] after:w-full
+              after:bg-neutral-900 
+              after:scale-x-0
+              after:origin-center
+              after:transition-transform after:duration-300 after:ease-out
+              hover:after:scale-x-100"
             >
               TABLERO
             </Link>
             <Link
               to="/about"
-              className="text-center text-md dark:text-neutral-200 transition-all duration-300 relative 
-             // Efecto hover: color de texto destacado, ligero subrayado animado
-             hover:text-neutral-900 dark:hover:text-neutral-200 
-             after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
-             hover:after:w-full"
+              className="text-center text-md relative 
+              transition-colors duration-300 
+              /* Solo transiciona el color en el padre */
+              hover:text-neutral-900 
+              /* El subrayado */
+              after:content-[''] after:absolute after:bottom-0 after:left-0 
+              after:h-[2px] after:w-full
+              after:bg-neutral-900 
+              after:scale-x-0
+              after:origin-center
+              after:transition-transform after:duration-300 after:ease-out
+              hover:after:scale-x-100"
             >
               SOBRE MÍ
             </Link>
           </div>
         </PopoverGroup>
         <div className="hidden md:flex md:flex-1 md:justify-end">
-          <Link to="/contact" className="text-md bg-white p-2 dark:text-white">
-            <span>CONTACTO &rarr;</span>
+          <Link to="/contact" className="text-md bg-white p-2">
+            <span>CONTACTO</span>
           </Link>
         </div>
       </nav>

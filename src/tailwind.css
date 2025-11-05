@@ -7,7 +7,7 @@
 
 @layer base {
   html {
-    @apply text-neutral-700 tracking-tighter bg-white dark:bg-gray-900 dark:text-gray-200;
+    @apply text-neutral-700 tracking-tighter text-pretty bg-white;
   }
 
   body {
@@ -19,9 +19,15 @@
 
 /* Define la animación de rotación en el Eje X */
 @keyframes flip-x {
-  0% { transform: perspective(800px) rotateX(0deg); }
-  50% { transform: perspective(800px) rotateX(180deg); }
-  100% { transform: perspective(800px) rotateX(360deg); }
+  0% {
+    transform: perspective(800px) rotateX(0deg);
+  }
+  50% {
+    transform: perspective(800px) rotateX(180deg);
+  }
+  100% {
+    transform: perspective(800px) rotateX(360deg);
+  }
 }
 
 /* Aplica la propiedad 3D a la capa base */

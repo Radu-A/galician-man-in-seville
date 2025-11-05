@@ -1,4 +1,4 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { getPhotos } from "../firebase/getData";
 import { deletePhoto } from "../firebase/deleteData";
@@ -7,7 +7,7 @@ import Modal from "../components/Modal";
 import UploadPhotoForm from "../components/UploadPhotoForm";
 import DeleteConfirmationModal from "../components/DeleteConfirmationModel"; // Check file name case
 
-export default function Album() {
+export default function AlbumView() {
   // 1. STATE & HOOKS
   const { state: album } = useLocation();
   const [photos, setPhotos] = useState(null);
@@ -87,43 +87,31 @@ export default function Album() {
     );
   }
 
+  // 5. MAIN RENDER
   return (
-    <section className="mt-24 mb-18 pt-6 sm:pt-12">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="w-full flex justify-start mb-4">
-          <Link to="/dashboard" className="pt-2 cursor-pointer">
-            <span
-              className="relative text-xl hover:text-neutral-900 
-			 after:content-[''] after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
-			 hover:after:w-full"
+    <>
+      <section className="mx-auto max-w-7xl mt-24 px-6 pt-6 sm:pt-12 lg:px-8">
+        {/* Header and Upload Button */}
+        <div className="grid grid-cols-[1fr_auto] gap-5">
+          <div className="col-1 mx-auto max-w-2xl lg:mx-0">
+            <h4 className="text-2xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-3xl">
+              {album.title.toUpperCase()}
+            </h4>
+            <p className="mt-2 text-lg text-gray-600">{album.description}</p>
+          </div>
+          <div className="col-2 flex justify-end items-end">
+            <button
+              onClick={openUploadModal}
+              className="size-18 rounded-2xl bg-white shadow-md flex items-center justify-center text-gray-600 hover:shadow-lg hover:bg-gray-50 transition cursor-pointer"
             >
-              &larr; VOLVER
-            </span>
-          </Link>
-        </div>
-        <div className="col-1 mx-auto pb-3 border-b border-neutral-700 lg:mx-0">
-          <h3>ÁLBUM</h3>
-          <h2 className="text-5xl tracking-tighter font-light sm:text-7xl/15">
-            {album.title.toUpperCase()}
-          </h2>
-          <p className="mt-2 text-lg tracking-tighter font-light text-neutral-500">
-            {album.description}
-          </p>
+              <img src="icons/add-555.svg" alt="Add photo" />
+            </button>
+          </div>
         </div>
 
-        <div className="w-full flex justify-end">
-          <button onClick={openUploadModal} className="pt-2 cursor-pointer">
-            <span
-              className="relative hover:text-neutral-900 
-			 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
-			 hover:after:w-full"
-            >
-              SUBIR FOTO &rarr;
-            </span>
-          </button>
-        </div>
+        {/* Photo Board */}
         <PhotoBoard photos={photos} onDelete={handlePhotoDelete} />
-      </div>
+      </section>
 
       {/* Upload Modal */}
       <Modal open={isUploadModalOpen} onClose={closeUploadModal}>
@@ -138,6 +126,6 @@ export default function Album() {
           onConfirm={handleDeleteConfirmed}
         />
       </Modal>
-    </section>
+    </>
   );
 }
