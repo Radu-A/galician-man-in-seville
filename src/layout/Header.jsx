@@ -40,7 +40,7 @@ export default function Header() {
         </div>
         {/* Menu */}
         <PopoverGroup className="hidden md:flex lg:gap-x-12">
-          <div className="flex gap-4 bg-white p-3">
+          <div className="flex gap-4 bg-white py-3 px-5">
             <Link
               to="/"
               className="text-center text-md relative 
