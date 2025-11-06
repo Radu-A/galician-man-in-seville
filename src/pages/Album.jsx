@@ -106,7 +106,7 @@ export default function Album() {
           <h2 className="text-5xl tracking-tighter font-light sm:text-7xl/15">
             {album.title.toUpperCase()}
           </h2>
-          <p className="mt-2 text-lg tracking-tighter font-light text-neutral-500">
+          <p className="mt-2 pt-1 text-lg/5 tracking-tighter font-light text-neutral-500">
             {album.description}
           </p>
         </div>

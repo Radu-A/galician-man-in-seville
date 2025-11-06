@@ -11,14 +11,14 @@ export default function Dashboard() {
     <section className="mt-24 mb-18 pt-6 sm:pt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="col-1 mx-auto pb-3 border-b border-neutral-700 lg:mx-0">
-          <h2 className="text-5xl tracking-tighter font-light sm:text-7xl/15">
+          <h2 className="text-5xl/10 tracking-tighter font-light sm:text-7xl/15">
             MIS HALLAZGOS
             <br />
             POR
             <br />
             SEVILLA
           </h2>
-          <p className="mt-2 text-lg tracking-tighter font-light text-neutral-500">
+          <p className="mt-2 pt-1 text-lg/5 tracking-tighter font-light text-neutral-500">
             UNA RECOPILACIÓN VISUAL DE LUGARES, DETALLES Y MOMENTOS QUE ME
             INSPIRAN A SEGUIR VIAJANDO.
           </p>
