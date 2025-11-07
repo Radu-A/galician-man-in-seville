@@ -1,10 +1,17 @@
+import React, { useEffect, useState } from "react";
 import { Trash2 } from "lucide-react";
 
+import { getPhotoUrl } from "../firebase/getData";
+
 export default function PhotoCard({ photo, onDelete }) {
-  // Guard clause to prevent rendering if critical data is missing.
-  if (!photo?.url || !photo?.id) {
-    return null;
-  }
+  const [photoUrl, setPhotoUrl] = useState(null);
+
+  const fetchUrl = async () => {
+    const url = await getPhotoUrl(photo?.storagePath);
+    if (url) {
+      setPhotoUrl(url);
+    }
+  };
 
   const handleDelete = (e) => {
     // Stops click event from propagating to the parent article (preventing unwanted actions).
@@ -14,13 +21,24 @@ export default function PhotoCard({ photo, onDelete }) {
     onDelete(photo);
   };
 
+  useEffect(() => {
+    if (photo?.storagePath) {
+      fetchUrl();
+    }
+  }, [photo]);
+
+  // Guard clause to prevent rendering if critical data is missing.
+  if (!photo?.storagePath) {
+    return null;
+  }
+
   return (
     <article
       key={photo.id}
-      className="relative group mb-4 break-inside-avoid overflow-hidden transition-all duration-500 hover:scale-[1.02]"
+      className="relative group mb-4 break-inside-avoid overflow-hidden rounded-xl transition-all duration-500 hover:scale-[1.02]"
     >
       {/* Delete Button (Visible on Hover) */}
-      {/* <button
+      <button
         onClick={handleDelete}
         // Tailwind classes for positioning, styling, and hover effect
         className="absolute top-3 right-3 p-1.5 z-20 
@@ -31,17 +49,13 @@ export default function PhotoCard({ photo, onDelete }) {
         aria-label={`Eliminar foto: ${photo.title}`}
         title="Eliminar foto"
       >
-        <Trash2 className="w-5 h-5 text-white" />
-      </button> */}
-      <button className="absolute top-3 right-3 p-1.5 z-20 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out
-                   cursor-pointer
-                   hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white">
-        X
+        <Trash2 className="w-5 h-5 text-white" /> {/* <-- Icono blanco */}
       </button>
+
       {/* Image Content */}
       <img
         // src is safe because of the initial guard clause
-        src={photo.url}
+        src={photoUrl}
         alt={photo.title || photo.comment || "Photo"}
         className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
       />
@@ -51,9 +65,7 @@ export default function PhotoCard({ photo, onDelete }) {
 
       {/* Text Overlay (Appears on Hover) */}
       <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <h4 className="text-white tracking-tighter font-light leading-5">
-          {photo.comment}
-        </h4>
+        <h4 className="text-white text-base font-semibold">{photo.comment}</h4>
       </div>
     </article>
   );

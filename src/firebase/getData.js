@@ -1,11 +1,17 @@
 import { collection, query, where, getDocs } from "firebase/firestore";
-import db from "./firebaseConfig.js";
+import { db, storage } from "./firebaseConfig.js";
+import { ref, getDownloadURL } from "firebase/storage";
 
 // Get a list of posts from db
 const getAlbums = async () => {
-  const albumCol = collection(db, "posts");
+  const albumCol = collection(db, "albums");
   const albumSnapshot = await getDocs(albumCol);
-  const albumList = albumSnapshot.docs.map((doc) => doc.data());
+  const albumList = albumSnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+  console.log(albumList);
+
   return albumList;
 };
 
@@ -23,8 +29,8 @@ const getPhotos = async (albumId) => {
 
     // 4. Map the documents to a list, including the document ID
     const photoList = photoSnapshot.docs.map((doc) => ({
-      ...doc.data(),
       id: doc.id, // 💡 IMPORTANT: Ensure the document ID is included here
+      ...doc.data(),
     }));
 
     console.log(
@@ -44,8 +50,34 @@ const getPhotos = async (albumId) => {
   }
 };
 
+/**
+ * Obtiene la URL de descarga pública de una foto en Firebase Storage.
+ * * @param {string} storagePath - La ruta interna del archivo en el bucket (ej: 'fotos/ID/foto.jpg').
+ * @returns {Promise<string|null>} La URL de descarga o null si hay un error.
+ */
+const getPhotoUrl = async (storagePath) => {
+  if (!storagePath) {
+    console.error("❌ ERROR: El storagePath está vacío o nulo.");
+    return null;
+  }
+
+  try {
+    // 1. Crear la referencia al archivo usando el storagePath
+    const photoRef = ref(storage, storagePath);
+
+    // 2. Obtener la URL de descarga con el token de acceso
+    const downloadUrl = await getDownloadURL(photoRef);
+
+    return downloadUrl;
+  } catch (error) {
+    // Es buena práctica devolver null o lanzar el error para que el llamador lo maneje.
+    console.error("❌ Error descargando la foto con path:", storagePath, error);
+    return null;
+  }
+};
+
 // getPosts()
 //   .then(() => console.log("✅ Todos los documentos cargados"))
 //   .catch(console.error);
 
-export { getAlbums, getPhotos };
+export { getAlbums, getPhotos, getPhotoUrl };

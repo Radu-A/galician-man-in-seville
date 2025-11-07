@@ -1,5 +1,5 @@
 import { collection, addDoc } from "firebase/firestore";
-import db from "./firebaseConfig.js";
+import { db } from "./firebaseConfig.js";
 
 /**
  * Adds a new photo document to the "photos" collection in Firestore.

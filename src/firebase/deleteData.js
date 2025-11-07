@@ -1,5 +1,5 @@
 import { doc, collection, deleteDoc } from "firebase/firestore";
-import db from "./firebaseConfig";
+import { db } from "./firebaseConfig";
 
 /**
  * Deletes a photo document from Firestore by its custom "id" field.

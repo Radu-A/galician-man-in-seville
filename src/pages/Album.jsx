@@ -22,7 +22,6 @@ export default function Album() {
     if (!album?.id) return;
     try {
       const res = await getPhotos(album.id);
-      console.log(res);
       setPhotos(res);
     } catch (error) {
       console.error("Error fetching photos:", error);
