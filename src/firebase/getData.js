@@ -10,7 +10,6 @@ const getAlbums = async () => {
     id: doc.id,
     ...doc.data(),
   }));
-  console.log(albumList);
 
   return albumList;
 };

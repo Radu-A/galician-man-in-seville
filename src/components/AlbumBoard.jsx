@@ -13,8 +13,6 @@ export default function AlbumBoard() {
     return <p>Cargando álbums...</p>; // o un spinner
   }
 
-  console.log(albumList);
-
   return (
     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
       {albumList.map((album) => (
