@@ -1,11 +1,12 @@
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, orderBy } from "firebase/firestore";
 import { db, storage } from "./firebaseConfig.js";
 import { ref, getDownloadURL } from "firebase/storage";
 
 // Get a list of posts from db
 const getAlbums = async () => {
-  const albumCol = collection(db, "albums");
-  const albumSnapshot = await getDocs(albumCol);
+  // const albumCol = collection(db, "albums");
+  const q = query(collection(db, "albums"), orderBy("datetime"));
+  const albumSnapshot = await getDocs(q);
   const albumList = albumSnapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
