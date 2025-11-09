@@ -3,8 +3,10 @@
 // Usamos un objeto Date de JavaScript, que Firestore convierte a Timestamp nativo.
 const INVENTED_DATE_1 = new Date("2025-10-28T10:00:00Z");
 const INVENTED_DATE_2 = new Date("2025-11-01T10:00:00Z");
+const INVENTED_DATE_3 = new Date("2025-11-03T10:00:00Z");
+const INVENTED_DATE_4 = new Date("2025-11-04T10:00:00Z");
 
-export const albums = [
+const albums = [
   {
     datetime: INVENTED_DATE_1,
     title: "Paseo por el río",
@@ -23,10 +25,28 @@ export const albums = [
       "gs://galician-man-in-seville.firebasestorage.app/1761280819472.jpg",
     category: "Parque",
   },
+  {
+    datetime: INVENTED_DATE_3,
+    title: "Judería",
+    description:
+      "El corazón de Sevilla. Los rincones más especiales y con más historia de la ciudad.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_111435.jpg",
+    category: "Parque",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    title: "Centro Andaluz De Arte Contemporáneo.",
+    description:
+      "Museo situado construido en una antigua fábrica de cerámica, rodeado de naturaleza y espacios a escala humana.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251012_124655.jpg",
+    category: "Parque",
+  },
 ];
 
 // Insertmany en album where title == "Paseo por el río."
-export const photos0 = [
+const photos0 = [
   {
     datetime: INVENTED_DATE_1,
     comment: "Monumento a la tolerancia.",
@@ -83,7 +103,7 @@ export const photos0 = [
   },
 ];
 
-export const photos1 = [
+const photos1 = [
   {
     datetime: INVENTED_DATE_2,
     comment: "Vista del público desde el patio.",
@@ -128,8 +148,123 @@ export const photos1 = [
   },
 ];
 
+const photos2 = [
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Muro de pintora desconchada.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130243.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Fuente esondida.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130342.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Puerta antigua de madera y metal.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130653.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Patio de naranjos.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_133529.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Rincón con puerta de metal y bicicleta.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_134939.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Ventana sobre pared de estilo regionalista.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_135438.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Bombardeo de pegatinas sobre placa.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_140500.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Juego de pintura sobre pibote.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_104215.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Naranjo solitario en la esquina de una plaza.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_110928.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "El rincón del beso.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_111435.jpg",
+  },
+];
+
+
+const photos3 = [
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Instalación color bronce en una ala de la capilla.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251012_124655.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Instalación azul en la nave central de la capilla.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251012_125010.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Patio escondido con enredaderas.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251012_135701.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Antiguo horno de cerámica.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_144920.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Estanque de piedra en el jardín.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_151344.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Calles de arbustos en el jardín.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_151421.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Reproductor analógico caminando.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_151735.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Puerta sobre muro de azulejos de estilo árabe.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130243.jpg",
+  },
+];
+
 // **NUEVO ARRAY que combina álbumes y sus fotos**
-export const albumData = [
+const albumData = [
   {
     // Primer álbum
     album: albums[0],
@@ -140,5 +275,18 @@ export const albumData = [
     album: albums[1],
     photos: photos1, // La lista de fotos para "Galería Taberna Ánima"
   },
+  {
+    // Tercer álbum
+    album: albums[2],
+    photos: photos2, // La lista de fotos para "Galería Taberna Ánima"
+  },
+  {
+    // Tercer álbum
+    album: albums[3],
+    photos: photos3, // La lista de fotos para "Galería Taberna Ánima"
+  },
   // Puedes añadir más objetos { album: ..., photos: ... } aquí
 ];
+
+
+export { albumData, albums, photos0, photos1, photos3 };
