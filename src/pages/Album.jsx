@@ -110,17 +110,17 @@ export default function Album() {
           </p>
         </div>
 
-        <div className="w-full flex justify-end">
+        {/* <div className="w-full flex justify-end">
           <button onClick={openUploadModal} className="pt-2 cursor-pointer">
             <span
               className="relative hover:text-neutral-900 
-			 after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
-			 hover:after:w-full"
+              after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
+              hover:after:w-full"
             >
               SUBIR FOTO &rarr;
             </span>
           </button>
-        </div>
+        </div> */}
         <PhotoBoard photos={photos} onDelete={handlePhotoDelete} />
       </div>
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Trash2 } from "lucide-react";
 
 import { getPhotoUrl } from "../firebase/getData";
@@ -35,10 +35,10 @@ export default function PhotoCard({ photo, onDelete }) {
   return (
     <article
       key={photo.id}
-      className="relative group mb-4 break-inside-avoid overflow-hidden rounded-xl transition-all duration-500 hover:scale-[1.02]"
+      className="relative group mb-4 break-inside-avoid overflow-hidden rounded-sm transition-all duration-500 hover:scale-[1.02]"
     >
       {/* Delete Button (Visible on Hover) */}
-      <button
+      {/* <button
         onClick={handleDelete}
         // Tailwind classes for positioning, styling, and hover effect
         className="absolute top-3 right-3 p-1.5 z-20 
@@ -49,8 +49,8 @@ export default function PhotoCard({ photo, onDelete }) {
         aria-label={`Eliminar foto: ${photo.title}`}
         title="Eliminar foto"
       >
-        <Trash2 className="w-5 h-5 text-white" /> {/* <-- Icono blanco */}
-      </button>
+        <Trash2 className="w-5 h-5 text-white" />
+      </button> */}
 
       {/* Image Content */}
       <img
@@ -65,7 +65,7 @@ export default function PhotoCard({ photo, onDelete }) {
 
       {/* Text Overlay (Appears on Hover) */}
       <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <h4 className="text-white text-base font-semibold">{photo.comment}</h4>
+        <h4 className="text-white tracking-tighter font-light sm:text-lg">{photo.comment}</h4>
       </div>
     </article>
   );

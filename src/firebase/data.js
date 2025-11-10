@@ -5,6 +5,7 @@ const INVENTED_DATE_1 = new Date("2025-10-28T10:00:00Z");
 const INVENTED_DATE_2 = new Date("2025-11-01T10:00:00Z");
 const INVENTED_DATE_3 = new Date("2025-11-03T10:00:00Z");
 const INVENTED_DATE_4 = new Date("2025-11-04T10:00:00Z");
+const INVENTED_DATE_5 = new Date("2025-11-09T10:00:00Z");
 
 const albums = [
   {
@@ -23,7 +24,7 @@ const albums = [
       "Taberna clásica andaluza, deconstruida y transformada en bar cultural.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/1761280819472.jpg",
-    category: "Parque",
+    category: "Local",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -32,7 +33,7 @@ const albums = [
       "El corazón de Sevilla. Los rincones más especiales y con más historia de la ciudad.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_111435.jpg",
-    category: "Parque",
+    category: "Lugar",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -41,7 +42,16 @@ const albums = [
       "Museo situado construido en una antigua fábrica de cerámica, rodeado de naturaleza y espacios a escala humana.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251012_124655.jpg",
-    category: "Parque",
+    category: "Museo",
+  },
+  {
+    datetime: INVENTED_DATE_5,
+    title: "Mercado de Abastos de la Calle Feria.",
+    description:
+      "Mercado del siglo XVIII, rehabilitado para albergar establecimientos modernos, como cervecerías o espacios gourmet.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151827.jpg",
+    category: "Museo",
   },
 ];
 
@@ -211,7 +221,6 @@ const photos2 = [
   },
 ];
 
-
 const photos3 = [
   {
     datetime: INVENTED_DATE_4,
@@ -259,7 +268,70 @@ const photos3 = [
     datetime: INVENTED_DATE_4,
     comment: "Puerta sobre muro de azulejos de estilo árabe.",
     storagePath:
-      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130243.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_153111.jpg",
+  },
+];
+
+const photos4 = [
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Puestos separados por una valla.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151249-EDIT.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Pasillo con acceso a puestos.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151523-EDIT.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Ventana a tienda de artesanía.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151827.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "No fumar.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152236 (1).jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Plano general de la entrada al mercado.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152605-EDIT.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Utensilios de limpieza.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152639-EDIT.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Carteles sobre la puerta de entrada.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_153943-EDIT.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Hasta la cocina del Bar Condendê.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_155612-EDIT.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Para sentarse un ratito.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_161101.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_4,
+    comment: "Parte trasera.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_162440-EDIT.jpg",
   },
 ];
 
@@ -281,12 +353,15 @@ const albumData = [
     photos: photos2, // La lista de fotos para "Galería Taberna Ánima"
   },
   {
-    // Tercer álbum
+    // Cuarto álbum
     album: albums[3],
     photos: photos3, // La lista de fotos para "Galería Taberna Ánima"
   },
-  // Puedes añadir más objetos { album: ..., photos: ... } aquí
+  {
+    // Quinto álbum
+    album: albums[4],
+    photos: photos4, // La lista de fotos para "Galería Taberna Ánima"
+  },
 ];
-
 
 export { albumData, albums, photos0, photos1, photos3 };
