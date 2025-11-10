@@ -7,7 +7,7 @@ export default function PhotoCard({ photo, onDelete }) {
   const [photoUrl, setPhotoUrl] = useState(null);
 
   const fetchUrl = async () => {
-    const url = await getPhotoUrl(photo?.storagePath);
+    const url = await getPhotoUrl(photo?.thumbnail);
     if (url) {
       setPhotoUrl(url);
     }
@@ -22,7 +22,7 @@ export default function PhotoCard({ photo, onDelete }) {
   };
 
   useEffect(() => {
-    if (photo?.storagePath) {
+    if (photo?.thumbnail) {
       fetchUrl();
     }
   }, [photo]);

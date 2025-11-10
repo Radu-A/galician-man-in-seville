@@ -33,7 +33,7 @@ export default function Dashboard() {
         </motion.div>
 
         {/* Botón */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
@@ -49,7 +49,7 @@ export default function Dashboard() {
               CREAR ÁLBUM &rarr;
             </span>
           </button>
-        </motion.div>
+        </motion.div> */}
 
         {/* Tablero de álbumes */}
         <AlbumBoard />
