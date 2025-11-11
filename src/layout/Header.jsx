@@ -95,8 +95,16 @@ export default function Header() {
           </div>
         </PopoverGroup>
         <div className="hidden md:flex md:flex-1 md:justify-end">
-          <Link to="/contact" className="text-md bg-white p-2">
-            <span>CONTACTO</span>
+          <Link
+            to="/contact"
+            className="relative w-22 h-4.5 overflow-hidden text-md bg-white p-2 group"
+          >
+            <span className="absolute top-0 left-0 leading-5  duration-300 group-hover:-translate-y-4.5">
+              CONTACTO
+            </span>
+            <span className="absolute top-3 left-0 leading-5  text-neutral-400 duration-300 group-hover:top-0">
+              CONTACTO
+            </span>
           </Link>
         </div>
       </nav>
