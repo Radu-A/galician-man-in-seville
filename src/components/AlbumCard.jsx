@@ -38,16 +38,14 @@ export default function AlbumCard({ album }) {
         />
       </div>
 
-      {/* Texto */}
+      {/* Línea animada */}
+      <div className="h-[1.5px] bg-neutral-900 scale-x-0 origin-center transition-transform duration-300 ease-out group-hover:scale-x-100"></div>
+
+      {/* Título */}
       <div>
-        <h3 className="text-3xl tracking-tighter font-light">
+        <h3 className="text-3xl tracking-tighter font-light group-hover:text-black">
           {album.title.toUpperCase()} &rarr;
         </h3>
-        {/* 
-        <p className="text-sm text-gray-200 line-clamp-2">
-          {album.description}
-        </p> 
-        */}
       </div>
     </article>
   );

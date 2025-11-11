@@ -37,7 +37,7 @@ const albums = [
   },
   {
     datetime: INVENTED_DATE_4,
-    title: "Centro Andaluz De Arte Contemporáneo.",
+    title: "Centro Andaluz De Arte Contemporáneo",
     description:
       "Museo situado construido en una antigua fábrica de cerámica, rodeado de naturaleza y espacios a escala humana.",
     storagePath:
@@ -46,7 +46,7 @@ const albums = [
   },
   {
     datetime: INVENTED_DATE_5,
-    title: "Mercado de Abastos de la Calle Feria.",
+    title: "Mercado de Abastos de la Calle Feria",
     description:
       "Mercado del siglo XVIII, rehabilitado para albergar establecimientos modernos, como cervecerías o espacios gourmet.",
     storagePath:
