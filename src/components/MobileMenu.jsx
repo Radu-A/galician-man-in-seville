@@ -69,23 +69,20 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
           </div>
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
+              <div className="flex flex-col gap-7 py-6">
                 <Disclosure as="div" className="-mx-3"></Disclosure>
 
                 {/* ENLACE MODIFICADO: Inicio */}
                 <Link
                   to="/"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block px-3 py-2 text-base/7 hover:bg-gray-50"
+                  className="relative w-12 h-5 overflow-hidden p-2 group"
                 >
-                  <span
-                    className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
-                    hover:text-neutral-900 
-                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
-                    after:bg-neutral-900 after:transition-all after:duration-300
-                    hover:after:w-full"
-                  >
-                    INICIO &rarr;
+                  <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                    INICIO
+                  </span>
+                  <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                    INICIO
                   </span>
                 </Link>
 
@@ -93,16 +90,13 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/dashboard"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50"
+                  className="relative w-15 h-5 overflow-hidden p-2 group"
                 >
-                  <span
-                    className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
-                    hover:text-neutral-900 
-                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
-                    after:bg-neutral-900 after:transition-all after:duration-300
-                    hover:after:w-full"
-                  >
-                    TABLERO &rarr;
+                  <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                    TABLERO
+                  </span>
+                  <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                    TABLERO
                   </span>
                 </Link>
 
@@ -110,16 +104,13 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Link
                   to="/about"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50"
+                  className="relative w-18 h-5 overflow-hidden p-2 group"
                 >
-                  <span
-                    className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
-                    hover:text-neutral-900 
-                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
-                    after:bg-neutral-900 after:transition-all after:duration-300
-                    hover:after:w-full"
-                  >
-                    SOBRE MÍ &rarr;
+                  <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                    SOBRE MÍ
+                  </span>
+                  <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                    SOBRE MÍ
                   </span>
                 </Link>
               </div>

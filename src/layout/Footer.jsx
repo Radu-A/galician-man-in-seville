@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-// 1. Importaciones de recursos de iconos/logo
+// Importaciones de recursos
 import WebIcon from "../assets/icons/icon-vo.png";
 import GitHubIcon from "../assets/icons/icon-github.png";
 import LinkedInIcon from "../assets/icons/icon-linkedin.png";
@@ -21,62 +21,49 @@ export default function Footer() {
             />
           </div>
 
-          {/* NAVEGACIÓN PRINCIPAL (Simplificado: ¡Menos divs!) */}
-          {/* Se elimina el <div> que envolvía los <Link>s */}
-          <nav className="hidden sm:flex gap-6">
+          {/* NAVEGACIÓN PRINCIPAL */}
+          <nav className="hidden sm:flex gap-6 bg-white">
+            {/* INICIO */}
             <Link
               to="/"
-              // Se eliminan clases innecesarias como col-span-2 y sm:col-span-1
-              className="text-center text-md transition-all duration-300 relative 
-              /* Solo transiciona el color en el padre */
-              hover:text-neutral-900 
-              /* El subrayado */
-              after:content-[''] after:absolute after:bottom-0 after:left-0 
-              after:h-[1px] after:w-full
-              after:bg-neutral-900 
-              after:scale-x-0
-              after:origin-center
-              after:transition-transform after:duration-300 after:ease-out
-              hover:after:scale-x-100"
+              className="relative w-12 h-5 overflow-hidden text-md bg-white p-2 group"
             >
-              INICIO
+              <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                INICIO
+              </span>
+              <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                INICIO
+              </span>
             </Link>
+
+            {/* TABLERO */}
             <Link
               to="/dashboard"
-              className="text-center text-md transition-all duration-300 relative 
-              /* Solo transiciona el color en el padre */
-              hover:text-neutral-900 
-              /* El subrayado */
-              after:content-[''] after:absolute after:bottom-0 after:left-0 
-              after:h-[1px] after:w-full
-              after:bg-neutral-900 
-              after:scale-x-0
-              after:origin-center
-              after:transition-transform after:duration-300 after:ease-out
-              hover:after:scale-x-100"
+              className="relative w-16 h-5 overflow-hidden text-md bg-white p-2 group"
             >
-              TABLERO
+              <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                TABLERO
+              </span>
+              <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                TABLERO
+              </span>
             </Link>
+
+            {/* SOBRE MÍ */}
             <Link
               to="/about"
-              className="text-center text-md transition-all duration-300 relative 
-              /* Solo transiciona el color en el padre */
-              hover:text-neutral-900 
-              /* El subrayado */
-              after:content-[''] after:absolute after:bottom-0 after:left-0 
-              after:h-[1px] after:w-full
-              after:bg-neutral-900 
-              after:scale-x-0
-              after:origin-center
-              after:transition-transform after:duration-300 after:ease-out
-              hover:after:scale-x-100"
+              className="relative w-20 h-5 overflow-hidden text-md bg-white p-2 group"
             >
-              SOBRE MÍ
+              <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                SOBRE MÍ
+              </span>
+              <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                SOBRE MÍ
+              </span>
             </Link>
           </nav>
 
-          {/* ICONOS DE REDES SOCIALES (El contenedor <ul> ya es suficiente) */}
-          {/* Se eliminan las clases col-span-2 y lg:col-span-6 que no tienen efecto aquí */}
+          {/* ICONOS DE REDES SOCIALES */}
           <ul className="flex justify-end gap-6">
             <li>
               <a
@@ -89,7 +76,6 @@ export default function Footer() {
                 <img className="size-6" src={WebIcon} alt="CV Web Icon" />
               </a>
             </li>
-            {/* ... (Otros iconos de GitHub y LinkedIn) ... */}
             <li>
               <a
                 href="https://github.com/Radu-A"
@@ -119,17 +105,14 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* SECCIÓN DE COPYRIGHT Y LEGAL */}
+        {/* COPYRIGHT Y LEGAL */}
         <div className="mt-3 border-t border-gray-100 pt-3">
           <div className="text-sm/4 md:flex md:justify-between">
-            {/* Copyright */}
             <p className="text-gray-500 text-center md:text-left">
               &copy; 2025 | Un Gallego por Sevilla | Todos los derechos
               reservados.
             </p>
 
-            {/* Enlaces Legales */}
-            {/* Se elimina la clase lg:justify-end ya que justify-end en md es suficiente */}
             <ul className="mt-3 flex flex-wrap justify-center gap-4 md:mt-0 md:justify-end">
               <li>
                 <a

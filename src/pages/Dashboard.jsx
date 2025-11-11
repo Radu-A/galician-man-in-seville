@@ -28,7 +28,7 @@ export default function Dashboard() {
           </h2>
           <p className="mt-2 pt-1 text-lg/5 tracking-tighter font-light text-neutral-500">
             UNA RECOPILACIÓN VISUAL DE LUGARES, DETALLES Y MOMENTOS QUE ME
-            INSPIRAN A SEGUIR VIAJANDO.
+            INSPIRAN A SEGUIR BUSCANDO.
           </p>
         </motion.div>
 

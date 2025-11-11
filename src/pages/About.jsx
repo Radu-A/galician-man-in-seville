@@ -34,9 +34,9 @@ export default function About() {
     },
     {
       title: "¿POR QUÉ DESARROLLO WEB?",
-      text: `Como muchos, me acerqué a la programación por la gran oferta
+      text: `Como la mayoría, me acerqué a la programación por la gran oferta
       laboral del sector y la posibilidad de mejorar profesionalmente.
-      Pero al adentrarme, descubrí algo más interesante: la conexión
+      Pero al adentrarme, descubrí la conexión
       entre la programación, el diseño estético y la experiencia del
       usuario. Esa mezcla tiene un componente casi artístico que
       disfruto mucho. También me fascina construir pequeños fragmentos
