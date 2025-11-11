@@ -13,7 +13,7 @@ export default function ContactForm() {
     <>
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 gap-4 md:grid-cols-2 w-full py-8"
+        className="grid grid-cols-1 w-full py-8 gap-4 md:grid-cols-2 lg:col-2"
       >
         {/* --- Campo Nombre --- */}
         <div className="relative mb-6">
