@@ -39,15 +39,9 @@ export default function About() {
       completo: una máquina viva que funciona gracias a cada pieza.`,
     },
     {
-      title: "¿QUÉ TIPOS DE PROYECTOS ME INTERESAN?",
-      text: `Busco proyectos que pongan a prueba mis habilidades y me ayuden a mejorar mi sentido estético. Me atrae la idea de crear
-      experiencias agradables para el usuario, tanto por su diseño
-      como por su usabilidad.`,
-    },
-    {
       title: "¿QUÉ HAGO CUANDO NO PROGRAMO?",
       text: `Soy una persona muy curiosa, siempre en busca de nuevas
-      experiencias. Disfruto mucho de viajar, explorar y guardar
+      experiencias. Me fascina viajar, explorar y guardar
       recuerdos de esos lugares, muchas veces en forma de fotografías
       que, con mayor o menor acierto, reflejan mi forma de ver el
       mundo.`,
