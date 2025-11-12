@@ -13,30 +13,51 @@ export default function Contact() {
         </p>
         <ContactForm></ContactForm>
         <div className="hidden row-3 space-y-3 text-neutral-700 font-light text-lg lg:flex lg:flex-col">
-          <a
-            href="https://victor-outeiro.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-black transition"
-          >
-            Sitio web personal &rarr;
-          </a>
-          <a
-            href="https://github.com/Radu-A"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-black transition"
-          >
-            GitHub &rarr;
-          </a>
-          <a
-            href="https://www.linkedin.com/in/victor-outeiro/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-black transition"
-          >
-            LinkedIn &rarr;
-          </a>
+          <div>
+            <a
+              href="https://victor-outeiro.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative hover:text-black transition
+                after:absolute after:content-[' '] 
+                after:-bottom-1 after:left-0 after:bg-black 
+                after:w-0 after:h-[1px]
+                after:transition-all duration-300
+                hover:after:w-full"
+            >
+              Sitio web personal &rarr;
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://github.com/Radu-A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative hover:text-black transition
+                after:absolute after:content-[' '] 
+                after:-bottom-1 after:left-0 after:bg-black 
+                after:w-0 after:h-[1px]
+                after:transition-all duration-300
+                hover:after:w-full"
+            >
+              GitHub &rarr;
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://www.linkedin.com/in/victor-outeiro/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative hover:text-black transition
+                after:absolute after:content-[' '] 
+                after:-bottom-1 after:left-0 after:bg-black 
+                after:w-0 after:h-[1px]
+                after:transition-all duration-300
+                hover:after:w-full"
+            >
+              LinkedIn &rarr;
+            </a>
+          </div>
           <p className="text-neutral-500">victorouteiro@gmail.com</p>
         </div>
       </div>

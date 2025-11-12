@@ -83,9 +83,9 @@ export default function Header() {
         <div className="hidden md:flex md:flex-1 md:justify-end">
           <Link
             to="/contact"
-            className="text-center text-md relative hover:text-neutral-900 
+            className="text-center text-md relative hover:text-black 
               after:content-[''] after:absolute after:-bottom-1 after:left-0 
-              after:h-[1px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
+              after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300
               hover:after:w-full"
           >
             CONTACTO &rarr;
