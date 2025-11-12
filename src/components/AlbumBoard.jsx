@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
 import AlbumCard from "./AlbumCard";
 import { getAlbums } from "../firebase/getData";
 
@@ -42,7 +42,7 @@ export default function AlbumBoard() {
           // 4. --- ¡LA MAGIA ESTÁ AQUÍ! ---
           transition={{
             duration: 0.5,
-            ease: "easeOut",
+            ease: easeOut,
             // 'index % 3' nos da la columna (0, 1, o 2)
             // Lo multiplicamos por un pequeño retraso (100ms)
             delay: (index % 3) * 0.1,

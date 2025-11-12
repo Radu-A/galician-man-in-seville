@@ -33,25 +33,7 @@ export default function PhotoCard({ photo, onDelete }) {
   }
 
   return (
-    <article
-      key={photo.id}
-      className="relative group mb-4 break-inside-avoid overflow-hidden rounded-sm transition-all duration-500 hover:scale-[1.02]"
-    >
-      {/* Delete Button (Visible on Hover) */}
-      {/* <button
-        onClick={handleDelete}
-        // Tailwind classes for positioning, styling, and hover effect
-        className="absolute top-3 right-3 p-1.5 z-20 
-                   bg-transparent rounded-lg shadow-lg border border-white // <-- Fondo transparente y borde blanco
-                   opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out
-                   cursor-pointer
-                   hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-white" // <-- Efecto hover y focus adaptados
-        aria-label={`Eliminar foto: ${photo.title}`}
-        title="Eliminar foto"
-      >
-        <Trash2 className="w-5 h-5 text-white" />
-      </button> */}
-
+    <article className="relative group mb-4 break-inside-avoid overflow-hidden rounded-sm transition-all duration-500 hover:scale-[1.02]">
       {/* Image Content */}
       <img
         // src is safe because of the initial guard clause
@@ -65,7 +47,9 @@ export default function PhotoCard({ photo, onDelete }) {
 
       {/* Text Overlay (Appears on Hover) */}
       <div className="absolute inset-0 flex flex-col justify-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <h4 className="text-white tracking-tighter font-light sm:text-lg">{photo.comment}</h4>
+        <h4 className="text-white tracking-tighter font-light sm:text-lg">
+          {photo.comment}
+        </h4>
       </div>
     </article>
   );

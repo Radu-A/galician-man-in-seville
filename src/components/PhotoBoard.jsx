@@ -1,3 +1,4 @@
+import { div } from "framer-motion/client";
 import PhotoCard from "./PhotoCard";
 
 export default function PhotoBoard({ photos, onDelete }) {
@@ -6,7 +7,9 @@ export default function PhotoBoard({ photos, onDelete }) {
   return (
     <div className="columns-1 sm:columns-2 md:columns-3 pt-10 gap-4">
       {photos.map((photo) => (
-        <PhotoCard key={photo.id} photo={photo} onDelete={onDelete} />
+        <div key={photo.id}>
+          <PhotoCard photo={photo} onDelete={onDelete} />
+        </div>
       ))}
     </div>
   );
