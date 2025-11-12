@@ -26,29 +26,23 @@ export default function About() {
     {
       title: "¿QUIÉN SOY?",
       text: `Me llamo Víctor y soy de A Coruña. Estoy descubriendo el sur de España y
-      disfrutando del contraste con el entorno y la cultura gallega.
+      disfrutando de su contraste con el entorno y la cultura gallega.
       Después de varios meses viviendo en Cádiz, me he trasladado a
-      Sevilla, tanto para conocer una nueva ciudad como para estudiar
-      el Certificado de Profesionalidad en Desarrollo de Aplicaciones
-      con Tecnologías Web.`,
+      Sevilla, tanto para conocer una nueva ciudad como para continuar mi formación como desarrollador.`,
     },
     {
       title: "¿POR QUÉ DESARROLLO WEB?",
-      text: `Como la mayoría, me acerqué a la programación por la gran oferta
-      laboral del sector y la posibilidad de mejorar profesionalmente.
-      Pero al adentrarme, descubrí la conexión
+      text: `Como la mayoría, me acerqué a la programación por la gran oferta laboral del sector y la posibilidad de mejorar profesionalmente. Pero al adentrarme, descubrí la conexión
       entre la programación, el diseño estético y la experiencia del
-      usuario. Esa mezcla tiene un componente casi artístico que
-      disfruto mucho. También me fascina construir pequeños fragmentos
+      usuario. Esa mezcla tiene un componente casi artístico muy disfrutable. También me fascina construir pequeños fragmentos
       de código que se comunican entre sí y acaban formando un sistema
       completo: una máquina viva que funciona gracias a cada pieza.`,
     },
     {
       title: "¿QUÉ TIPOS DE PROYECTOS ME INTERESAN?",
-      text: `Busco proyectos que pongan a prueba mis habilidades y me ayuden
-      a mejorar mi sentido estético. Me atrae la idea de crear
+      text: `Busco proyectos que pongan a prueba mis habilidades y me ayuden a mejorar mi sentido estético. Me atrae la idea de crear
       experiencias agradables para el usuario, tanto por su diseño
-      como por cómo se sienten al usarlas.`,
+      como por su usabilidad.`,
     },
     {
       title: "¿QUÉ HAGO CUANDO NO PROGRAMO?",

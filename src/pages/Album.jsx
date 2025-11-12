@@ -6,6 +6,28 @@ import PhotoBoard from "../components/PhotoBoard";
 import Modal from "../components/Modal";
 import UploadPhotoForm from "../components/UploadPhotoForm";
 import DeleteConfirmationModal from "../components/DeleteConfirmationModel"; // Check file name case
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  visible: {
+    transition: {
+      delay: 0.5,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 150 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function Album() {
   // 1. STATE & HOOKS
@@ -89,19 +111,19 @@ export default function Album() {
   return (
     <section className="mt-24 mb-18 pt-6 sm:pt-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="w-full flex justify-start mb-4">
-          <Link to="/dashboard" className="pt-2 cursor-pointer">
-            <span
-              className="relative text-xl hover:text-neutral-900 
+        <div className="col-1 mx-auto pb-3 border-b border-neutral-700 lg:mx-0">
+          <div className="w-full flex justify-start mb-4">
+            <Link to="/dashboard" className="pt-2 cursor-pointer">
+              <span
+                className="relative text-xl hover:text-neutral-900 
 			 after:content-[''] after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
 			 hover:after:w-full"
-            >
-              &larr; VOLVER
-            </span>
-          </Link>
-        </div>
-        <div className="col-1 mx-auto pb-3 border-b border-neutral-700 lg:mx-0">
-          <h3>ÁLBUM</h3>
+              >
+                &larr; VOLVER
+              </span>
+            </Link>
+          </div>
+          <h3 className="mb-2">ÁLBUM</h3>
           <h2 className="text-5xl tracking-tighter font-light sm:text-7xl/15">
             {album.title.toUpperCase()}
           </h2>

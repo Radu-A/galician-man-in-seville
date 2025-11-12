@@ -11,35 +11,46 @@ export default function AlbumBoard() {
   }, []);
 
   if (!albumList) {
-    return <p className="text-center text-neutral-500 pt-10">Cargando álbums...</p>;
+    return (
+      <p className="text-center text-neutral-500 pt-10">Cargando álbums...</p>
+    );
   }
 
-  // Variantes para la animación
-  const container = {
-    hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
-  };
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 25 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-  };
+  // Variantes para la animación (solo necesitamos fadeUp)
+  // const fadeUp = {
+  //   hidden: { opacity: 0, y: 25 },
+  //   visible: {
+  //     opacity: 1,
+  //     y: 0,
+  //     transition: { duration: 0.5, ease: "easeOut" },
+  //   },
+  // };
 
   return (
-    <motion.div
-      variants={container}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }}
-      className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
-    >
-      {albumList.map((album) => (
-        <motion.div key={album.id} variants={fadeUp}>
+    // 1. El 'div' contenedor ya no necesita 'variants', 'initial', 'whileInView', etc.
+    //    Puede ser un 'div' normal, o un 'motion.div' simple si quieres animarlo
+    //    como un todo (por ejemplo, con las variantes del componente padre),
+    //    pero NO debe usar 'staggerChildren' en este caso.
+    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      {albumList.map((album, index) => (
+        // 2. Toda la lógica de la animación se mueve AQUÍ, al hijo.
+        <motion.div
+          // 3. Movemos las variantes 'fadeUp' aquí dentro
+          initial={{ opacity: 0, y: 150 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          // 4. --- ¡LA MAGIA ESTÁ AQUÍ! ---
+          transition={{
+            duration: 0.5,
+            ease: "easeOut",
+            // 'index % 3' nos da la columna (0, 1, o 2)
+            // Lo multiplicamos por un pequeño retraso (100ms)
+            delay: (index % 3) * 0.1,
+          }}
+        >
           <AlbumCard album={album} />
         </motion.div>
       ))}
-    </motion.div>
+    </div>
   );
 }

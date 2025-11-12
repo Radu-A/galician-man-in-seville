@@ -1,7 +1,28 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { easeOut, motion } from "framer-motion";
 import AlbumBoard from "../components/AlbumBoard";
 import Modal from "../components/Modal";
+
+const containerVariants = {
+  visible: {
+    transition: {
+      delay: 0.5,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 150 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: easeOut,
+    },
+  },
+};
 
 export default function Dashboard() {
   const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
@@ -13,23 +34,28 @@ export default function Dashboard() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Cabecera */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           className="pb-3 border-b border-neutral-700"
         >
-          <h2 className="text-5xl/10 tracking-tighter font-light sm:text-7xl/15">
+          <motion.h2
+            variants={itemVariants}
+            className="text-5xl/10 tracking-tighter font-light sm:text-7xl/15"
+          >
             MIS HALLAZGOS
             <br />
             POR
             <br />
             SEVILLA
-          </h2>
-          <p className="mt-2 pt-1 text-lg/5 tracking-tighter font-light text-neutral-500">
+          </motion.h2>
+          <motion.p
+            variants={itemVariants}
+            className="mt-2 pt-1 text-lg/5 tracking-tighter font-light text-neutral-500"
+          >
             UNA RECOPILACIÓN VISUAL DE LUGARES, DETALLES Y MOMENTOS QUE ME
             INSPIRAN A SEGUIR BUSCANDO.
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Botón */}
