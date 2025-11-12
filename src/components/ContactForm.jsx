@@ -13,7 +13,7 @@ export default function ContactForm() {
     <>
       <form
         onSubmit={handleSubmit}
-        className="grid grid-cols-1 w-full py-8 gap-4 md:grid-cols-2 lg:col-2"
+        className="grid grid-cols-1 w-full py-8 gap-4 lg:grid-cols-2 md:col-2"
       >
         {/* --- Campo Nombre --- */}
         <div className="relative mb-6">
@@ -100,7 +100,7 @@ export default function ContactForm() {
         </div> */}
 
         {/* --- Campo Mensaje (Textarea) --- */}
-        <div className="md:col-span-2 relative mb-6">
+        <div className="lg:col-span-2 relative mb-6">
           <textarea
             name="message"
             id="message"
