@@ -21,7 +21,8 @@ export default function AlbumBoard() {
     //    Puede ser un 'div' normal, o un 'motion.div' simple si quieres animarlo
     //    como un todo (por ejemplo, con las variantes del componente padre),
     //    pero NO debe usar 'staggerChildren' en este caso.
-    <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+    // Para limitar el ancho de la imagen
+    <div className="mx-auto grid max-w-2xl gap-x-8 gap-y-16 pt-10 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
       {albumList.map((album, index) => (
         // 2. Toda la lógica de la animación se mueve AQUÍ, al hijo.
         <motion.div
