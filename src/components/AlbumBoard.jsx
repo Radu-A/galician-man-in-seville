@@ -16,16 +16,6 @@ export default function AlbumBoard() {
     );
   }
 
-  // Variantes para la animación (solo necesitamos fadeUp)
-  // const fadeUp = {
-  //   hidden: { opacity: 0, y: 25 },
-  //   visible: {
-  //     opacity: 1,
-  //     y: 0,
-  //     transition: { duration: 0.5, ease: "easeOut" },
-  //   },
-  // };
-
   return (
     // 1. El 'div' contenedor ya no necesita 'variants', 'initial', 'whileInView', etc.
     //    Puede ser un 'div' normal, o un 'motion.div' simple si quieres animarlo

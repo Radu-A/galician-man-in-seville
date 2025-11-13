@@ -1,4 +1,25 @@
-import { motion } from "framer-motion";
+import { motion, easeOut } from "framer-motion";
+
+const containerVariants = {
+  visible: {
+    transition: {
+      delay: 0.5,
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 150 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: easeOut,
+    },
+  },
+};
 
 export default function About() {
   // variante para cada bloque (hijo)
@@ -11,21 +32,10 @@ export default function About() {
     },
   };
 
-  // contenedor que aplica stagger a los hijos
-  const container = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.18,
-        delayChildren: 0.06,
-      },
-    },
-  };
-
   const sections = [
     {
       title: "¿QUIÉN SOY?",
-      text: `Me llamo Víctor y soy de A Coruña. Estoy descubriendo el sur de España y
+      text: `Mi nombre es Víctor y soy de A Coruña. Estoy descubriendo el sur de España y
       disfrutando de su contraste con el entorno y la cultura gallega.
       Después de varios meses viviendo en Cádiz, me he trasladado a
       Sevilla, tanto para conocer una nueva ciudad como para continuar mi formación como desarrollador.`,
@@ -59,27 +69,33 @@ export default function About() {
     <section className="overflow-hidden py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 items-start">
         {/* Columna izquierda: texto */}
-        <div>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            variants={itemVariants}
             className="text-5xl sm:text-7xl font-light tracking-tighter text-left pb-3 border-b border-neutral-700"
           >
             SOBRE MÍ
           </motion.h2>
 
           {/* Contenedor animado: aplica stagger a los hijos */}
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.18 }}
-            className="mt-8 text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 space-y-8"
-          >
+          <div className="mt-8 text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 space-y-8">
             {sections.map((s, i) => (
-              <motion.article key={i} variants={fadeUp} className="">
+              <motion.article
+                key={i}
+                initial={{ opacity: 0, y: 150 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                // 4. --- ¡LA MAGIA ESTÁ AQUÍ! ---
+                transition={{
+                  duration: 0.5,
+                  ease: easeOut,
+                }}
+                className=""
+              >
                 <h3 className="text-2xl/7 tracking-tighter font-light sm:text-4xl/9">
                   {s.title}
                 </h3>
@@ -88,12 +104,12 @@ export default function About() {
                 </p>
               </motion.article>
             ))}
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
 
         {/* Columna derecha: imagen */}
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
+          initial={{ opacity: 0, x: 150 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
