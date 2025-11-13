@@ -41,12 +41,12 @@ export default function Header() {
             {/* INICIO */}
             <Link
               to="/"
-              className="relative w-12 h-5 overflow-hidden text-md bg-white p-2 group"
+              className="relative w-12 h-4.5 overflow-hidden text-md bg-white p-2 group"
             >
-              <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+              <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                 INICIO
               </span>
-              <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+              <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 INICIO
               </span>
             </Link>
@@ -54,12 +54,12 @@ export default function Header() {
             {/* TABLERO */}
             <Link
               to="/dashboard"
-              className="relative w-16 h-5 overflow-hidden text-md bg-white p-2 group"
+              className="relative w-16 h-4.5 overflow-hidden text-md bg-white p-2 group"
             >
-              <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+              <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                 TABLERO
               </span>
-              <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+              <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 TABLERO
               </span>
             </Link>
@@ -67,12 +67,12 @@ export default function Header() {
             {/* SOBRE MÍ */}
             <Link
               to="/about"
-              className="relative w-19 h-5 overflow-hidden text-md bg-white p-2 group"
+              className="relative w-19 h-4.5 overflow-hidden text-md bg-white p-2 group"
             >
-              <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+              <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                 SOBRE MÍ
               </span>
-              <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+              <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 SOBRE MÍ
               </span>
             </Link>
@@ -81,15 +81,17 @@ export default function Header() {
 
         {/* Enlace de contacto con subrayado */}
         <div className="hidden md:flex md:flex-1 md:justify-end">
-          <Link
-            to="/contact"
-            className="text-center text-md relative hover:text-black 
+          <div className="bg-white py-2 px-4">
+            <Link
+              to="/contact"
+              className="text-center text-md relative hover:text-black 
               after:content-[''] after:absolute after:-bottom-1 after:left-0 
               after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300
               hover:after:w-full"
-          >
-            CONTACTO &rarr;
-          </Link>
+            >
+              CONTACTO &rarr;
+            </Link>
+          </div>
         </div>
       </nav>
 

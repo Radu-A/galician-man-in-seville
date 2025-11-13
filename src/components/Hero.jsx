@@ -25,6 +25,18 @@ const itemVariants = {
     },
   },
 };
+// 3. Variante para el back-ground
+const backgroundFade = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 1, // Una duración un poco más larga para que sea suave
+      ease: "easeOut",
+      delay: 0.1, // Pequeño retraso para que no aparezca antes que nada
+    },
+  },
+};
 
 const Hero = () => {
   // ... (toda tu lógica de videos y estado se mantiene igual)
@@ -51,10 +63,13 @@ const Hero = () => {
   return (
     <div className="relative w-full h-screen overflow-hidden">
       {/* ... Tu <video> o <img> de fondo ... */}
-      <img
+      <motion.img
         src="/videos/vid-dummy.jpg"
         alt=""
         className="absolute inset-0 w-full h-full object-cover brightness-65 transition-opacity duration-500"
+        variants={backgroundFade}
+        initial="hidden"
+        animate="visible"
       />
 
       {/* --- 3. Aplicamos las variantes --- */}
