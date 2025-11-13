@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { easeOut, motion } from "framer-motion";
 import AlbumBoard from "../components/AlbumBoard";
-import Modal from "../components/Modal";
 
 const containerVariants = {
   visible: {
@@ -25,9 +23,6 @@ const itemVariants = {
 };
 
 export default function Dashboard() {
-  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
-  const openUploadModal = () => setIsUploadModalOpen(true);
-  const closeUploadModal = () => setIsUploadModalOpen(false);
 
   return (
     <section className="mt-24 mb-18 pt-6 sm:pt-12">
@@ -80,8 +75,6 @@ export default function Dashboard() {
         {/* Tablero de álbumes */}
         <AlbumBoard />
       </div>
-
-      <Modal open={isUploadModalOpen} onClose={closeUploadModal} />
     </section>
   );
 }

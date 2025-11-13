@@ -27,10 +27,10 @@ export default function AlbumCard({ album }) {
   return (
     <article
       onClick={() => handleClick(album)}
-      className="flex flex-col gap-5 relative max-w-[480px] cursor-pointer overflow-hidden group transition-all duration-300"
+      className="relative flex flex-col gap-5 mx-auto max-w-[400px] cursor-pointer overflow-hidden group transition-all duration-300"
     >
       {/* Imagen */}
-      <div className="relative aspect-[3/4] max-h-[650px] w-full overflow-hidden">
+      <div className="relative aspect-[3/4] w-full overflow-hidden">
         <img
           src={photoUrl}
           alt={album.title}

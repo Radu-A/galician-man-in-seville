@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Trash2 } from "lucide-react";
 
 import { getPhotoUrl } from "../firebase/getData";
 
-export default function PhotoCard({ photo, onDelete }) {
+export default function PhotoCard({ photo }) {
   const [photoUrl, setPhotoUrl] = useState(null);
 
   const fetchUrl = async () => {
@@ -11,14 +10,6 @@ export default function PhotoCard({ photo, onDelete }) {
     if (url) {
       setPhotoUrl(url);
     }
-  };
-
-  const handleDelete = (e) => {
-    // Stops click event from propagating to the parent article (preventing unwanted actions).
-    e.stopPropagation();
-
-    // Calls the parent handler, passing the full photo object for modal confirmation.
-    onDelete(photo);
   };
 
   useEffect(() => {
@@ -33,7 +24,7 @@ export default function PhotoCard({ photo, onDelete }) {
   }
 
   return (
-    <article className="relative group mb-4 break-inside-avoid overflow-hidden rounded-sm transition-all duration-500 hover:scale-[1.02]">
+    <article className="break-inside-avoid overflow-hidden relative group max-w-[400px] mx-auto mb-4 rounded-sm transition-all duration-500 hover:scale-[1.02]">
       {/* Image Content */}
       <img
         // src is safe because of the initial guard clause

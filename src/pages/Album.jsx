@@ -1,11 +1,7 @@
 import { useLocation, Link } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { getPhotos } from "../firebase/getData";
-import { deletePhoto } from "../firebase/deleteData";
 import PhotoBoard from "../components/PhotoBoard";
-import Modal from "../components/Modal";
-import UploadPhotoForm from "../components/UploadPhotoForm";
-import DeleteConfirmationModal from "../components/DeleteConfirmationModel"; // Check file name case
 import { motion, easeOut } from "framer-motion";
 
 const containerVariants = {
@@ -33,11 +29,6 @@ export default function Album() {
   // 1. STATE & HOOKS
   const { state: album } = useLocation();
   const [photos, setPhotos] = useState(null);
-  const [isUploadModalOpen, setIsUploadModalOpen] = useState(false);
-  const [deleteModalState, setDeleteModalState] = useState({
-    isOpen: false,
-    photoToDelete: null,
-  });
 
   // 2. DATA FETCHING
   const fetchPhotos = useCallback(async () => {
@@ -53,49 +44,6 @@ export default function Album() {
   useEffect(() => {
     fetchPhotos();
   }, [fetchPhotos]);
-
-  // 3. HANDLERS
-  const openUploadModal = () => setIsUploadModalOpen(true);
-  const closeUploadModal = () => setIsUploadModalOpen(false);
-  const handlePhotoUpload = () => {
-    closeUploadModal();
-    fetchPhotos(); // Refresh photo list after successful upload
-  };
-
-  const closeDeleteModal = () => {
-    setDeleteModalState({ isOpen: false, photoToDelete: null });
-  };
-
-  const handlePhotoDelete = (photo) => {
-    setDeleteModalState({ isOpen: true, photoToDelete: photo });
-  };
-
-  const handleDeleteConfirmed = async () => {
-    const { photoToDelete } = deleteModalState;
-    if (!photoToDelete) return;
-
-    closeDeleteModal();
-
-    const photoId = photoToDelete.id;
-
-    // Optimistic UI update
-    setPhotos((prevPhotos) =>
-      prevPhotos ? prevPhotos.filter((p) => p.id !== photoId) : null
-    );
-
-    try {
-      await deletePhoto(photoId);
-      console.log(
-        `Document with ID: ${photoId} successfully deleted from Firestore.`
-      );
-    } catch (error) {
-      console.error(`Error deleting photo ID ${photoId}:`, error);
-      alert(
-        "Error al eliminar la foto. Se está recargando la lista para asegurar la consistencia."
-      );
-      fetchPhotos(); // Rollback on error
-    }
-  };
 
   // 4. CONDITIONAL RENDER
   if (!album || !album.id) {
@@ -147,34 +95,8 @@ export default function Album() {
             {album.description}
           </motion.p>
         </motion.div>
-
-        {/* <div className="w-full flex justify-end">
-          <button onClick={openUploadModal} className="pt-2 cursor-pointer">
-            <span
-              className="relative hover:text-neutral-900 
-              after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
-              hover:after:w-full"
-            >
-              SUBIR FOTO &rarr;
-            </span>
-          </button>
-        </div> */}
-        <PhotoBoard photos={photos} onDelete={handlePhotoDelete} />
+        <PhotoBoard photos={photos} />
       </div>
-
-      {/* Upload Modal */}
-      <Modal open={isUploadModalOpen} onClose={closeUploadModal}>
-        <UploadPhotoForm onPhotoUploaded={handlePhotoUpload} album={album} />
-      </Modal>
-
-      {/* Delete Confirmation Modal */}
-      <Modal open={deleteModalState.isOpen} onClose={closeDeleteModal}>
-        <DeleteConfirmationModal
-          photo={deleteModalState.photoToDelete}
-          onClose={closeDeleteModal}
-          onConfirm={handleDeleteConfirmed}
-        />
-      </Modal>
     </section>
   );
 }

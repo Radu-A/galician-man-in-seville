@@ -23,7 +23,7 @@ const albums = [
     description:
       "Taberna clásica andaluza, deconstruida y transformada en bar cultural.",
     storagePath:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/1761280819472.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-galeria-thumbnail/1761280819472.jpg",
     category: "Local",
   },
   {
@@ -32,7 +32,7 @@ const albums = [
     description:
       "El corazón de Sevilla. Los rincones más especiales y con más historia de la ciudad.",
     storagePath:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250204_111435.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250204_111435.jpg",
     category: "Lugar",
   },
   {
@@ -41,7 +41,7 @@ const albums = [
     description:
       "Museo situado construido en una antigua fábrica de cerámica, rodeado de naturaleza y espacios a escala humana.",
     storagePath:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251012_124655.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251012_124655.jpg",
     category: "Museo",
   },
   {
@@ -50,7 +50,7 @@ const albums = [
     description:
       "Mercado del siglo XVIII, rehabilitado para albergar establecimientos modernos, como cervecerías o espacios gourmet.",
     storagePath:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_151827.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_151827.jpg",
     category: "Museo",
   },
 ];
@@ -63,7 +63,7 @@ const photos0 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083559.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083559.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-thumbnail/1761163083559.jpg",
   },
   {
     datetime: INVENTED_DATE_1,
@@ -75,11 +75,27 @@ const photos0 = [
   },
   {
     datetime: INVENTED_DATE_1,
-    comment: "Jardines de Chapina.",
+    comment: "Jardines de Chapina. Río.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083573.jpg",
     thumbnail:
       "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-thumbnail/1761163083573.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_1,
+    comment: "Jardines de Chapina. Panorámica.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083573.jpg",
+    thumbnail:
+      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-thumbnail/1761163083580.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_1,
+    comment: "Vista general del paseo.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083628.jpg",
+    thumbnail:
+      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-thumbnail/1761163083602.jpg",
   },
   {
     datetime: INVENTED_DATE_1,
@@ -88,14 +104,6 @@ const photos0 = [
       "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083609.jpg",
     thumbnail:
       "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-thumbnail/1761163083609.jpg",
-  },
-  {
-    datetime: INVENTED_DATE_1,
-    comment: "Vista general del paseo.",
-    storagePath:
-      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083628.jpg",
-    thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-thumbnail/1761163083628.jpg",
   },
   {
     datetime: INVENTED_DATE_1,
@@ -123,6 +131,14 @@ const photos0 = [
   },
   {
     datetime: INVENTED_DATE_1,
+    comment: "Pared con graffitis.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083712.jpg",
+    thumbnail:
+      "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-thumbnail/1761163083674.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_1,
     comment: "Escalinata con graffitis.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/photo-paseo-original/1761163083712.jpg",
@@ -138,7 +154,7 @@ const photos1 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/1761280819433.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/1761280819433.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-galeria-thumbnail/1761280819433.jpg",
   },
   {
     datetime: INVENTED_DATE_2,
@@ -146,7 +162,7 @@ const photos1 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/1761280819446.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/1761280819446.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-galeria-thumbnail/1761280819446.jpg",
   },
   {
     datetime: INVENTED_DATE_2,
@@ -154,7 +170,7 @@ const photos1 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/1761280819460.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/1761280819460.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-galeria-thumbnail/1761280819460.jpg",
   },
   {
     datetime: INVENTED_DATE_2,
@@ -162,7 +178,7 @@ const photos1 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/1761280819472.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/1761280819472.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-galeria-thumbnail/1761280819472.jpg",
   },
   {
     datetime: INVENTED_DATE_2,
@@ -170,7 +186,7 @@ const photos1 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/1761280819485.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/1761280819485.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-galeria-thumbnail/1761280819485.jpg",
   },
   {
     datetime: INVENTED_DATE_2,
@@ -178,7 +194,7 @@ const photos1 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/1761280819506.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/1761280819506.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-galeria-thumbnail/1761280819506.jpg",
   },
   {
     datetime: INVENTED_DATE_2,
@@ -186,18 +202,18 @@ const photos1 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/1761280819515.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/1761280819515.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-galeria-thumbnail/1761280819515.jpg",
   },
 ];
 
 const photos2 = [
   {
     datetime: INVENTED_DATE_3,
-    comment: "Muro de pintora desconchada.",
+    comment: "Muro de pintura desconchada.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130243.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250203_130243.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250203_130243.jpg",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -205,7 +221,7 @@ const photos2 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130342.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250203_130342.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250203_130342.jpg",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -213,7 +229,7 @@ const photos2 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130653.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250203_130653.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250203_130653.jpg",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -221,7 +237,7 @@ const photos2 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_133529.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250203_133529.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250203_133529.jpg",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -229,7 +245,7 @@ const photos2 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_134939.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250203_134939.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250203_134939.jpg",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -237,7 +253,7 @@ const photos2 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_135438.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250203_135438.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250203_135438.jpg",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -245,7 +261,7 @@ const photos2 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_140500.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250203_140500.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250203_140500.jpg",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -253,15 +269,7 @@ const photos2 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_104215.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250204_104215.jpg",
-  },
-  {
-    datetime: INVENTED_DATE_3,
-    comment: "Naranjo solitario en la esquina de una plaza.",
-    storagePath:
-      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_110928.jpg",
-    thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250204_110928.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250204_104215.jpg",
   },
   {
     datetime: INVENTED_DATE_3,
@@ -269,7 +277,15 @@ const photos2 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_111435.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20250204_111435.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250204_111435.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_3,
+    comment: "Ya tu sabes.",
+    storagePath:
+      "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_111435.jpg",
+    thumbnail:
+      "gs://galician-man-in-seville.firebasestorage.app/photo-juderia-thumbnail/IMG_20250204_114641.jpg",
   },
 ];
 
@@ -280,7 +296,7 @@ const photos3 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251012_124655.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251012_124655.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251012_124655.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -288,7 +304,7 @@ const photos3 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251012_125010.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251012_125010.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251012_125010.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -296,7 +312,7 @@ const photos3 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251012_135701.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251012_135701.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251012_135701.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -304,7 +320,7 @@ const photos3 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_144920.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251104_144920.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251104_144920.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -312,7 +328,7 @@ const photos3 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_151344.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251104_151344.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251104_151344.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -320,7 +336,7 @@ const photos3 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_151421.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251104_151421.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251104_151421.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -328,7 +344,7 @@ const photos3 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_151735.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251104_151735.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251104_151735.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -336,7 +352,7 @@ const photos3 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251104_153111.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251104_153111.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photo-caac-thumbnail/IMG_20251104_153111.jpg",
   },
 ];
 
@@ -347,7 +363,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151249-EDIT.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_151249-EDIT.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_151249.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -355,7 +371,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151523-EDIT.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_151523-EDIT.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_151523.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -363,7 +379,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151827.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_151827.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_151827.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -371,7 +387,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152236 (1).jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_152236.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_152236.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -379,7 +395,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152605-EDIT.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_152605-EDIT.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_152605.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -387,7 +403,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152639-EDIT.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_152639-EDIT.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_152639.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -395,7 +411,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_153943-EDIT.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_153943-EDIT.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_153943.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -403,7 +419,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_155612-EDIT.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_155612-EDIT.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_155612.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -411,7 +427,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_161101.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_161101.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_161101.jpg",
   },
   {
     datetime: INVENTED_DATE_4,
@@ -419,7 +435,7 @@ const photos4 = [
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_162440-EDIT.jpg",
     thumbnail:
-      "gs://galician-man-in-seville.firebasestorage.app/Thumbnails/IMG_20251109_162440-EDIT.jpg",
+      "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_162440.jpg",
   },
 ];
 
