@@ -7,7 +7,7 @@
 
 @layer base {
   html {
-    @apply text-neutral-700 tracking-tighter text-pretty bg-white;
+    @apply text-neutral-700 tracking-tighter text-pretty bg-white scroll-smooth;
   }
 
   body {

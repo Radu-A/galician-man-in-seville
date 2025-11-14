@@ -26,6 +26,7 @@ export default function AlbumBoard() {
       {albumList.map((album, index) => (
         // 2. Toda la lógica de la animación se mueve AQUÍ, al hijo.
         <motion.div
+          key={album.id}
           // 3. Movemos las variantes 'fadeUp' aquí dentro
           initial={{ opacity: 0, y: 150 }}
           whileInView={{ opacity: 1, y: 0 }}

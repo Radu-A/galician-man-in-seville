@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 import { PopoverGroup } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 
@@ -10,17 +11,17 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute w-full z-1000">
+    <header className="fixed w-full z-1000">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 md:px-8"
+        className="mx-auto flex items-center justify-between p-6"
       >
         {/* Logo */}
         <div className="flex md:flex-1">
-          <Link to="/" className="-m-1.5 p-1.5">
+          <HashLink smooth to="/#hero" className="-m-1.5 p-1.5">
             <span className="sr-only">Un Gallego por Sevilla</span>
             <img alt="logo" src={LogoDarkMd} className="h-11 w-auto" />
-          </Link>
+          </HashLink>
         </div>
 
         {/* Botón menú móvil */}
@@ -39,8 +40,8 @@ export default function Header() {
         <PopoverGroup className="hidden md:flex lg:gap-x-12">
           <div className="flex gap-7 bg-white py-3 px-5">
             {/* INICIO */}
-            <Link
-              to="/"
+            <HashLink
+              to="/#hero"
               className="relative w-12 h-4.5 overflow-hidden text-md bg-white p-2 group"
             >
               <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
@@ -49,11 +50,11 @@ export default function Header() {
               <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 INICIO
               </span>
-            </Link>
+            </HashLink>
 
             {/* TABLERO */}
-            <Link
-              to="/dashboard"
+            <HashLink
+              to="/#dashboard"
               className="relative w-16 h-4.5 overflow-hidden text-md bg-white p-2 group"
             >
               <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
@@ -62,11 +63,11 @@ export default function Header() {
               <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 TABLERO
               </span>
-            </Link>
+            </HashLink>
 
             {/* SOBRE MÍ */}
-            <Link
-              to="/about"
+            <HashLink
+              to="/#about"
               className="relative w-19 h-4.5 overflow-hidden text-md bg-white p-2 group"
             >
               <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
@@ -75,22 +76,22 @@ export default function Header() {
               <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 SOBRE MÍ
               </span>
-            </Link>
+            </HashLink>
           </div>
         </PopoverGroup>
 
         {/* Enlace de contacto con subrayado */}
         <div className="hidden md:flex md:flex-1 md:justify-end">
           <div className="bg-white py-2 px-4">
-            <Link
-              to="/contact"
+            <HashLink
+              to="/#contact"
               className="text-center text-md relative hover:text-black 
               after:content-[''] after:absolute after:-bottom-1 after:left-0 
               after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300
               hover:after:w-full"
             >
               CONTACTO &rarr;
-            </Link>
+            </HashLink>
           </div>
         </div>
       </nav>

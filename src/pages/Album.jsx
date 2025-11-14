@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { getPhotos } from "../firebase/getData";
 import PhotoBoard from "../components/PhotoBoard";
 import { motion, easeOut } from "framer-motion";
+import { HashLink } from "react-router-hash-link";
 
 const containerVariants = {
   visible: {
@@ -57,7 +58,7 @@ export default function Album() {
   }
 
   return (
-    <section className="mt-24 mb-18 pt-6 sm:pt-12">
+    <section className="mb-18 pt-30 sm:pt-42">
       <div className="mx-auto px-4 lg:px-6">
         <motion.div
           variants={containerVariants}
@@ -69,7 +70,7 @@ export default function Album() {
             variants={itemVariants}
             className="w-full flex justify-start mb-4"
           >
-            <Link to="/" className="pt-2 cursor-pointer">
+            <HashLink to="/#dashboard" className="pt-2 cursor-pointer">
               <span
                 className="relative text-xl hover:text-neutral-900 
                 after:content-[''] after:absolute after:-bottom-1 after:right-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
@@ -77,7 +78,7 @@ export default function Album() {
               >
                 &larr; VOLVER
               </span>
-            </Link>
+            </HashLink>
           </motion.div>
           <motion.h3 variants={itemVariants} className="mb-2">
             ÁLBUM

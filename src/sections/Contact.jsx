@@ -2,7 +2,7 @@ import ContactForm from "../components/ContactForm";
 
 export default function Contact() {
   return (
-    <section className="mt-24 mb-18 pt-6 sm:pt-12">
+    <section id="contact" className="mb-32 pt-30 sm:pt-42">
       <div className="grid md:grid-cols-[300px_1fr] mx-auto px-4 lg:px-6">
         <h3 className="mb-2">CONTACTO</h3>
         <h2 className="text-5xl tracking-tighter font-light sm:text-7xl/15">

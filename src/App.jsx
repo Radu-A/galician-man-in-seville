@@ -11,9 +11,9 @@ import ResetDb from "./pages/ResetDb";
 
 function App() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div>
       <Header />
-      <main className="flex-1">
+      <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/album" element={<Album />} />

@@ -65,7 +65,7 @@ export default function About() {
   ];
 
   return (
-    <section className="overflow-hidden py-24 sm:py-32">
+    <section id="about" className="overflow-hidden mb-18 pt-30 sm:pt-42">
       <div className="mx-auto px-4 lg:px-6 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 items-start">
         {/* Columna izquierda: texto */}
 

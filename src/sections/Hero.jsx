@@ -61,7 +61,7 @@ const Hero = () => {
   }, [current]);
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <section id="hero" className="relative w-full h-screen overflow-hidden">
       {/* ... Tu <video> o <img> de fondo ... */}
       <motion.img
         src="/videos/vid-dummy.jpg"
@@ -93,7 +93,7 @@ const Hero = () => {
           ESCAPO DE LA PANTALLA Y DE LAS LÍNEAS DE CÓDIGO.
         </motion.p>
       </motion.div>
-    </div>
+    </section>
   );
 };
 
