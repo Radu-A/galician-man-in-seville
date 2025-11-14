@@ -30,7 +30,8 @@ export default function Dashboard() {
         <motion.div
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
           className="pb-3 border-b border-neutral-700"
         >
           <motion.h2
@@ -51,27 +52,6 @@ export default function Dashboard() {
             INSPIRAN A SEGUIR BUSCANDO.
           </motion.p>
         </motion.div>
-
-        {/* Botón */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="w-full flex justify-end pt-4"
-        >
-          <button onClick={openUploadModal} className="pt-2 cursor-pointer">
-            <span
-              className="relative hover:text-neutral-900 
-               after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0 after:bg-neutral-900 after:transition-all after:duration-300
-               hover:after:w-full"
-            >
-              CREAR ÁLBUM &rarr;
-            </span>
-          </button>
-        </motion.div> */}
-
-        {/* Tablero de álbumes */}
         <AlbumBoard />
       </div>
     </section>

@@ -1,6 +1,7 @@
 import { useForm, ValidationError } from "@formspree/react";
+import { motion } from "framer-motion";
 
-export default function ContactForm() {
+export default function ContactForm({ itemVariants }) {
   const [formState, handleSubmit] = useForm("xanplkgk");
   if (formState.submitting) {
     return (
@@ -11,7 +12,8 @@ export default function ContactForm() {
   }
   return (
     <>
-      <form
+      <motion.form
+        variants={itemVariants}
         onSubmit={handleSubmit}
         className="grid grid-cols-1 w-full py-8 gap-4 lg:grid-cols-2 md:col-2"
       >
@@ -130,7 +132,7 @@ export default function ContactForm() {
         >
           Enviar
         </button>
-      </form>
+      </motion.form>
     </>
   );
 }
