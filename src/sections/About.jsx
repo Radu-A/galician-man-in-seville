@@ -66,7 +66,7 @@ export default function About() {
 
   return (
     <section className="overflow-hidden py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 items-start">
+      <div className="mx-auto px-4 lg:px-6 grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-16 items-start">
         {/* Columna izquierda: texto */}
 
         <motion.div

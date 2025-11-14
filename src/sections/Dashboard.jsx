@@ -23,10 +23,9 @@ const itemVariants = {
 };
 
 export default function Dashboard() {
-
   return (
     <section className="mt-24 mb-18 pt-6 sm:pt-12">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto px-4 lg:px-6">
         {/* Cabecera */}
         <motion.div
           variants={containerVariants}
