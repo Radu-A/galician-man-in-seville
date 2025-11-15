@@ -1,14 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import { getPhotoUrl } from "../firebase/getData";
+import { getFileUrl } from "../firebase/getData";
 
 export default function AlbumCard({ album }) {
   const navigate = useNavigate();
   const [photoUrl, setPhotoUrl] = useState(null);
 
   const fetchUrl = async () => {
-    const url = await getPhotoUrl(album?.storagePath);
+    const url = await getFileUrl(album?.storagePath);
     if (url) {
       setPhotoUrl(url);
     }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"; // Enrutamiento
+import { HashLink } from "react-router-hash-link";
 import { Fragment } from "react"; // Hook para TransitionChild
 import {
   Dialog,
@@ -73,51 +74,51 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <Disclosure as="div" className="-mx-3"></Disclosure>
 
                 {/* ENLACE MODIFICADO: Inicio */}
-                <Link
-                  to="/"
+                <HashLink
+                  to="/#hero"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
                   className="relative w-12 h-5 overflow-hidden p-2 group"
                 >
-                  <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                  <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                     INICIO
                   </span>
-                  <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                  <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                     INICIO
                   </span>
-                </Link>
+                </HashLink>
 
                 {/* ENLACE MODIFICADO: Tablero */}
-                <Link
-                  to="/dashboard"
+                <HashLink
+                  to="/#dashboard"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
                   className="relative w-15 h-5 overflow-hidden p-2 group"
                 >
-                  <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                  <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                     TABLERO
                   </span>
-                  <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                  <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                     TABLERO
                   </span>
-                </Link>
+                </HashLink>
 
                 {/* ENLACE MODIFICADO: Sobre Mí */}
-                <Link
-                  to="/about"
+                <HashLink
+                  to="/#about"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
                   className="relative w-18 h-5 overflow-hidden p-2 group"
                 >
-                  <span className="absolute top-0 left-0 leading-5 duration-300 group-hover:-translate-y-5">
+                  <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                     SOBRE MÍ
                   </span>
-                  <span className="absolute top-3.5 left-0 leading-5 text-neutral-400 duration-300 group-hover:top-0">
+                  <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                     SOBRE MÍ
                   </span>
-                </Link>
+                </HashLink>
               </div>
               <div className="py-6">
                 {/* ENLACE MODIFICADO: Contacto */}
-                <Link
-                  to="/Contact"
+                <HashLink
+                  to="/#contact"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50"
                 >
@@ -130,7 +131,7 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                   >
                     CONTACTO &rarr;
                   </span>
-                </Link>
+                </HashLink>
               </div>
             </div>
           </div>

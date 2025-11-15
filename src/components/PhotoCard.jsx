@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
-import { getPhotoUrl } from "../firebase/getData";
+import { getFileUrl } from "../firebase/getData";
 
 export default function PhotoCard({ photo }) {
   const [photoUrl, setPhotoUrl] = useState(null);
 
   const fetchUrl = async () => {
-    const url = await getPhotoUrl(photo?.thumbnail);
+    const url = await getFileUrl(photo?.thumbnail);
     if (url) {
       setPhotoUrl(url);
     }

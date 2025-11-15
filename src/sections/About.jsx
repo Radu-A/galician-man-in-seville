@@ -55,7 +55,7 @@ export default function About() {
         </motion.div>
 
         {/* Contenedor animado: aplica stagger a los hijos */}
-        <div className="mt-8 text-lg leading-relaxed text-neutral-700 dark:text-neutral-300 space-y-8">
+        <div className="text-neutral-700 space-y-8">
           <motion.article
             variants={containerVariants}
             initial="hidden"
@@ -157,7 +157,7 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
-          className="w-full h-full"
+          className="w-full max-w-[450px] h-full mx-auto"
         >
           <img
             alt="Foto en el CAAC, Sevilla"

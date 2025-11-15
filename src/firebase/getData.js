@@ -55,7 +55,7 @@ const getPhotos = async (albumId) => {
  * * @param {string} storagePath - La ruta interna del archivo en el bucket (ej: 'fotos/ID/foto.jpg').
  * @returns {Promise<string|null>} La URL de descarga o null si hay un error.
  */
-const getPhotoUrl = async (storagePath) => {
+const getFileUrl = async (storagePath) => {
   if (!storagePath) {
     console.error("❌ ERROR: El storagePath está vacío o nulo.");
     return null;
@@ -63,10 +63,10 @@ const getPhotoUrl = async (storagePath) => {
 
   try {
     // 1. Crear la referencia al archivo usando el storagePath
-    const photoRef = ref(storage, storagePath);
+    const fileRef = ref(storage, storagePath);
 
     // 2. Obtener la URL de descarga con el token de acceso
-    const downloadUrl = await getDownloadURL(photoRef);
+    const downloadUrl = await getDownloadURL(fileRef);
 
     return downloadUrl;
   } catch (error) {
@@ -80,4 +80,4 @@ const getPhotoUrl = async (storagePath) => {
 //   .then(() => console.log("✅ Todos los documentos cargados"))
 //   .catch(console.error);
 
-export { getAlbums, getPhotos, getPhotoUrl };
+export { getAlbums, getPhotos, getFileUrl };

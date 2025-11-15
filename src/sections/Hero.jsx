@@ -1,78 +1,135 @@
 import { useState, useEffect, useRef } from "react";
 import { easeOut, motion } from "framer-motion";
+import { getFileUrl } from "../firebase/getData";
 
-// --- Definimos nuestras variantes ---
-
-// 1. Variante para el CONTENEDOR (el <motion.div>)
+// ---------- Animations ----------
 const containerVariants = {
   visible: {
-    transition: {
-      delay: 0.5,
-      staggerChildren: 0.15,
-    },
+    transition: { delay: 0.5, staggerChildren: 0.15 },
   },
 };
 
-// 2. Variante para los HIJOS (el <h1> y el <p>)
 const itemVariants = {
   hidden: { opacity: 0, y: 150 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: easeOut,
-    },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } },
 };
-// 3. Variante para el back-ground
+
 const backgroundFade = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      duration: 1, // Una duración un poco más larga para que sea suave
-      ease: "easeOut",
-      delay: 0.1, // Pequeño retraso para que no aparezca antes que nada
-    },
+    transition: { duration: 1, ease: "easeOut", delay: 0.1 },
   },
 };
 
+// ---------- Firebase storage paths ----------
+const videoPath = [
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-01-chapina-1.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-02-sal-1.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-03-sal-3.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-04-caac-3.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-05-pasarela-3.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-06-alcazar-1.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-07-americano-1.1.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-08-juderia-1.mp4",
+];
+
+// -------- Utility: fetch signed URLs --------
+const fetchVideoUrls = async (paths) => {
+  const promises = paths.map((p) => getFileUrl(p).catch(() => null));
+  const results = await Promise.all(promises);
+  return results.filter(Boolean);
+};
+
+// ---------------------------------------------------
+//                     COMPONENT
+// ---------------------------------------------------
 const Hero = () => {
-  // ... (toda tu lógica de videos y estado se mantiene igual)
-  const videos2 = [
-    "/videos/vid-rio-02.mp4",
-    "/videos/vid-rio-03.mp4",
-    "/videos/vid-rio-04.mp4",
-    "/videos/vid-rio-05.mp4",
-  ];
+  const [videoUrls, setVideoUrls] = useState(null);
   const [current, setCurrent] = useState(0);
-  const videoRef = useRef(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-  const handleEnded = () => {
-    setCurrent((prev) => (prev + 1) % videos2.length);
-  };
+  const mainVideoRef = useRef(null);
+  const preloadRef = useRef(null);
 
+  const poster = "/videos/vid-dummy.jpg";
+
+  // Load all URLs on mount
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.load();
-      videoRef.current.play().catch(() => {});
-    }
-  }, [current]);
+    let ok = true;
+    const load = async () => {
+      const urls = await fetchVideoUrls(videoPath);
+      if (ok) setVideoUrls(urls.length ? urls : null);
+    };
+    load();
+    return () => (ok = false);
+  }, []);
+
+  // Whenever current changes, reload the visible video
+  useEffect(() => {
+    if (!mainVideoRef.current || !videoUrls) return;
+
+    setVideoLoaded(false);
+    mainVideoRef.current.load();
+    mainVideoRef.current.play().catch(() => {});
+  }, [current, videoUrls]);
+
+  // Preload the next video silently offscreen
+  useEffect(() => {
+    if (!videoUrls || videoUrls.length < 2 || !preloadRef.current) return;
+
+    const nextIndex = (current + 1) % videoUrls.length;
+    preloadRef.current.src = videoUrls[nextIndex];
+    preloadRef.current.load();
+  }, [current, videoUrls]);
+
+  // When a video ends, switch instantly to the preloaded one
+  const handleEnded = () => {
+    if (!videoUrls || videoUrls.length < 2) return;
+    setCurrent((prev) => (prev + 1) % videoUrls.length);
+  };
 
   return (
     <section id="hero" className="relative w-full h-screen overflow-hidden">
-      {/* ... Tu <video> o <img> de fondo ... */}
+
+      {/* Poster (solo para fondo inicial) */}
       <motion.img
-        src="/videos/vid-dummy.jpg"
+        src={poster}
         alt=""
-        className="absolute inset-0 w-full h-full object-cover brightness-65 transition-opacity duration-500"
+        className="absolute inset-0 w-full h-full object-cover brightness-65"
         variants={backgroundFade}
         initial="hidden"
         animate="visible"
       />
 
-      {/* --- 3. Aplicamos las variantes --- */}
+      {/* MAIN VIDEO (visible) */}
+      {videoUrls && (
+        <video
+          ref={mainVideoRef}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
+            videoLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          poster={poster}
+          autoPlay
+          muted
+          playsInline
+          onLoadedData={() => setVideoLoaded(true)}
+          onEnded={handleEnded}
+          loop={videoUrls.length === 1}
+        >
+          <source src={videoUrls[current]} type="video/mp4" />
+        </video>
+      )}
+
+      {/* PRELOAD VIDEO (oculto) */}
+      <video
+        ref={preloadRef}
+        style={{ display: "none" }}
+        preload="auto"
+        muted
+      ></video>
+
+      {/* TEXT CONTENT */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -80,13 +137,13 @@ const Hero = () => {
         className="relative z-10 flex flex-col items-center justify-center h-full text-center"
       >
         <motion.h1
-          variants={itemVariants} // <-- El 'h1' es un hijo
+          variants={itemVariants}
           className="max-w-lg text-7xl/17 tracking-tighter font-light text-white sm:text-8xl/22"
         >
           Un Gallego por Sevilla
         </motion.h1>
         <motion.p
-          variants={itemVariants} // <-- El 'p' es el segundo hijo
+          variants={itemVariants}
           className="max-w-lg mt-8 text-lg/5 text-white sm:text-xl/6"
         >
           ENCONTRÁNDOME GENTE, COSAS QUE HACER Y LUGARES INTERESANTES, MIENTRAS
