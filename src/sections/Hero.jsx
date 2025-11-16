@@ -23,13 +23,22 @@ const backgroundFade = {
 };
 
 // ---------- Firebase storage paths ----------
-const videoPath = [
+const videoPathDesktop = [
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-03-sal-3.mp4",
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-04-caac-3.mp4",
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-05-pasarela-3.mp4",
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-06-alcazar-1.mp4",
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-07-americano-1.1.mp4",
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-08-juderia-1.mp4",
+];
+
+const videoPathMobile = [
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-03-sal-3.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-04-caac-3.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-05-pasarela-3.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-06-alcazar-1.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-07-americano-1.1.mp4",
+  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-08-juderia-1.mp4",
 ];
 
 // -------- Utility: fetch signed URLs --------
@@ -46,22 +55,38 @@ const Hero = () => {
   const [videoUrls, setVideoUrls] = useState(null);
   const [current, setCurrent] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const mainVideoRef = useRef(null);
   const preloadRef = useRef(null);
 
   const poster = "/videos/vid-dummy.jpg";
 
-  // Load all URLs on mount
+  // Detect mobile once on mount
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mq.matches);
+
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  // Load URLs depending on device type
   useEffect(() => {
     let ok = true;
+
     const load = async () => {
-      const urls = await fetchVideoUrls(videoPath);
+      const chosenPaths = isMobile ? videoPathMobile : videoPathDesktop;
+      const urls = await fetchVideoUrls(chosenPaths);
+
       if (ok) setVideoUrls(urls.length ? urls : null);
     };
+
     load();
     return () => (ok = false);
-  }, []);
+  }, [isMobile]);
 
   // Whenever current changes, reload the visible video
   useEffect(() => {
@@ -89,7 +114,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative w-full h-screen overflow-hidden">
-      {/* Poster (solo para fondo inicial) */}
+      {/* Poster (solo fondo inicial) */}
       <motion.img
         src={poster}
         alt=""
@@ -99,7 +124,7 @@ const Hero = () => {
         animate="visible"
       />
 
-      {/* MAIN VIDEO (visible) */}
+      {/* MAIN VIDEO */}
       {videoUrls && (
         <video
           ref={mainVideoRef}
@@ -118,13 +143,13 @@ const Hero = () => {
         </video>
       )}
 
-      {/* PRELOAD VIDEO (oculto) */}
+      {/* PRELOAD VIDEO (hidden) */}
       <video
         ref={preloadRef}
         style={{ display: "none" }}
         preload="auto"
         muted
-      ></video>
+      />
 
       {/* TEXT CONTENT */}
       <motion.div
@@ -139,6 +164,7 @@ const Hero = () => {
         >
           Un Gallego por Sevilla
         </motion.h1>
+
         <motion.p
           variants={itemVariants}
           className="max-w-lg mt-8 text-lg/5 text-white sm:text-xl/6"
