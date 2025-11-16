@@ -24,8 +24,6 @@ const backgroundFade = {
 
 // ---------- Firebase storage paths ----------
 const videoPath = [
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-01-chapina-1.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-02-sal-1.mp4",
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-03-sal-3.mp4",
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-04-caac-3.mp4",
   "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-05-pasarela-3.mp4",
@@ -91,7 +89,6 @@ const Hero = () => {
 
   return (
     <section id="hero" className="relative w-full h-screen overflow-hidden">
-
       {/* Poster (solo para fondo inicial) */}
       <motion.img
         src={poster}
