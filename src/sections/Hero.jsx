@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react"; // Ya no necesitas useEffect ni useRef
 import { easeOut, motion } from "framer-motion";
-import { getFileUrl } from "../firebase/getData";
+import MuxPlayer from "@mux/mux-player-react";
 
-// ---------- Animations ----------
+// ---------- Animations (Sin cambios) ----------
 const containerVariants = {
   visible: {
     transition: { delay: 0.5, staggerChildren: 0.15 },
@@ -14,144 +14,63 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: easeOut } },
 };
 
-const backgroundFade = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { duration: 1, ease: "easeOut", delay: 0.1 },
-  },
-};
+// ... (backgroundFade puede quedarse si usas el poster)
 
-// ---------- Firebase storage paths ----------
-const videoPathDesktop = [
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-03-sal-3.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-04-caac-3.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-05-pasarela-3.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-06-alcazar-1.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-07-americano-1.1.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-full/vid-08-juderia-1.mp4",
+// ---------- Mux Playback IDs ----------
+// Esta es ahora nuestra única fuente de vídeos
+const playbackIds = [
+  "J58CW00LnOeT9DUHD9yhyxGLQsh7GvQVcN81w3R00tpVA",
+  "NU6CVFq6nY9eFSwMrIonWeJ01eaSTKv1IRq7rOpxirB8",
+  "I1SS400ERStPDN2LGsChYTjR00C0201emtcOyIOkk5vgBOw",
+  "0100FvP4KQydmiuZ00sHbWjjI3TXdI01kGAICcuVXEx17yo",
+  "02H011EPPlfdwHGDOsiitSsi3IrngGbK7ihcz3scczXyk",
+  "ffvpYgwHebQAk2kFiVGcBYAaavSa6I2MrUjbwD3E5Qg",
 ];
 
-const videoPathMobile = [
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-03-sal-3.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-04-caac-3.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-05-pasarela-3.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-06-alcazar-1.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-07-americano-1.1.mp4",
-  "gs://galician-man-in-seville.firebasestorage.app/video-hero-small/vid-08-juderia-1.mp4",
-];
-
-// -------- Utility: fetch signed URLs --------
-const fetchVideoUrls = async (paths) => {
-  const promises = paths.map((p) => getFileUrl(p).catch(() => null));
-  const results = await Promise.all(promises);
-  return results.filter(Boolean);
-};
+// Ya no necesitamos 'videoPathDesktop', 'videoPathMobile' ni 'fetchVideoUrls'
 
 // ---------------------------------------------------
-//                     COMPONENT
+//                     COMPONENT
 // ---------------------------------------------------
 const Hero = () => {
-  const [videoUrls, setVideoUrls] = useState(null);
+  // Solo necesitamos un estado: el índice del vídeo actual
   const [current, setCurrent] = useState(0);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
-  const mainVideoRef = useRef(null);
-  const preloadRef = useRef(null);
-
-  const poster = "/videos/vid-dummy.jpg";
-
-  // Detect mobile once on mount
-  useEffect(() => {
-    const mq = window.matchMedia("(max-width: 768px)");
-    setIsMobile(mq.matches);
-
-    const handler = (e) => setIsMobile(e.matches);
-    mq.addEventListener("change", handler);
-
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
-  // Load URLs depending on device type
-  useEffect(() => {
-    let ok = true;
-
-    const load = async () => {
-      const chosenPaths = isMobile ? videoPathMobile : videoPathDesktop;
-      const urls = await fetchVideoUrls(chosenPaths);
-
-      if (ok) setVideoUrls(urls.length ? urls : null);
-    };
-
-    load();
-    return () => (ok = false);
-  }, [isMobile]);
-
-  // Whenever current changes, reload the visible video
-  useEffect(() => {
-    if (!mainVideoRef.current || !videoUrls) return;
-
-    setVideoLoaded(false);
-    mainVideoRef.current.load();
-    mainVideoRef.current.play().catch(() => {});
-  }, [current, videoUrls]);
-
-  // Preload the next video silently offscreen
-  useEffect(() => {
-    if (!videoUrls || videoUrls.length < 2 || !preloadRef.current) return;
-
-    const nextIndex = (current + 1) % videoUrls.length;
-    preloadRef.current.src = videoUrls[nextIndex];
-    preloadRef.current.load();
-  }, [current, videoUrls]);
-
-  // When a video ends, switch instantly to the preloaded one
-  const handleEnded = () => {
-    if (!videoUrls || videoUrls.length < 2) return;
-    setCurrent((prev) => (prev + 1) % videoUrls.length);
+  // Esta función se llamará cuando un vídeo termine
+  const handleVideoEnded = () => {
+    // Avanza al siguiente vídeo, volviendo al principio si es el último
+    setCurrent((prevIndex) => (prevIndex + 1) % playbackIds.length);
   };
 
   return (
     <section id="hero" className="relative w-full h-screen overflow-hidden">
-      {/* Poster (solo fondo inicial) */}
-      <motion.img
-        src={poster}
-        alt=""
-        className="absolute inset-0 w-full h-full object-cover brightness-65"
-        variants={backgroundFade}
-        initial="hidden"
-        animate="visible"
-      />
+      {/* Poster (Puedes descomentarlo si quieres un fundido inicial) */}
+      {/* ... */}
 
-      {/* MAIN VIDEO */}
-      {videoUrls && (
-        <video
-          ref={mainVideoRef}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${
-            videoLoaded ? "opacity-100" : "opacity-0"
-          }`}
-          poster={poster}
+      {/* Contenedor perfecto para fullscreen */}
+      <div className="absolute inset-0 w-full h-full">
+        <MuxPlayer
+          // 1. Asigna el playbackId actual usando el estado 'current'
+          playbackId={playbackIds[current]}
+          streamType="on-demand"
           autoPlay
           muted
           playsInline
-          onLoadedData={() => setVideoLoaded(true)}
-          onEnded={handleEnded}
-          loop={videoUrls.length === 1}
-        >
-          <source src={videoUrls[current]} type="video/mp4" />
-        </video>
-      )}
+          controls={false}
+          // 2. ¡IMPORTANTE! 'loop' debe estar quitado
+          // loop={false} // (ya está quitado, perfecto)
 
-      {/* PRELOAD VIDEO (hidden) */}
-      <video
-        ref={preloadRef}
-        style={{ display: "none" }}
-        preload="auto"
-        muted
-      />
+          // 3. Cuando el vídeo termine, llama a nuestra función
+          onEnded={handleVideoEnded}
+          // 4. Tus estilos para 'cover' son correctos
+          className="w-full h-full brightness-90"
+          style={{
+            "--media-object-fit": "cover",
+          }}
+        />
+      </div>
 
-      {/* TEXT CONTENT */}
+      {/* TEXT CONTENT (Sin cambios) */}
       <motion.div
         variants={containerVariants}
         initial="hidden"
