@@ -164,7 +164,7 @@ export default function About() {
         >
           <img
             alt="Foto en el CAAC, Sevilla"
-            src="images/about-bike.jpg"
+            src="images/about-bike-3.jpg"
             // object-cover asegura que se recorte y cubra el área h-80
             className="w-full h-full object-cover shadow-xl ring-1 ring-gray-400/10"
           />
