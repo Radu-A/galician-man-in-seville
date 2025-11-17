@@ -8,40 +8,14 @@ import LinkedInIcon from "../assets/icons/icon-linkedin-invert.png";
 import LogoMd from "../assets/logo/logo-light-md.png";
 
 export default function Footer() {
-  const [personalIcon, setPersonalIcon] = useState(
-    "/icons/icon-personal-invert.png"
-  );
-  const [githubIcon, setGithubIcon] = useState("/icons/icon-github-invert.png");
-  const [linkedinlIcon, setLinkedinIcon] = useState(
-    "/icons/icon-linkedin-invert.png"
-  );
-
-  const enterPersonalIcon = () => {
-    setPersonalIcon("/icons/icon-personal-original.png");
-  };
-  const leavePersonalIcon = () => {
-    setPersonalIcon("/icons/icon-personal-invert.png");
-  };
-  const enterGithubIcon = () => {
-    setGithubIcon("/icons/icon-github-original.png");
-  };
-  const leaveGithubIcon = () => {
-    setGithubIcon("/icons/icon-github-invert.png");
-  };
-  const enterLinkedinIcon = () => {
-    setLinkedinIcon("/icons/icon-linkedin-original.png");
-  };
-  const leaveLinkedinIcon = () => {
-    setLinkedinIcon("/icons/icon-linkedin-invert.png");
-  };
-
+  const [personalIcon, setPersonalIcon] = useState[WebIcon]
   return (
-    <footer className="bg-neutral-700 text-neutral-200">
+    <footer className="bg-neutral-700 text-white">
       <div className="mx-auto p-4 sm:px-6 lg:px-8">
         {/* Contenedor Principal: Logo, Navegación y Iconos */}
         <div className="flex items-center justify-between gap-8">
           {/* LOGO */}
-          <div className="h-8 w-auto cursor-pointer hover:rotate-180 transition duration-150 ease-in-out">
+          <div className="h-8 w-auto">
             <img
               className="w-full h-full object-contain"
               src={LogoMd}
@@ -101,13 +75,7 @@ export default function Footer() {
                 className="text-gray-700 transition hover:text-blue-600"
               >
                 <span className="sr-only">CV Web</span>
-                <img
-                  className="size-6"
-                  src={personalIcon}
-                  alt="CV Web Icon"
-                  onMouseEnter={enterPersonalIcon}
-                  onMouseLeave={leavePersonalIcon}
-                />
+                <img className="size-6" src={WebIcon} alt="CV Web Icon" />
               </a>
             </li>
             <li>
@@ -118,13 +86,7 @@ export default function Footer() {
                 className="text-gray-700 transition hover:text-blue-600"
               >
                 <span className="sr-only">GitHub</span>
-                <img
-                  className="size-6"
-                  src={githubIcon}
-                  alt="GitHub Icon"
-                  onMouseEnter={enterGithubIcon}
-                  onMouseLeave={leaveGithubIcon}
-                />
+                <img className="size-6" src={GitHubIcon} alt="GitHub Icon" />
               </a>
             </li>
             <li>
@@ -137,10 +99,8 @@ export default function Footer() {
                 <span className="sr-only">LinkedIn</span>
                 <img
                   className="h-6"
-                  src={linkedinlIcon}
+                  src={LinkedInIcon}
                   alt="LinkedIn Icon"
-                  onMouseEnter={enterLinkedinIcon}
-                  onMouseLeave={leaveLinkedinIcon}
                 />
               </a>
             </li>
@@ -148,9 +108,9 @@ export default function Footer() {
         </div>
 
         {/* COPYRIGHT Y LEGAL */}
-        <div className="mt-3 border-t border-gray-400 pt-3 text-neutral-300">
+        <div className="mt-3 border-t border-gray-400 pt-3">
           <div className="text-sm/4 md:flex md:justify-between">
-            <p className=" text-center md:text-left">
+            <p className="text-gray-500 text-center md:text-left">
               &copy; 2025 | Un Gallego por Sevilla | Todos los derechos
               reservados.
             </p>
@@ -159,7 +119,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/terms"
-                  className=" transition hover:opacity-75"
+                  className="text-gray-500 transition hover:opacity-75"
                 >
                   Términos y Condiciones
                 </a>
@@ -167,7 +127,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/privacy"
-                  className=" transition hover:opacity-75"
+                  className="text-gray-500 transition hover:opacity-75"
                 >
                   Política de Privacidad
                 </a>
@@ -175,7 +135,7 @@ export default function Footer() {
               <li>
                 <a
                   href="/cookies"
-                  className=" transition hover:opacity-75"
+                  className="text-gray-500 transition hover:opacity-75"
                 >
                   Cookies
                 </a>

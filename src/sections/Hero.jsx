@@ -59,7 +59,7 @@ const Hero = () => {
           controls={false}
           // loop={false}
           onEnded={handleVideoEnded}
-          className="w-full h-full brightness-90"
+          className="w-full h-full brightness-95"
           style={{
             "--media-object-fit": "cover",
           }}
