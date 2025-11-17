@@ -57,12 +57,8 @@ const Hero = () => {
           muted
           playsInline
           controls={false}
-          // 2. ¡IMPORTANTE! 'loop' debe estar quitado
-          // loop={false} // (ya está quitado, perfecto)
-
-          // 3. Cuando el vídeo termine, llama a nuestra función
+          // loop={false}
           onEnded={handleVideoEnded}
-          // 4. Tus estilos para 'cover' son correctos
           className="w-full h-full brightness-90"
           style={{
             "--media-object-fit": "cover",
