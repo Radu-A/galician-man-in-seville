@@ -157,12 +157,14 @@ export default function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.25 }}
-          className="w-full max-w-[450px] h-full mx-auto"
+          // CLASES MODIFICADAS: h-80 para móvil, y lg:w-full, lg:h-full para escritorio
+          className="w-full h-[675px] mx-auto lg:w-full lg:h-full"
         >
           <img
             alt="Foto en el CAAC, Sevilla"
-            src="images/about-caac.jpeg"
-            className="w-full h-full object-cover shadow-xl ring-1 ring-gray-400/10 dark:ring-white/10"
+            src="images/about-bike.jpg"
+            // object-cover asegura que se recorte y cubra el área h-80
+            className="w-full h-full object-cover shadow-xl ring-1 ring-gray-400/10"
           />
         </motion.div>
       </div>
