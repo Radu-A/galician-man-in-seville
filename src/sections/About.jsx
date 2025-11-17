@@ -61,7 +61,7 @@ export default function About() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="grid gap-4 sm:grid-cols-[250px_1fr]"
+            className="grid gap-4 sm:grid-cols-[250px_1fr] lg:grid-cols-1 xl:grid-cols-[250px_1fr]"
           >
             <motion.h3
               variants={itemVariants}
@@ -69,23 +69,28 @@ export default function About() {
             >
               ¿QUIÉN SOY?
             </motion.h3>
-            <motion.p
+            <motion.div
               variants={itemVariants}
-              className="mt-2 pt-1 text-lg/5.5 tracking-tight font-light text-neutral-500 sm:col-start-2 sm:mt-0 sm:pt-0"
+              className="mt-2 pt-1 text-lg/5.5 tracking-tight font-light text-neutral-500 
+              sm:col-start-2 sm:mt-0 sm:pt-0 
+              lg:col-start-1 lg:mt-2 lg:pt-1 
+              xl:col-start-2 xl:mt-0 xl:pt-0"
             >
-              Mi nombre es Víctor y soy de A Coruña. Estoy descubriendo el sur
-              de España y disfrutando de su contraste con el entorno y la
-              cultura de Galicia. Después de varios meses viviendo en Cádiz, me
-              he venido a Sevilla para continuar mi formación como
-              desarrollador.
-            </motion.p>
+              <p>
+                Mi nombre es Víctor y soy de A Coruña. Estoy descubriendo el sur
+                de España y disfrutando de su contraste con el entorno y la
+                cultura de Galicia. Después de varios meses viviendo en Cádiz,
+                me he venido a Sevilla para continuar mi formación como
+                desarrollador.
+              </p>
+            </motion.div>
           </motion.article>
           <motion.article
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="grid gap-x-4 sm:grid-cols-[250px_1fr]"
+            className="grid gap-x-4 sm:grid-cols-[250px_1fr] lg:grid-cols-1 xl:grid-cols-[250px_1fr]"
           >
             <motion.h3
               variants={itemVariants}
@@ -93,31 +98,33 @@ export default function About() {
             >
               ¿POR QUÉ DESARROLLO WEB?
             </motion.h3>
-            <motion.p
+            <motion.div
               variants={itemVariants}
-              className="mt-2 pt-1 text-lg/5.5 tracking-tight font-light text-neutral-500 sm:col-start-2 sm:mt-0 sm:pt-0"
+              className="mt-2 pt-1 text-lg/5.5 tracking-tight font-light text-neutral-500 
+              sm:col-start-2 sm:mt-0 sm:pt-0 
+              lg:col-start-1 lg:mt-2 lg:pt-1 
+              xl:col-start-2 xl:mt-0 xl:pt-0"
             >
-              Como todos, me acerqué a la programación por la gran oferta
-              laboral del sector y la posibilidad de mejorar profesionalmente.
-              Pero al adentrarme, descubrí la conexión entre la programación, el
-              diseño estético y la experiencia del usuario, un componente casi
-              artístico.
-            </motion.p>
-            <motion.p
-              variants={itemVariants}
-              className="mt-2 pt-1 text-lg/5.5 tracking-tight font-light text-neutral-500 sm:col-start-2 " 
-            >
-              También disfruto construyendo fragmentos de código y viendo como
-              se unen entre sí para formar un sistema: una máquina viva que
-              funciona gracias a cada pieza.
-            </motion.p>
+              <p>
+                Como todos, me acerqué a la programación por la gran oferta
+                laboral del sector y la posibilidad de mejorar profesionalmente.
+                Pero al adentrarme, descubrí la conexión entre la programación,
+                el diseño estético y la experiencia del usuario, un componente
+                casi artístico.
+              </p>
+              <p className="mt-2 pt-1">
+                También disfruto construyendo fragmentos de código y viendo como
+                se unen entre sí para formar un sistema: una máquina viva que
+                funciona gracias a cada pieza.
+              </p>
+            </motion.div>
           </motion.article>
           <motion.article
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="grid gap-4 sm:grid-cols-[250px_1fr]"
+            className="grid gap-4 sm:grid-cols-[250px_1fr] lg:grid-cols-1 xl:grid-cols-[250px_1fr]"
           >
             <motion.h3
               variants={itemVariants}
@@ -125,22 +132,24 @@ export default function About() {
             >
               ¿POR QUÉ ESTE PROYECTO?
             </motion.h3>
-            <motion.p
+            <motion.div
               variants={itemVariants}
-              className="mt-2 pt-1 text-lg/5.5 tracking-tight font-light text-neutral-500 sm:col-start-2 sm:mt-0 sm:pt-0"
+              className="mt-2 pt-1 text-lg/5.5 tracking-tight font-light text-neutral-500 
+              sm:col-start-2 sm:mt-0 sm:pt-0 
+              lg:col-start-1 lg:mt-2 lg:pt-1 
+              xl:col-start-2 xl:mt-0 xl:pt-0"
             >
-              Me encanta explorar y guardar recuerdos de lo que encuentro,
-              muchas veces en forma de fotografías que, con mayor o menor
-              acierto, reflejan mi forma de ver el mundo.
-            </motion.p>
-            <motion.p
-              variants={itemVariants}
-              className="mt-2 pt-1 text-lg/5.5 tracking-tight font-light text-neutral-500 sm:col-start-2"
-            >
-              Este proyecto une mis dos mundos: lo que estudio y lo que vivo. No
-              es solo una práctica de desarrollo, es, en cierto modo, un diario
-              visual de esta etapa de mi vida.
-            </motion.p>
+              <p>
+                Me encanta explorar y guardar recuerdos de lo que encuentro,
+                muchas veces en forma de fotografías que, con mayor o menor
+                acierto, reflejan mi forma de ver el mundo.
+              </p>
+              <p className="mt-2 pt-1">
+                Este proyecto une mis dos mundos: lo que estudio y lo que vivo.
+                No es solo una práctica de desarrollo, es, en cierto modo, un
+                diario visual de esta etapa de mi vida.
+              </p>
+            </motion.div>
           </motion.article>
         </div>
 
