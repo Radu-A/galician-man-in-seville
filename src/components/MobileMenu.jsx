@@ -1,55 +1,71 @@
-import { Link } from "react-router-dom"; // Enrutamiento
+import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { Fragment } from "react"; // Hook para TransitionChild
-import {
-  Dialog,
-  DialogPanel,
-  Disclosure,
-  TransitionChild,
-} from "@headlessui/react"; // Componentes Headless UI
-import { XMarkIcon } from "@heroicons/react/24/outline"; // Icono de cerrar
+import { Dialog, DialogPanel, TransitionChild } from "@headlessui/react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
-import LogoDarkMd from "../assets/logo/logo-dark-md.png"; // Recurso Local
+import LogoDarkMd from "../assets/logo/logo-dark-md.png";
+
+// Extracted constant: Navigation links data
+const NAVIGATION_LINKS = [
+  { name: "INICIO", href: "/#hero" },
+  { name: "TABLERO", href: "/#dashboard" },
+  { name: "SOBRE MÍ", href: "/#about" },
+];
 
 export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
+  /**
+   * Helper component for the animated menu items (Home, Dashboard, About).
+   * Uses standard Link component instead of HashLink to resolve dependency issue.
+   */
+  const AnimatedMenuItem = ({ to, name }) => (
+    <HashLink
+      to={to}
+      onClick={() => setMobileMenuOpen(false)}
+      className="group relative h-[18px] overflow-hidden p-2"
+    >
+      {/* Upper Span (Default State) */}
+      <span className="absolute left-0 top-0 leading-4 duration-300 group-hover:-translate-y-5">
+        {name}
+      </span>
+      {/* Lower Span (Hover State) */}
+      <span className="absolute left-0 top-[18px] leading-4 text-neutral-400 duration-300 group-hover:top-0">
+        {name}
+      </span>
+    </HashLink>
+  );
   return (
     <Dialog
       open={mobileMenuOpen}
       onClose={setMobileMenuOpen}
-      className="lg:hidden relative z-[1001]"
+      className="relative z-[1001] lg:hidden"
     >
-      {/*
-          TRANSICIÓN PARA EL FONDO OSCURO (Overlay/Backdrop)
-          Se utiliza un TransitionChild para el fondo.
-        */}
+      {/* OVERLAY TRANSITION */}
       <TransitionChild
         as={Fragment}
-        enter="ease-in-out duration-500" // Al entrar: transición de 500ms
-        enterFrom="opacity-0" // Estado inicial al entrar: opaco 0%
-        enterTo="opacity-100" // Estado final al entrar: opaco 100%
-        leave="ease-in-out duration-500" // Al salir: transición de 500ms
-        leaveFrom="opacity-100" // Estado inicial al salir: opaco 100%
-        leaveTo="opacity-0" // Estado final al salir: opaco 0%
+        enter="ease-in-out duration-500"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="ease-in-out duration-500"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
       >
-        {/* El div que actúa como fondo oscuro (overlay) */}
+        {/* Dark overlay backdrop */}
         <div className="fixed inset-0 bg-gray-900/10" aria-hidden="true" />
       </TransitionChild>
-      {/*
-          TRANSICIÓN PARA EL PANEL LATERAL DEL MENÚ (DialogPanel)
-          Se envuelve el DialogPanel en otro TransitionChild.
-        */}
+      {/* PANEL TRANSITION */}
       <TransitionChild
         as={Fragment}
-        enter="transition ease-in-out duration-500 sm:duration-700" // Al entrar: 500ms-700ms
-        enterFrom="translate-x-full" // Entra desde la derecha (fuera de la vista)
-        enterTo="translate-x-0" // Termina en su posición normal (x=0)
-        leave="transition ease-in-out duration-500 sm:duration-700" // Al salir: 500ms-700ms
-        leaveFrom="translate-x-0" // Sale desde la posición normal (x=0)
-        leaveTo="translate-x-full" // Termina moviéndose hacia la derecha (fuera de la vista)
+        enter="transition ease-in-out duration-500 sm:duration-700"
+        enterFrom="translate-x-full"
+        enterTo="translate-x-0"
+        leave="transition ease-in-out duration-500 sm:duration-700"
+        leaveFrom="translate-x-0"
+        leaveTo="translate-x-full"
       >
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            {/* Logo, también le agregamos la función para cerrar */}
+            {/* Logo and Home Link */}
             <Link
               to="/"
               className="-m-1.5 p-1.5"
@@ -59,79 +75,42 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
               <img
                 alt="logo"
                 src={LogoDarkMd}
-                className="h-11 w-auto hover:rotate-180 transition duration-150 ease-in-out"
+                className="h-11 w-auto transition duration-150 ease-in-out hover:rotate-180"
               />
             </Link>
-            {/* Botón de cerrar */}
+            {/* Close Button */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-gray-700 cursor-pointer"
+              className="-m-2.5 cursor-pointer rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
             </button>
           </div>
-          <div className="mt-6 flow-root">
+          <div className="flow-root mt-6">
             <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="flex flex-col gap-7 py-6">
-                <Disclosure as="div" className="-mx-3"></Disclosure>
-
-                {/* ENLACE MODIFICADO: Inicio */}
-                <HashLink
-                  to="/#hero"
-                  onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="relative h-4.5 overflow-hidden p-2 group"
-                >
-                  <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
-                    INICIO
-                  </span>
-                  <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
-                    INICIO
-                  </span>
-                </HashLink>
-
-                {/* ENLACE MODIFICADO: Tablero */}
-                <HashLink
-                  to="/#dashboard"
-                  onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="relative h-4.5 overflow-hidden p-2 group"
-                >
-                  <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
-                    TABLERO
-                  </span>
-                  <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
-                    TABLERO
-                  </span>
-                </HashLink>
-
-                {/* ENLACE MODIFICADO: Sobre Mí */}
-                <HashLink
-                  to="/#about"
-                  onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="relative h-4.5 overflow-hidden p-2 group"
-                >
-                  <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
-                    SOBRE MÍ
-                  </span>
-                  <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
-                    SOBRE MÍ
-                  </span>
-                </HashLink>
+              {/* Main Navigation Links */}
+              <div className="flex flex-col gap-y-9 pt-12 pb-9">
+                {NAVIGATION_LINKS.map((item) => (
+                  <AnimatedMenuItem
+                    key={item.name}
+                    to={item.href}
+                    name={item.name}
+                  />
+                ))}
               </div>
               <div className="py-6">
-                {/* ENLACE MODIFICADO: Contacto */}
+                {/* Contact Link */}
                 <HashLink
                   to="/#contact"
-                  onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 hover:bg-gray-50"
                 >
                   <span
-                    className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
-                    hover:text-neutral-900 
-                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[1px] after:w-0
-                    after:bg-neutral-900 after:transition-all after:duration-300
-                    hover:after:w-full"
+                    className="relative transition-all duration-300 hover:text-neutral-900 
+                      after:absolute after:-bottom-1 after:left-0 after:h-[1px] after:w-0 after:bg-neutral-900 
+                      after:transition-all after:duration-300 hover:after:w-full"
                   >
                     CONTACTO &rarr;
                   </span>

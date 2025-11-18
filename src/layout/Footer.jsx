@@ -1,171 +1,133 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HashLink } from "react-router-hash-link";
+import { HashLink } from "react-router-hash-link"; // Restored HashLink for your project
 
-// Importaciones de recursos
+// Asset Import (Restored your local import)
 import LogoMd from "../assets/logo/logo-light-md.png";
 
+// Configuration for Social Icons (Restored your local paths)
+const SOCIAL_LINKS = [
+  {
+    name: "CV Web",
+    href: "https://victor-outeiro.vercel.app/",
+    icons: {
+      default: "/icons/icon-personal-invert.png",
+      hover: "/icons/icon-personal-original.png",
+    },
+  },
+  {
+    name: "GitHub",
+    href: "https://github.com/Radu-A",
+    icons: {
+      default: "/icons/icon-github-invert.png",
+      hover: "/icons/icon-github-original.png",
+    },
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/victor-outeiro/",
+    icons: {
+      default: "/icons/icon-linkedin-invert.png",
+      hover: "/icons/icon-linkedin-original.png",
+    },
+  },
+];
+
+// Navigation Links Configuration
+const NAV_LINKS = [
+  { name: "INICIO", to: "/#hero", width: "w-12" },
+  { name: "TABLERO", to: "/#dashboard", width: "w-16" },
+  { name: "SOBRE MÍ", to: "/#about", width: "w-19" },
+];
+
+// Helper Component: Handles hover logic for social icons
+const SocialIcon = ({ link }) => {
+  const [currentIcon, setCurrentIcon] = useState(link.icons.default);
+
+  return (
+    <li>
+      <a
+        href={link.href}
+        rel="noreferrer"
+        target="_blank"
+        className="text-gray-700 transition hover:text-blue-600"
+      >
+        <span className="sr-only">{link.name}</span>
+        <img
+          className="size-6" // specific Tailwind class for width/height
+          src={currentIcon}
+          alt={`${link.name} Icon`}
+          onMouseEnter={() => setCurrentIcon(link.icons.hover)}
+          onMouseLeave={() => setCurrentIcon(link.icons.default)}
+        />
+      </a>
+    </li>
+  );
+};
+
 export default function Footer() {
-  const [personalIcon, setPersonalIcon] = useState(
-    "/icons/icon-personal-invert.png"
-  );
-  const [githubIcon, setGithubIcon] = useState("/icons/icon-github-invert.png");
-  const [linkedinlIcon, setLinkedinIcon] = useState(
-    "/icons/icon-linkedin-invert.png"
-  );
-
-  const enterPersonalIcon = () => {
-    setPersonalIcon("/icons/icon-personal-original.png");
-  };
-  const leavePersonalIcon = () => {
-    setPersonalIcon("/icons/icon-personal-invert.png");
-  };
-  const enterGithubIcon = () => {
-    setGithubIcon("/icons/icon-github-original.png");
-  };
-  const leaveGithubIcon = () => {
-    setGithubIcon("/icons/icon-github-invert.png");
-  };
-  const enterLinkedinIcon = () => {
-    setLinkedinIcon("/icons/icon-linkedin-original.png");
-  };
-  const leaveLinkedinIcon = () => {
-    setLinkedinIcon("/icons/icon-linkedin-invert.png");
-  };
-
   return (
     <footer className="bg-neutral-700 text-neutral-200">
       <div className="mx-auto p-4 sm:px-6 lg:px-8">
-        {/* Contenedor Principal: Logo, Navegación y Iconos */}
+        {/* Main Container */}
         <div className="flex items-center justify-between gap-8">
           {/* LOGO */}
-          <div className="h-8 w-auto cursor-pointer hover:rotate-180 transition duration-150 ease-in-out">
+          <div className="h-8 w-auto cursor-pointer transition duration-150 ease-in-out hover:rotate-180">
             <img
-              className="w-full h-full object-contain"
+              className="h-full w-full object-contain"
               src={LogoMd}
               alt="logo"
             />
           </div>
 
-          {/* NAVEGACIÓN PRINCIPAL */}
-          <nav className="hidden sm:flex gap-6">
-            {/* INICIO */}
-            <HashLink
-              to="/#hero"
-              className="relative w-12 h-4.5 overflow-hidden text-md p-2 group"
-            >
-              <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
-                INICIO
-              </span>
-              <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
-                INICIO
-              </span>
-            </HashLink>
-
-            {/* TABLERO */}
-            <HashLink
-              to="/#dashboard"
-              className="relative w-16 h-4.5 overflow-hidden text-md p-2 group"
-            >
-              <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
-                TABLERO
-              </span>
-              <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
-                TABLERO
-              </span>
-            </HashLink>
-
-            {/* SOBRE MÍ */}
-            <HashLink
-              to="/#about"
-              className="relative w-19 h-4.5 overflow-hidden text-md p-2 group"
-            >
-              <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
-                SOBRE MÍ
-              </span>
-              <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
-                SOBRE MÍ
-              </span>
-            </HashLink>
+          {/* MAIN NAVIGATION */}
+          <nav className="hidden gap-6 sm:flex">
+            {NAV_LINKS.map((item) => (
+              <HashLink
+                key={item.name}
+                to={item.to}
+                className={`group relative h-4.5 overflow-hidden p-2 text-md ${item.width}`}
+              >
+                {/* Animated text effect */}
+                <span className="absolute left-0 top-0 leading-4 duration-300 group-hover:-translate-y-5">
+                  {item.name}
+                </span>
+                <span className="absolute left-0 top-4.5 leading-4 text-neutral-400 duration-300 group-hover:top-0">
+                  {item.name}
+                </span>
+              </HashLink>
+            ))}
           </nav>
 
-          {/* ICONOS DE REDES SOCIALES */}
+          {/* SOCIAL ICONS */}
           <ul className="flex justify-end gap-6">
-            <li>
-              <a
-                href="https://victor-outeiro.vercel.app/"
-                rel="noreferrer"
-                target="_blank"
-                className="text-gray-700 transition hover:text-blue-600"
-              >
-                <span className="sr-only">CV Web</span>
-                <img
-                  className="size-6"
-                  src={personalIcon}
-                  alt="CV Web Icon"
-                  onMouseEnter={enterPersonalIcon}
-                  onMouseLeave={leavePersonalIcon}
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/Radu-A"
-                rel="noreferrer"
-                target="_blank"
-                className="text-gray-700 transition hover:text-blue-600"
-              >
-                <span className="sr-only">GitHub</span>
-                <img
-                  className="size-6"
-                  src={githubIcon}
-                  alt="GitHub Icon"
-                  onMouseEnter={enterGithubIcon}
-                  onMouseLeave={leaveGithubIcon}
-                />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://www.linkedin.com/in/victor-outeiro/"
-                rel="noreferrer"
-                target="_blank"
-                className="text-gray-700 transition hover:text-blue-600"
-              >
-                <span className="sr-only">LinkedIn</span>
-                <img
-                  className="h-6"
-                  src={linkedinlIcon}
-                  alt="LinkedIn Icon"
-                  onMouseEnter={enterLinkedinIcon}
-                  onMouseLeave={leaveLinkedinIcon}
-                />
-              </a>
-            </li>
+            {SOCIAL_LINKS.map((link) => (
+              <SocialIcon key={link.name} link={link} />
+            ))}
           </ul>
         </div>
 
-        {/* COPYRIGHT Y LEGAL */}
+        {/* COPYRIGHT & LEGAL */}
         <div className="mt-3 border-t border-gray-400 pt-3 text-neutral-300">
           <div className="text-sm/4 md:flex md:justify-between">
-            <p className=" text-center md:text-left">
+            <p className="text-center md:text-left">
               &copy; 2025 | Un Gallego por Sevilla | Todos los derechos
               reservados.
             </p>
 
             <ul className="mt-3 flex flex-wrap justify-center gap-4 md:mt-0 md:justify-end">
               <li>
-                <Link to="/terms" className=" transition hover:opacity-75">
+                <Link to="/terms" className="transition hover:opacity-75">
                   Términos y Condiciones
                 </Link>
               </li>
               <li>
-                <Link to="/privacy" className=" transition hover:opacity-75">
+                <Link to="/privacy" className="transition hover:opacity-75">
                   Política de Privacidad
                 </Link>
               </li>
               <li>
-                <Link to="/cookies" className=" transition hover:opacity-75">
+                <Link to="/cookies" className="transition hover:opacity-75">
                   Cookies
                 </Link>
               </li>

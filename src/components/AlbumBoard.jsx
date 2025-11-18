@@ -1,44 +1,44 @@
 import { useEffect, useState } from "react";
-import { motion, easeOut } from "framer-motion";
-import AlbumCard from "./AlbumCard";
+import { easeOut, motion } from "framer-motion";
+
 import { getAlbums } from "../firebase/getData";
+import AlbumCard from "./AlbumCard";
+
+// Extracted transition logic for cleaner component
+// Calculates a staggered delay based on the card's column index.
+const CARD_TRANSITION = (index) => ({
+  duration: 0.5,
+  ease: easeOut,
+  // 'index % 3' gets the column (0, 1, or 2)
+  delay: (index % 3) * 0.1,
+});
 
 export default function AlbumBoard() {
   const [albumList, setAlbumList] = useState(null);
 
   useEffect(() => {
+    // Fetches albums on component mount
     getAlbums().then((res) => setAlbumList(res));
   }, []);
 
   if (!albumList) {
     return (
-      <p className="text-center text-neutral-500 pt-10">Cargando álbums...</p>
+      // Changed loading text to English
+      <p className="pt-10 text-center text-neutral-500">Loading albums...</p>
     );
   }
 
   return (
-    // 1. El 'div' contenedor ya no necesita 'variants', 'initial', 'whileInView', etc.
-    //    Puede ser un 'div' normal, o un 'motion.div' simple si quieres animarlo
-    //    como un todo (por ejemplo, con las variantes del componente padre),
-    //    pero NO debe usar 'staggerChildren' en este caso.
-    // Para limitar el ancho de la imagen
     <div className="mx-auto grid max-w-2xl gap-x-8 gap-y-16 pt-10 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3">
       {albumList.map((album, index) => (
-        // 2. Toda la lógica de la animación se mueve AQUÍ, al hijo.
         <motion.div
           key={album.id}
-          // 3. Movemos las variantes 'fadeUp' aquí dentro
+          // Variants for fade-up animation
           initial={{ opacity: 0, y: 150 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          // 4. --- ¡LA MAGIA ESTÁ AQUÍ! ---
-          transition={{
-            duration: 0.5,
-            ease: easeOut,
-            // 'index % 3' nos da la columna (0, 1, o 2)
-            // Lo multiplicamos por un pequeño retraso (100ms)
-            delay: (index % 3) * 0.1,
-          }}
+          // Dynamic transition logic
+          transition={CARD_TRANSITION(index)}
         >
           <AlbumCard album={album} />
         </motion.div>
