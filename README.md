@@ -2,7 +2,7 @@
 
 **"Encontrándome gente, cosas que hacer y lugares interesantes, mientras escapo de la pantalla y de las líneas de código."**
 
-Este proyecto es un **diario visual interactivo** que narra mi experiencia viviendo en el sur de España. Más allá de un blog personal, es una demostración técnica de desarrollo Front-End moderno, uniendo diseño estético, animaciones fluidas y rendimiento optimizado.
+Este proyecto es un **diario visual interactivo** que narra mi experiencia desde que vivo por Sevilla. Más allá de un blog personal, es una demostración técnica de desarrollo Front-End moderno, uniendo diseño estético, animaciones fluidas y rendimiento optimizado.
 
 1. [Sobre el Proyecto](#sobre-el-proyecto)
 2. [Stack Tecnológico](#stack-tecnológico)
@@ -11,15 +11,11 @@ Este proyecto es un **diario visual interactivo** que narra mi experiencia vivie
 5. [Agradecimientos](#agradecimientos)
 6. [Autor](#autor)
 
----
-
 # Sobre el Proyecto
 
 **Un Gallego por Sevilla** nace de la necesidad de unir mis dos pasiones actuales: el desarrollo web y la fotografía callejera. La aplicación permite a los usuarios explorar "hallazgos" por la ciudad a través de un tablero interactivo y visualizar álbumes de fotos dinámicos.
 
 El objetivo principal no era solo mostrar contenido, sino crear una **Experiencia de Usuario (UX)** pulida, donde las transiciones, la carga de medios y la adaptabilidad a móviles fueran prioritarias.
-
----
 
 # Stack Tecnológico
 
@@ -35,13 +31,11 @@ El núcleo de la aplicación es React, apoyado por un ecosistema moderno de herr
 
 - Routing: React Router DOM + HashLink para navegación suave.
 
----
-
 # Galería y Demo
 
 - Página web: https://galician-man-in-seville.vercel.app/
 
-## Hero:
+## Hero
 
 ![App Screenshot](./public/screenshots/screen-hero.png)
 
@@ -52,8 +46,6 @@ El núcleo de la aplicación es React, apoyado por un ecosistema moderno de herr
 ## Álbum
 
 ![App Screenshot](./public/screenshots/screen-album.png)
-
----
 
 # Retos y Aprendizajes
 
@@ -91,14 +83,22 @@ Implementación: Uso de AnimatePresence y variantes escalonadas (staggerChildren
 
 Quizás el aprendizaje más valioso fue transformar algo que me gusta (viajar y fotografiar) en un producto digital real. Esto me enseñó a gestionar el alcance del proyecto (MVP), priorizar funcionalidades y pulir los detalles finales que diferencian un ejercicio de clase de una web profesional.
 
----
-
 # Agradecimientos
 
-Este proyecto no habría sido posible sin el apoyo de mis compañeros del Certificado de Profesionalidad en Desarrollo de Aplicaciones con Herramientas Web.
+Este proyecto no habría sido posible sin el apoyo de mis compañeros del **Certificado de Profesionalidad en Desarrollo de Aplicaciones con Herramientas Web**.
 
-Un agradecimiento especial a Pablo Almellones, por sus constantes consejos, revisiones de código y tips para llevar la UI/UX al siguiente nivel.
+Un agradecimiento especial a **Pablo Almellones** por sus constantes consejos para llevar la UI/UX al siguiente nivel.
 
-A Inmaculada Contreras, por su apoyo incondicional y por ayudarme a asentar las bases de mis conocimientos en desarrollo.
+A **Inmaculada Contreras**, por su apoyo incondicional y por ayudarme a asentar las bases de mis conocimientos en desarrollo.
 
-Y a todos los compañeros que testearon la web y me dieron feedback constructivo.
+Y a todos los compañeros que, como **Marta Guisado** y **Juan Manuel Mudarra**, testearon la web y me dieron feedback constructivo.
+
+# Autor
+
+Víctor Outeiro - Desarrollador Web Full-stack
+
+- Portfolio Web: https://victor-outeiro.vercel.app/
+
+- LinkedIn: https://www.linkedin.com/in/victor-outeiro/
+
+- GitHub: https://github.com/Radu-A
