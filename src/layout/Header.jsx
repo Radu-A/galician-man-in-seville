@@ -20,7 +20,11 @@ export default function Header() {
         <div className="flex md:flex-1">
           <HashLink smooth to="/#hero" className="-m-1.5 p-1.5">
             <span className="sr-only">Un Gallego por Sevilla</span>
-            <img alt="logo" src={LogoDarkMd} className="h-11 w-auto hover:rotate-180 transition duration-150 ease-in-out" />
+            <img
+              alt="logo"
+              src={LogoDarkMd}
+              className="h-11 w-auto hover:rotate-180 transition duration-150 ease-in-out"
+            />
           </HashLink>
         </div>
 

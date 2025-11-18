@@ -56,7 +56,11 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className="sr-only">Un Gallego por Sevilla</span>
-              <img alt="logo" src={LogoDarkMd} className="h-11 w-auto" />
+              <img
+                alt="logo"
+                src={LogoDarkMd}
+                className="h-11 w-auto hover:rotate-180 transition duration-150 ease-in-out"
+              />
             </Link>
             {/* Botón de cerrar */}
             <button
@@ -77,7 +81,7 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <HashLink
                   to="/#hero"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="relative w-12 h-5 overflow-hidden p-2 group"
+                  className="relative h-4.5 overflow-hidden p-2 group"
                 >
                   <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                     INICIO
@@ -91,7 +95,7 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <HashLink
                   to="/#dashboard"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="relative w-15 h-5 overflow-hidden p-2 group"
+                  className="relative h-4.5 overflow-hidden p-2 group"
                 >
                   <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                     TABLERO
@@ -105,7 +109,7 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                 <HashLink
                   to="/#about"
                   onClick={() => setMobileMenuOpen(false)} // ⬅️ AÑADIDO: Cierra el modal
-                  className="relative w-18 h-5 overflow-hidden p-2 group"
+                  className="relative h-4.5 overflow-hidden p-2 group"
                 >
                   <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
                     SOBRE MÍ
@@ -125,7 +129,7 @@ export default function MobileMenu({ mobileMenuOpen, setMobileMenuOpen }) {
                   <span
                     className="relative // Efecto hover: color de texto destacado, ligero subrayado animado
                     hover:text-neutral-900 
-                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[2px] after:w-0
+                    after:content-[''] after:absolute after:-bottom-1 after:left-0 after:h-[1px] after:w-0
                     after:bg-neutral-900 after:transition-all after:duration-300
                     hover:after:w-full"
                   >

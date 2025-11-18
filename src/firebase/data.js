@@ -217,7 +217,7 @@ const photos2 = [
   },
   {
     datetime: INVENTED_DATE_3,
-    comment: "Fuente esondida.",
+    comment: "Fuente escondida.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_130342.jpg",
     thumbnail:
@@ -233,7 +233,7 @@ const photos2 = [
   },
   {
     datetime: INVENTED_DATE_3,
-    comment: "Patio de naranjos.",
+    comment: "Plaza con naranjos.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250203_133529.jpg",
     thumbnail:
@@ -265,7 +265,7 @@ const photos2 = [
   },
   {
     datetime: INVENTED_DATE_3,
-    comment: "Juego de pintura sobre pibote.",
+    comment: "Juego de pintura sobre pivote.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_104215.jpg",
     thumbnail:
@@ -281,7 +281,7 @@ const photos2 = [
   },
   {
     datetime: INVENTED_DATE_3,
-    comment: "Ya tu sabes.",
+    comment: "Ya tú sabes.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20250204_111435.jpg",
     thumbnail:

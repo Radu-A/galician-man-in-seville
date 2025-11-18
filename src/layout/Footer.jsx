@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 // Importaciones de recursos
-import WebIcon from "../assets/icons/icon-personal-invert.png";
-import GitHubIcon from "../assets/icons/icon-github-invert.png";
-import LinkedInIcon from "../assets/icons/icon-linkedin-invert.png";
 import LogoMd from "../assets/logo/logo-light-md.png";
 
 export default function Footer() {
@@ -52,8 +50,8 @@ export default function Footer() {
           {/* NAVEGACIÓN PRINCIPAL */}
           <nav className="hidden sm:flex gap-6">
             {/* INICIO */}
-            <Link
-              to="/"
+            <HashLink
+              to="/#hero"
               className="relative w-12 h-4.5 overflow-hidden text-md p-2 group"
             >
               <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
@@ -62,11 +60,11 @@ export default function Footer() {
               <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 INICIO
               </span>
-            </Link>
+            </HashLink>
 
             {/* TABLERO */}
-            <Link
-              to="/dashboard"
+            <HashLink
+              to="/#dashboard"
               className="relative w-16 h-4.5 overflow-hidden text-md p-2 group"
             >
               <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
@@ -75,11 +73,11 @@ export default function Footer() {
               <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 TABLERO
               </span>
-            </Link>
+            </HashLink>
 
             {/* SOBRE MÍ */}
-            <Link
-              to="/about"
+            <HashLink
+              to="/#about"
               className="relative w-19 h-4.5 overflow-hidden text-md p-2 group"
             >
               <span className="absolute top-0 left-0 leading-4 duration-300 group-hover:-translate-y-5">
@@ -88,7 +86,7 @@ export default function Footer() {
               <span className="absolute top-4.5 left-0 leading-4 text-neutral-400 duration-300 group-hover:top-0">
                 SOBRE MÍ
               </span>
-            </Link>
+            </HashLink>
           </nav>
 
           {/* ICONOS DE REDES SOCIALES */}
@@ -157,28 +155,19 @@ export default function Footer() {
 
             <ul className="mt-3 flex flex-wrap justify-center gap-4 md:mt-0 md:justify-end">
               <li>
-                <a
-                  href="/terms"
-                  className=" transition hover:opacity-75"
-                >
+                <Link to="/terms" className=" transition hover:opacity-75">
                   Términos y Condiciones
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/privacy"
-                  className=" transition hover:opacity-75"
-                >
+                <Link to="/privacy" className=" transition hover:opacity-75">
                   Política de Privacidad
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="/cookies"
-                  className=" transition hover:opacity-75"
-                >
+                <Link to="/cookies" className=" transition hover:opacity-75">
                   Cookies
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
