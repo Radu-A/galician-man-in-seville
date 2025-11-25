@@ -17,11 +17,14 @@ export default function PhotoCard({ photo }) {
     // Fetch the URL when the photo object changes
     if (photo?.thumbnail) {
       fetchUrl();
+    } else if (photo?.cloudinaryPath) {
+      console.log(photo);
+      setPhotoUrl(photo?.cloudinaryPath);
     }
   }, [photo]);
 
   // Guard clause: do not render if the essential path is missing
-  if (!photo?.storagePath) {
+  if (!photo?.storagePath && !photo?.cloudinaryPath) {
     return null;
   }
 

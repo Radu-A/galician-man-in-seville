@@ -23,6 +23,8 @@ export default function AlbumCard({ album }) {
   useEffect(() => {
     if (album?.storagePath) {
       fetchUrl();
+    } else {
+      setPhotoUrl(album?.cloudinaryPath);
     }
   }, [album]); // Dependency array includes 'album' to re-fetch if the prop changes
 

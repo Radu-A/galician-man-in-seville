@@ -6,6 +6,7 @@ const INVENTED_DATE_2 = new Date("2025-11-01T10:00:00Z");
 const INVENTED_DATE_3 = new Date("2025-11-03T10:00:00Z");
 const INVENTED_DATE_4 = new Date("2025-11-04T10:00:00Z");
 const INVENTED_DATE_5 = new Date("2025-11-09T10:00:00Z");
+const INVENTED_DATE_6 = new Date("2025-11-25T10:00:00Z");
 
 const albums = [
   {
@@ -51,6 +52,15 @@ const albums = [
       "Mercado del siglo XVIII, rehabilitado para albergar establecimientos modernos, como cervecerías o espacios gourmet.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_151827.jpg",
+    category: "Museo",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    title: "Allegro Ma Non troppo",
+    description:
+      "Asociación cultural con una sala de conciertos alojada en un antiguo bajo.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082482/IMG_20251116_214203_ylppaw.jpg",
     category: "Museo",
   },
 ];
@@ -358,7 +368,7 @@ const photos3 = [
 
 const photos4 = [
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Puestos separados por una valla.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151249-EDIT.jpg",
@@ -366,7 +376,7 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_151249.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Pasillo con acceso a puestos.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151523-EDIT.jpg",
@@ -374,7 +384,7 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_151523.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Ventana a tienda de artesanía.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_151827.jpg",
@@ -382,7 +392,7 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_151827.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "No fumar.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152236 (1).jpg",
@@ -390,7 +400,7 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_152236.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Plano general de la entrada al mercado.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152605-EDIT.jpg",
@@ -398,7 +408,7 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_152605.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Utensilios de limpieza.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_152639-EDIT.jpg",
@@ -406,7 +416,7 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_152639.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Carteles sobre la puerta de entrada.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_153943-EDIT.jpg",
@@ -414,7 +424,7 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_153943.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Hasta la cocina del Bar Condendê.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_155612-EDIT.jpg",
@@ -422,7 +432,7 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_155612.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Para sentarse un ratito.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_161101.jpg",
@@ -430,12 +440,69 @@ const photos4 = [
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_161101.jpg",
   },
   {
-    datetime: INVENTED_DATE_4,
+    datetime: INVENTED_DATE_5,
     comment: "Parte trasera.",
     storagePath:
       "gs://galician-man-in-seville.firebasestorage.app/IMG_20251109_162440-EDIT.jpg",
     thumbnail:
       "gs://galician-man-in-seville.firebasestorage.app/photos-mercado-thumbnail/IMG_20251109_162440.jpg",
+  },
+];
+
+const photos5 = [
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Desde dentro.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082482/IMG_20251116_214203_ylppaw.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Entrada a la jam.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082481/IMG_20251123_210046_wbnoyv.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Detalle sobre espejo.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082482/IMG_20251123_214207_atytrj.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Dibujando la escena.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082482/IMG_20251116_231559_abwu2a.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Decoración.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082480/IMG_20251123_210449_fbm7og.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Cartel.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082476/IMG_20251123_231459_itznbb.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Lámpara.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082475/IMG_20251123_214103_cshj1e.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Vista de los músicos.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082476/IMG_20251116_214421_lxemcx.jpg",
+  },
+  {
+    datetime: INVENTED_DATE_6,
+    comment: "Envueltos por la música.",
+    cloudinaryPath:
+      "https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082474/IMG_20251123_225400_h2ignw.jpg",
   },
 ];
 
@@ -465,6 +532,11 @@ const albumData = [
     // Quinto álbum
     album: albums[4],
     photos: photos4, // La lista de fotos para "Galería Taberna Ánima"
+  },
+  {
+    // Quinto álbum
+    album: albums[5],
+    photos: photos5, // La lista de fotos para "Galería Taberna Ánima"
   },
 ];
 
