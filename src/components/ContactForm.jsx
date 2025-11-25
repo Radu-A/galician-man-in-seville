@@ -60,7 +60,7 @@ export default function ContactForm({ itemVariants }) {
       className="grid w-full grid-cols-1 gap-4 py-8 lg:grid-cols-2"
     >
       {/* Name Field */}
-      <FormField id="name" label="NAME" errors={formState.errors} />
+      <FormField id="name" label="NOMBRE" errors={formState.errors} />
 
       {/* Email Field */}
       <FormField
@@ -73,7 +73,7 @@ export default function ContactForm({ itemVariants }) {
       {/* Message Field (Textarea) */}
       <FormField
         id="message"
-        label="MESSAGE"
+        label="MENSAJE"
         errors={formState.errors}
         isTextarea={true}
         className="lg:col-span-2"
@@ -84,7 +84,7 @@ export default function ContactForm({ itemVariants }) {
         disabled={formState.submitting}
         className="w-full cursor-pointer bg-neutral-700 px-4 py-3 font-semibold text-white transition-colors duration-300 hover:bg-neutral-800"
       >
-        Send
+        Enviar
       </button>
     </motion.form>
   );

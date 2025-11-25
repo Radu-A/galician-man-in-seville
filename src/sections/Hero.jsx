@@ -26,11 +26,12 @@ const playbackIds = [
   "02H011EPPlfdwHGDOsiitSsi3IrngGbK7ihcz3scczXyk",
   "ffvpYgwHebQAk2kFiVGcBYAaavSa6I2MrUjbwD3E5Qg",
 ];
+const videoUrl = "c02sZo02bvKxtwESI02qauFk8DopJHDK9M3HtiQr9wCW0100";
 
 // Ya no necesitamos 'videoPathDesktop', 'videoPathMobile' ni 'fetchVideoUrls'
 
 // ---------------------------------------------------
-//                     COMPONENT
+//                  COMPONENT
 // ---------------------------------------------------
 const Hero = () => {
   // Solo necesitamos un estado: el índice del vídeo actual
