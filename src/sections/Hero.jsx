@@ -52,13 +52,13 @@ const Hero = () => {
       <div className="absolute inset-0 w-full h-full">
         <MuxPlayer
           // 1. Asigna el playbackId actual usando el estado 'current'
-          playbackId={playbackIds[current]}
+          playbackId={videoUrl}
           streamType="on-demand"
           autoPlay
           muted
           playsInline
           controls={false}
-          // loop={false}
+          loop={true}t
           onEnded={handleVideoEnded}
           className="w-full h-full brightness-95"
           style={{
