@@ -24,7 +24,8 @@ export default function AlbumCard({ album }) {
     if (album?.storagePath) {
       fetchUrl();
     } else {
-      setPhotoUrl(album?.cloudinaryPath);
+      const cloudinaryBaseUrl = album?.id === 'BZSuJBfJzjUmR1FbnDt5' ? 'https://res.cloudinary.com/ds9uwjcs7/image/upload/w_800/v1764082482/' : 'https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082482/'
+      setPhotoUrl(`${cloudinaryBaseUrl}${album?.cloudinaryPath}`);
     }
   }, [album]); // Dependency array includes 'album' to re-fetch if the prop changes
 

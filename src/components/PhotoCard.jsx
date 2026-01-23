@@ -18,8 +18,9 @@ export default function PhotoCard({ photo }) {
     if (photo?.thumbnail) {
       fetchUrl();
     } else if (photo?.cloudinaryPath) {
-      console.log(photo);
       setPhotoUrl(photo?.cloudinaryPath);
+      const cloudinaryBaseUrl = 'https://res.cloudinary.com/ds9uwjcs7/image/upload/w_450/v1764082482/'
+      setPhotoUrl(`${cloudinaryBaseUrl}${photo?.cloudinaryPath}`);
     }
   }, [photo]);
 
